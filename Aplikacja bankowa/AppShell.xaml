@@ -7,7 +7,6 @@
     Title="Aplikacja_bankowa">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

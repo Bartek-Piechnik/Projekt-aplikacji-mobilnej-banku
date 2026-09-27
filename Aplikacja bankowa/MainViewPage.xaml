@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.MainViewPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <AbsoluteLayout Margin="15" HeightRequest="840">
+                    <BoxView
+                        BackgroundColor="#546D87"
+                        CornerRadius="20"
+                        AbsoluteLayout.LayoutBounds="0,0,1,0.28"
+                        AbsoluteLayout.LayoutFlags="All"/>
+                    <Label
+                        Text="Rachunek bieżący"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.05, 0.03, 170, 35"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label
+                        Text="1111"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.1, 0.08, 130, 20"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label
+                        Text="2222"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.3, 0.08, 130, 20"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label
+                        Text="3333"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.5, 0.08, 130, 20"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label
+                        Text="4444"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.7, 0.08, 130, 20"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    
+                    <Label
+                        Text="Dostępne środki"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.05, 0.13, 170, 35"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label
+                        Text="1 000 PLN"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.05, 0.17, 170, 35"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    
+                    <Label
+                        Text="Saldo"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.05, 0.2, 170, 35"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label
+                        Text="1 500 PLN"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutBounds="0.05, 0.24, 170, 35"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                </AbsoluteLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <VerticalStackLayout Grid.Row="1">
+            <Label
+                Text="Ostatnie transakcje"
+                FontAttributes="Bold"
+                FontSize="20"
+                FontFamily="Arial"
+                TextColor="Black"
+                VerticalTextAlignment="Start"
+                HorizontalTextAlignment="Center"></Label>
+            
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="2">
+            <Label
+                Text="Opcje przelewu"
+                FontAttributes="Bold"
+                FontSize="20"
+                FontFamily="Arial"
+                TextColor="Black"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"></Label>
+        </VerticalStackLayout>
+        
+        <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" Spacing="5" Margin="0, 5, 0, 0">
+            <Button
+                Text="BLIK"
+                TextColor="White"
+                FontSize="18"
+                FontFamily="Arial"
+                BackgroundColor="red"
+                HeightRequest="75"
+                WidthRequest="130"></Button>
+            <Button
+                Text="Krajowy"
+                TextColor="White"
+                FontSize="18"
+                FontFamily="Arial"
+                BackgroundColor="red"
+                HeightRequest="75"
+                WidthRequest="130"></Button>
+            <Button
+                Text="Telefon"
+                TextColor="White"
+                FontSize="18"
+                FontFamily="Arial"
+                BackgroundColor="red"
+                HeightRequest="75"
+                WidthRequest="130"></Button>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
