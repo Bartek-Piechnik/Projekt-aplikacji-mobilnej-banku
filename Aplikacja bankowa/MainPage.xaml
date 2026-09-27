@@ -5,39 +5,54 @@
 
     <ScrollView>
         <VerticalStackLayout
-            BackgroundColor="#0B0F14"
+            BackgroundColor="Black"
             Spacing="20"
             Padding="15">
             
-            <Label
-                Text="Zaloguj się"
-                FontAttributes="Bold"
-                FontSize="20"
-                FontFamily="Arial"
-                TextColor="White"
-                BackgroundColor="DarkGray"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center"
-                Padding="15"
-                Margin="0, 0, 0, 70"></Label>
-            <Entry Keyboard="Text" 
-                   Placeholder="Podaj login" 
-                   VerticalTextAlignment="Center" 
-                   HorizontalTextAlignment="Center"
-                   BackgroundColor="Gray"
-                   TextColor="White"
-                   FontAttributes="Bold"
-                   FontFamily="Arial"
-                   FontSize="15"></Entry>
-            <Entry Keyboard="Password" 
-                   Placeholder="Podaj hasło" 
-                   VerticalTextAlignment="Center" 
-                   HorizontalTextAlignment="Center"
-                   BackgroundColor="Gray"
-                   TextColor="White"
-                   FontAttributes="Bold"
-                   FontFamily="Arial"
-                   FontSize="15"></Entry>
+            <Border Background="DarkGray" Margin="0, 50, 0, 75">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"></RoundRectangle>
+                </Border.StrokeShape>
+                <Label
+                    Text="Zaloguj się"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    FontFamily="Arial"
+                    TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Padding="15"></Label>
+            </Border>
+            
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Text" 
+                       Placeholder="Podaj login" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Password" 
+                       Placeholder="Podaj hasło" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            
             <Button
                 Text="Zaloguj"
                 VerticalOptions="Center"
@@ -45,8 +60,9 @@
                 FontAttributes="Bold"
                 FontFamily="Arial"
                 FontSize="25"
-                BackgroundColor="Gray"></Button>
+                BackgroundColor="Gray"
+                CornerRadius="20"
+                Margin="0, 50, 0, 0"></Button>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

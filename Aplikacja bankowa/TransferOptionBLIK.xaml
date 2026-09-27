@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.TransferOptionBLIK">
+
+    <ScrollView>
+        <VerticalStackLayout
+            BackgroundColor="Black"
+            Spacing="20"
+            Padding="15">
+            
+            <Border Background="DarkGray" Margin="0, 50, 0, 75">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"></RoundRectangle>
+                </Border.StrokeShape>
+                <Label
+                    Text="Kod BLIK"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    FontFamily="Arial"
+                    TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    ></Label>
+            </Border>
+            
+            <Button
+                Text="123 456"
+                FontAttributes="Bold"
+                FontSize="20"
+                FontFamily="Arial"
+                TextColor="White"
+                BackgroundColor="DarkGray"
+                Padding="15"
+                CornerRadius="20"></Button>
+            <Button
+                Text="Skopiuj kod"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                FontFamily="Arial"
+                FontSize="25"
+                BackgroundColor="Gray"
+                CornerRadius="20"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
