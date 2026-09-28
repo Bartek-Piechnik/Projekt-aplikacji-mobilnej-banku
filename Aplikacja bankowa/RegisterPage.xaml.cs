@@ -9,6 +9,11 @@
             InitializeComponent();
         }
 
+        private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+        
         // private void OnCounterClicked(object? sender, EventArgs e)
         // {
         //     count++;

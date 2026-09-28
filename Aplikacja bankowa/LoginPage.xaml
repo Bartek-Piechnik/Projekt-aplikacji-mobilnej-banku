@@ -5,11 +5,11 @@
 
     <ScrollView>
         <VerticalStackLayout
-            BackgroundColor="Black"
             Spacing="20"
             Padding="15">
             
-            <Border Background="DarkGray" Margin="0, 50, 0, 75">
+            <Border Background="DarkGray" 
+                    Margin="0, 50, 0, 75">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20"></RoundRectangle>
                 </Border.StrokeShape>
@@ -53,18 +53,6 @@
             </Border>
 
             <Button
-                x:Name="ButtonGoToRegisterPage"
-                Text="Nie masz konta ? Zarejestruj się"
-                FontAttributes="Italic"
-                FontSize="20"
-                FontFamily="Arial"
-                TextColor="White"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Padding="15"></Button>
-                <!--="OnButtonGoToRegisterPageClicked"-->
-
-            <Button
                 Text="Zaloguj"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
@@ -73,7 +61,21 @@
                 FontSize="25"
                 BackgroundColor="Gray"
                 CornerRadius="20"
-                Margin="0, 50, 0, 0"></Button>
+                Margin="0, 50, 0, 50"
+                Clicked="OnButtonGoToMainViewPageClicked"></Button>
+            
+            <Button
+                Text="Nie masz konta ? Zarejestruj się"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontAttributes="Italic"
+                FontFamily="Arial"
+                FontSize="20"
+                TextColor="White"
+                BackgroundColor="Gray"
+                CornerRadius="20"
+                Padding="15"
+                Clicked="OnButtonGoToRegisterPageClicked"></Button>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

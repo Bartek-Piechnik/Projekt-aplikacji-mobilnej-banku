@@ -9,6 +9,16 @@
             InitializeComponent();
         }
 
+        private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+        }
+
+        private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainViewPage());
+        }
+        
         // private void OnCounterClicked(object? sender, EventArgs e)
         // {
         //     count++;

@@ -5,11 +5,11 @@
 
     <ScrollView>
         <VerticalStackLayout
-            BackgroundColor="Black"
             Spacing="20"
             Padding="15">
             
-            <Border Background="DarkGray" Margin="0, 50, 0, 75">
+            <Border Background="DarkGray" 
+                    Margin="0, 50, 0, 75">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20"></RoundRectangle>
                 </Border.StrokeShape>
@@ -23,7 +23,6 @@
                     HorizontalTextAlignment="Center"
                     Padding="15"></Label>
             </Border>
-            
             
             <Border Background="Gray">
                 <Border.StrokeShape>
@@ -39,6 +38,7 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -53,6 +53,33 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
+            
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <VerticalStackLayout>
+                    <Label
+                        Text="Podaj datę urodzenia"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontFamily="Arial"
+                        FontSize="15"></Label>
+                    <DatePicker
+                        Format="dd.MM.yyyy"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontFamily="Arial"
+                        FontSize="15"></DatePicker>
+                </VerticalStackLayout>
+            </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -67,6 +94,7 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -81,20 +109,7 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
-            <Border Background="Gray">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"></RoundRectangle>
-                </Border.StrokeShape>
-                <Entry Keyboard="Date" 
-                       Placeholder="Podaj datę urodzenia" 
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center"
-                       BackgroundColor="Gray"
-                       TextColor="White"
-                       FontAttributes="Bold"
-                       FontFamily="Arial"
-                       FontSize="15"></Entry>
-            </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -109,6 +124,7 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -123,6 +139,7 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -137,6 +154,7 @@
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
+            
             <Border Background="Gray">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -153,7 +171,6 @@
             </Border>
 
             <Button
-                x:Name="ButtonGoToLoginPage"
                 Text="Zarejestruj"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
@@ -162,8 +179,8 @@
                 FontSize="25"
                 BackgroundColor="Gray"
                 CornerRadius="20"
-                Margin="0, 50, 0, 0"></Button>
-                <!--" Clicked="OnButtonGoToLoginPageClicked"-->
+                Margin="0, 50, 0, 0"
+                Clicked="OnButtonGoToLoginPageClicked"></Button>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
