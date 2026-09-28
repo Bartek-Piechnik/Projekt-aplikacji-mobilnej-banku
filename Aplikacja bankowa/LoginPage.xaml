@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.MainPage">
+             x:Class="Aplikacja_bankowa.LoginPage">
 
     <ScrollView>
         <VerticalStackLayout
@@ -46,13 +46,24 @@
                        Placeholder="Podaj hasło" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center"
-                       BackgroundColor="Gray"
                        TextColor="White"
                        FontAttributes="Bold"
                        FontFamily="Arial"
                        FontSize="15"></Entry>
             </Border>
-            
+
+            <Button
+                x:Name="ButtonGoToRegisterPage"
+                Text="Nie masz konta ? Zarejestruj się"
+                FontAttributes="Italic"
+                FontSize="20"
+                FontFamily="Arial"
+                TextColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Padding="15"></Button>
+                <!--="OnButtonGoToRegisterPageClicked"-->
+
             <Button
                 Text="Zaloguj"
                 VerticalOptions="Center"

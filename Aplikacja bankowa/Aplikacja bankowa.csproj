@@ -71,6 +71,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MainViewPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
@@ -83,6 +86,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="RegisterPage.xaml.cs">
+	    <DependentUpon>RegisterPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
 	    <SubType>Code</SubType>

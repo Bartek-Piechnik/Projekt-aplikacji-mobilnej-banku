@@ -11,7 +11,7 @@ namespace Aplikacja_bankowa
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new MainViewPage());
+            return new Window(new LoginPage());
         }
     }
 }

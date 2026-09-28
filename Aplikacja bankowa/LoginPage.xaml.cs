@@ -1,10 +1,10 @@
 ﻿namespace Aplikacja_bankowa
 {
-    public partial class MainPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
         //int count = 0;
 
-        public MainPage()
+        public LoginPage()
         {
             InitializeComponent();
         }

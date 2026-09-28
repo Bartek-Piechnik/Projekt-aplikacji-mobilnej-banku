@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.RegisterPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            BackgroundColor="Black"
+            Spacing="20"
+            Padding="15">
+            
+            <Border Background="DarkGray" Margin="0, 50, 0, 75">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"></RoundRectangle>
+                </Border.StrokeShape>
+                <Label
+                    Text="Zarejestruj się"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    FontFamily="Arial"
+                    TextColor="White"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Padding="15"></Label>
+            </Border>
+            
+            
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Text" 
+                       Placeholder="Podaj imię" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Text" 
+                       Placeholder="Podaj nazwisko" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Email" 
+                       Placeholder="Podaj adres e-mail" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Telephone" 
+                       Placeholder="Podaj numer telefonu" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Date" 
+                       Placeholder="Podaj datę urodzenia" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Numeric" 
+                       Placeholder="Podaj saldo konta" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Text" 
+                       Placeholder="Podaj login" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Password" 
+                       Placeholder="Podaj hasło" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+            <Border Background="Gray">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Entry Keyboard="Password" 
+                       Placeholder="Powtórz hasło" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontFamily="Arial"
+                       FontSize="15"></Entry>
+            </Border>
+
+            <Button
+                x:Name="ButtonGoToLoginPage"
+                Text="Zarejestruj"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                FontFamily="Arial"
+                FontSize="25"
+                BackgroundColor="Gray"
+                CornerRadius="20"
+                Margin="0, 50, 0, 0"></Button>
+                <!--" Clicked="OnButtonGoToLoginPageClicked"-->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
