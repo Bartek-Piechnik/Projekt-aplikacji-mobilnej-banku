@@ -6,76 +6,77 @@
     <ScrollView>
         <VerticalStackLayout
             Spacing="20"
-            Padding="15">
-            
-            <Border Background="DarkGray" 
-                    Margin="0, 50, 0, 75">
+            Padding="15"
+            BackgroundColor="Green">
+
+            <Label Text="Zaloguj się"
+                   FontAttributes="Bold"
+                   FontSize="35"
+                   FontFamily="Arial"
+                   TextColor="White"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   Padding="15" />
+
+            <Border>
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="20"></RoundRectangle>
+                    <RoundRectangle CornerRadius="25"></RoundRectangle>
                 </Border.StrokeShape>
-                <Label
-                    Text="Zaloguj się"
-                    FontAttributes="Bold"
-                    FontSize="30"
-                    FontFamily="Arial"
-                    TextColor="White"
-                    VerticalTextAlignment="Center"
-                    HorizontalTextAlignment="Center"
-                    Padding="15"></Label>
-            </Border>
-            
-            <Border Background="Gray">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"></RoundRectangle>
-                </Border.StrokeShape>
-                <Entry Keyboard="Text" 
+                <VerticalStackLayout
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    Padding="15"
+                    Spacing="20">
+                    <Border BackgroundColor="#cdcdcd">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Entry Keyboard="Text" 
                        Placeholder="Podaj login" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center"
-                       TextColor="White"
+                       TextColor="Black"
+                       PlaceholderColor="#444444"
                        FontAttributes="Bold"
                        FontFamily="Arial"
-                       FontSize="15"></Entry>
-            </Border>
-            
-            <Border Background="Gray">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"></RoundRectangle>
-                </Border.StrokeShape>
-                <Entry Keyboard="Password" 
+                       FontSize="15"/>
+                    </Border>
+                    <Border Background="#cdcdcd">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Entry Keyboard="Password" 
                        Placeholder="Podaj hasło" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center"
-                       TextColor="White"
+                       TextColor="Black"
+                       PlaceholderColor="#444444"
                        FontAttributes="Bold"
                        FontFamily="Arial"
-                       FontSize="15"></Entry>
-            </Border>
+                       FontSize="15"/>
+                    </Border>
 
-            <Button
-                Text="Zaloguj"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontAttributes="Bold"
-                FontFamily="Arial"
-                FontSize="25"
-                BackgroundColor="Gray"
-                CornerRadius="20"
-                Margin="0, 50, 0, 50"
-                Clicked="OnButtonGoToMainViewPageClicked"></Button>
-            
-            <Button
-                Text="Nie masz konta ? Zarejestruj się"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontAttributes="Italic"
-                FontFamily="Arial"
-                FontSize="20"
-                TextColor="White"
-                BackgroundColor="Gray"
-                CornerRadius="20"
-                Padding="15"
-                Clicked="OnButtonGoToRegisterPageClicked"></Button>
+                    <Button Text="Zaloguj"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="25"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Margin="15, 20, 15, 0"
+                            Clicked="OnButtonGoToMainViewPageClicked"/>
+                    <Button
+                        Text="Nie masz konta ? Zarejestruj się"
+                        HorizontalOptions="End"
+                        FontAttributes="Italic"
+                        FontFamily="Arial"
+                        FontSize="12"
+                        TextColor="Green"
+                        BackgroundColor="Transparent"
+                        Clicked="OnButtonGoToRegisterPageClicked" />
+                </VerticalStackLayout>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
