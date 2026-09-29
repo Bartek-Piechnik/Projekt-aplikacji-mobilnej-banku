@@ -16,7 +16,28 @@
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainViewPage());
+            var LOGIN = "login1234";
+            var PASSWORD = "password1234";
+            
+            var Login = EntryLogin.Text;
+            var Password = EntryPassword.Text;
+
+            if (Login == LOGIN && Password == PASSWORD)
+            {
+                await Navigation.PushAsync(new MainViewPage());
+            }
+            else if(Login != LOGIN && Password == PASSWORD) 
+            {
+                await DisplayAlert("Błąd", "Login jest niepoprawny", "OK");
+            }
+            else if(Login == LOGIN && Password != PASSWORD) 
+            {
+                await DisplayAlert("Błąd", "Hasło jest niepoprawne", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Błąd", "Login i hasło są niepoprawne", "OK");
+            }
         }
         
         // private void OnCounterClicked(object? sender, EventArgs e)

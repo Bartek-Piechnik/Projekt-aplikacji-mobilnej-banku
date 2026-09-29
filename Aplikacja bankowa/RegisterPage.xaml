@@ -32,29 +32,33 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Text" 
-                       Placeholder="Podaj imię" 
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center"
-                       PlaceholderColor="#444444"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontFamily="Arial"
-                       FontSize="15" />
+                        <Entry 
+                            x:Name="EntryName"
+                            Keyboard="Text" 
+                            Placeholder="Podaj imię" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Text" 
-                               Placeholder="Podaj nazwisko" 
-                               VerticalTextAlignment="Center" 
-                               HorizontalTextAlignment="Center"
-                               PlaceholderColor="#444444"
-                               TextColor="Black"
-                               FontAttributes="Bold"
-                               FontFamily="Arial"
-                               FontSize="15"/>
+                        <Entry 
+                            x:Name="EntrySurname"
+                            Keyboard="Text" 
+                            Placeholder="Podaj nazwisko" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15"/>
                     </Border>
 
                     <Border Background="#cdcdcd">
@@ -71,6 +75,7 @@
                                 FontFamily="Arial"
                                 FontSize="15" />
                             <DatePicker
+                                x:Name="DatePickerDateOfBirth"
                                 Format="dd.MM.yyyy"
                                 VerticalOptions="Center"
                                 HorizontalOptions="Center"
@@ -86,90 +91,102 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Email" 
-                               Placeholder="Podaj adres e-mail" 
-                               VerticalTextAlignment="Center" 
-                               HorizontalTextAlignment="Center"
-                               PlaceholderColor="#444444"
-                               TextColor="Black"
-                               FontAttributes="Bold"
-                               FontFamily="Arial"
-                               FontSize="15" />
+                        <Entry 
+                            x:Name="EntryEmail"
+                            Keyboard="Email" 
+                            Placeholder="Podaj adres e-mail" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
 
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Telephone" 
-                       Placeholder="Podaj numer telefonu" 
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center"
-                       PlaceholderColor="#444444"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontFamily="Arial"
-                       FontSize="15" />
+                        <Entry 
+                            x:Name="EntryPhoneNumber"
+                            Keyboard="Telephone" 
+                            Placeholder="Podaj numer telefonu" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
 
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Numeric" 
-                       Placeholder="Podaj saldo konta" 
-                       VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center"
-                       PlaceholderColor="#444444"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontFamily="Arial"
-                       FontSize="15" />
+                        <Entry 
+                            x:Name="EntryAccountBalance"
+                            Keyboard="Numeric" 
+                            Placeholder="Podaj saldo konta" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
 
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Text" 
-                               Placeholder="Podaj login" 
-                               VerticalTextAlignment="Center" 
-                               HorizontalTextAlignment="Center"
-                               PlaceholderColor="#444444"
-                               TextColor="Black"
-                               FontAttributes="Bold"
-                               FontFamily="Arial"
-                               FontSize="15" />
+                        <Entry 
+                            x:Name="EntryLogin"
+                            Keyboard="Text" 
+                            Placeholder="Podaj login" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
 
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Password" 
-                               Placeholder="Podaj hasło" 
-                               VerticalTextAlignment="Center" 
-                               HorizontalTextAlignment="Center"
-                               PlaceholderColor="#444444"
-                                TextColor="Black"
-                               FontAttributes="Bold"
-                               FontFamily="Arial"
-                               FontSize="15" />
+                        <Entry 
+                            x:Name="EntryPassword"
+                            Keyboard="Password" 
+                            Placeholder="Podaj hasło" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
 
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry Keyboard="Password" 
-                               Placeholder="Powtórz hasło" 
-                               VerticalTextAlignment="Center" 
-                               HorizontalTextAlignment="Center"
-                               PlaceholderColor="#444444"
-                               TextColor="Black"
-                               FontAttributes="Bold"
-                               FontFamily="Arial"
-                               FontSize="15" />
+                        <Entry 
+                            x:Name="EntryRepeatedPassword"
+                            Keyboard="Password" 
+                            Placeholder="Powtórz hasło" 
+                            VerticalTextAlignment="Center" 
+                            HorizontalTextAlignment="Center"
+                            PlaceholderColor="#444444"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
                     </Border>
                     <Button
                         Text="Zarejestruj"
@@ -184,7 +201,6 @@
                         Clicked="OnButtonGoToLoginPageClicked" />
                 </VerticalStackLayout>
             </Border>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
