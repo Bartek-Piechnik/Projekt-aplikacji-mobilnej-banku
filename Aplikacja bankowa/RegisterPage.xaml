@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aplikacja_bankowa.RegisterPage">
@@ -24,19 +25,19 @@
                     <RoundRectangle CornerRadius="25"></RoundRectangle>
                 </Border.StrokeShape>
                 <VerticalStackLayout
-                        BackgroundColor="White"
-                        VerticalOptions="Center"
-                        Padding="15"
-                        Spacing="15">
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    Padding="15"
+                    Spacing="15">
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryName"
-                            Keyboard="Text" 
-                            Placeholder="Podaj imię" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Text"
+                            Placeholder="Podaj imię"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
@@ -48,17 +49,17 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntrySurname"
-                            Keyboard="Text" 
-                            Placeholder="Podaj nazwisko" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Text"
+                            Placeholder="Podaj nazwisko"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
                             FontAttributes="Bold"
                             FontFamily="Arial"
-                            FontSize="15"/>
+                            FontSize="15" />
                     </Border>
 
                     <Border Background="#cdcdcd">
@@ -91,11 +92,11 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryEmail"
-                            Keyboard="Email" 
-                            Placeholder="Podaj adres e-mail" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Email"
+                            Placeholder="Podaj adres e-mail"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
@@ -108,11 +109,11 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryPhoneNumber"
-                            Keyboard="Telephone" 
-                            Placeholder="Podaj numer telefonu" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Telephone"
+                            Placeholder="Podaj numer telefonu"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
@@ -125,11 +126,11 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryAccountBalance"
-                            Keyboard="Numeric" 
-                            Placeholder="Podaj saldo konta" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Numeric"
+                            Placeholder="Podaj saldo konta"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
@@ -142,11 +143,11 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryLogin"
-                            Keyboard="Text" 
-                            Placeholder="Podaj login" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Text"
+                            Placeholder="Podaj login"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
@@ -159,11 +160,11 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryPassword"
-                            Keyboard="Password" 
-                            Placeholder="Podaj hasło" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Password"
+                            Placeholder="Podaj hasło"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"
@@ -176,11 +177,11 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryRepeatedPassword"
-                            Keyboard="Password" 
-                            Placeholder="Powtórz hasło" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Password"
+                            Placeholder="Powtórz hasło"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             PlaceholderColor="#444444"
                             TextColor="Black"

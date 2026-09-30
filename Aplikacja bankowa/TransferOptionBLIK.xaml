@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aplikacja_bankowa.TransferOptionBLIK">
@@ -22,10 +23,10 @@
                     <RoundRectangle CornerRadius="25"></RoundRectangle>
                 </Border.StrokeShape>
                 <VerticalStackLayout
-                            BackgroundColor="White"
-                            VerticalOptions="Center"
-                            Padding="15"
-                            Spacing="20">
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    Padding="15"
+                    Spacing="20">
                     <Border BackgroundColor="#eeeeee">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
@@ -39,7 +40,7 @@
                             Padding="10"
                             HorizontalOptions="Center" />
                     </Border>
-                    
+
                     <Button
                         Text="Skopiuj kod"
                         VerticalOptions="Center"
@@ -49,7 +50,8 @@
                         FontSize="25"
                         BackgroundColor="Green"
                         TextColor="White"
-                        CornerRadius="20" />
+                        CornerRadius="20"
+                        Clicked="OnButtonCopyCodeClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

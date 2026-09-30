@@ -2,23 +2,34 @@
 {
     public partial class MainViewPage : ContentPage
     {
-        //int count = 0;
-
         public MainViewPage()
         {
             InitializeComponent();
         }
 
-        // private void OnCounterClicked(object? sender, EventArgs e)
-        // {
-        //     count++;
-        //
-        //     if (count == 1)
-        //         CounterBtn.Text = $"Clicked {count} time";
-        //     else
-        //         CounterBtn.Text = $"Clicked {count} times";
-        //
-        //     SemanticScreenReader.Announce(CounterBtn.Text);
-        // }
+        private async void OnButtonLogOutClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void OnButtonGoToMenuPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MenuPage());
+        }
+
+        private async void OnButtonGoToTransferOptionBLIKClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TransferOptionBLIK());
+        }
+
+        private async void OnButtonGoToTransferOptionDomesticClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TransferOptionDomestic());
+        }
+
+        private async void OnButtonGoToTransferOptionPhoneClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TransferOptionPhone());
+        }
     }
 }

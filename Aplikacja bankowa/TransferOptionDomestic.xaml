@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.TransferOptionDomestic">
+
+    <ScrollView>
+        <VerticalStackLayout
+            BackgroundColor="Green"
+            Spacing="20"
+            Padding="15">
+            <Label
+                Text="Przelew krajowy"
+                FontAttributes="Bold"
+                FontSize="35"
+                FontFamily="Arial"
+                TextColor="White"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Border>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"></RoundRectangle>
+                </Border.StrokeShape>
+                <VerticalStackLayout
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    Padding="15"
+                    Spacing="20">
+
+                    <Border BackgroundColor="#eeeeee">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Entry
+                            x:Name="EntryRecipientsAccount"
+                            Keyboard="Numeric"
+                            Placeholder="Podaj rachunek odbiorcy"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black"
+                            PlaceholderColor="#444444"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
+                    </Border>
+
+                    <Border BackgroundColor="#eeeeee">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Entry
+                            x:Name="EntryRecipientNameAndSurname"
+                            Keyboard="Text"
+                            Placeholder="Podaj imię i nazwisko odbiorcy"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black"
+                            PlaceholderColor="#444444"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
+                    </Border>
+
+                    <Border BackgroundColor="#eeeeee">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Entry
+                            x:Name="EntryTransferReference"
+                            Keyboard="Text"
+                            Placeholder="Podaj tytuł przelewu"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black"
+                            PlaceholderColor="#444444"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
+                    </Border>
+
+                    <Border BackgroundColor="#eeeeee">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Entry
+                            x:Name="EntryTransferAmount"
+                            Keyboard="Numeric"
+                            Placeholder="Podaj kwotę przelewu"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black"
+                            PlaceholderColor="#444444"
+                            FontAttributes="Bold"
+                            FontFamily="Arial"
+                            FontSize="15" />
+                    </Border>
+
+                    <Border BackgroundColor="#eeeeee">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout>
+                            <Label
+                                Text="Podaj datę przelewu"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                FontFamily="Arial"
+                                FontSize="15" />
+                            <DatePicker
+                                x:Name="DatePickerDateOfTransfer"
+                                Format="dd.MM.yyyy"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                BackgroundColor="#cdcdcd"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                FontFamily="Arial"
+                                FontSize="15" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border BackgroundColor="#eeeeee">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout>
+                            <Label
+                                Text="Wybierz typ przelewu"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                FontFamily="Arial"
+                                FontSize="15" />
+                            <RadioButton
+                                x:Name="RadioButtonStandard"
+                                Content="Standardowy"
+                                IsChecked="True">
+                            </RadioButton>
+                            <RadioButton
+                                x:Name="RadioButtonBlueCash"
+                                Content="BlueCash">
+                            </RadioButton>
+                            <RadioButton
+                                x:Name="RadioButtonExpressElixir"
+                                Content="Express Elixir">
+                            </RadioButton>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Button
+                        Text="Przelej"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontAttributes="Bold"
+                        FontFamily="Arial"
+                        FontSize="25"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        CornerRadius="20"
+                        Clicked="OnButtonTransferClicked" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

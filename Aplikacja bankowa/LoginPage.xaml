@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aplikacja_bankowa.LoginPage">
@@ -9,7 +10,7 @@
             Padding="15"
             BackgroundColor="Green">
 
-            <Label 
+            <Label
                 Text="Zaloguj się"
                 FontAttributes="Bold"
                 FontSize="35"
@@ -32,36 +33,36 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryLogin"
-                            Keyboard="Text" 
-                            Placeholder="Podaj login" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Text"
+                            Placeholder="Podaj login"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             TextColor="Black"
                             PlaceholderColor="#444444"
                             FontAttributes="Bold"
                             FontFamily="Arial"
-                            FontSize="15"/>
+                            FontSize="15" />
                     </Border>
                     <Border Background="#cdcdcd">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Entry 
+                        <Entry
                             x:Name="EntryPassword"
-                            Keyboard="Password" 
-                            Placeholder="Podaj hasło" 
-                            VerticalTextAlignment="Center" 
+                            Keyboard="Password"
+                            Placeholder="Podaj hasło"
+                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             TextColor="Black"
                             PlaceholderColor="#444444"
                             FontAttributes="Bold"
                             FontFamily="Arial"
-                            FontSize="15"/>
+                            FontSize="15" />
                     </Border>
 
-                    <Button 
+                    <Button
                         Text="Zaloguj"
                         VerticalOptions="Center"
                         FontAttributes="Bold"
@@ -71,7 +72,7 @@
                         TextColor="White"
                         CornerRadius="20"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToMainViewPageClicked"/>
+                        Clicked="OnButtonGoToMainViewPageClicked" />
                     <Button
                         Text="Nie masz konta ? Zarejestruj się"
                         HorizontalOptions="End"

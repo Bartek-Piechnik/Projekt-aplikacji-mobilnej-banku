@@ -83,6 +83,15 @@
 	  <MauiXaml Update="TransferOptionPhone.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="MenuPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="TransferOptionPhone.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="TransferOptionDomestic.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -102,6 +111,18 @@
 	  </Compile>
 	  <Compile Update="TransferOptionPhone.xaml.cs">
 	    <DependentUpon>TransferOptionPhone.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="MenuPage.xaml.cs">
+	    <DependentUpon>MenuPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="TransferOptionPhone.xaml.cs">
+	    <DependentUpon>TransferOptionPhone.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="TransferOptionDomestic.xaml.cs">
+	    <DependentUpon>TransferOptionDomestic.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
 	</ItemGroup>

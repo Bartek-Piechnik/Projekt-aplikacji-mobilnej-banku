@@ -2,8 +2,6 @@
 {
     public partial class LoginPage : ContentPage
     {
-        //int count = 0;
-
         public LoginPage()
         {
             InitializeComponent();
@@ -25,31 +23,25 @@
             if (Login == LOGIN && Password == PASSWORD)
             {
                 await Navigation.PushAsync(new MainViewPage());
+                EntryLogin.Text = "";
+                EntryPassword.Text = "";
             }
-            else if(Login != LOGIN && Password == PASSWORD) 
+            else if (Login != LOGIN && Password == PASSWORD)
             {
                 await DisplayAlert("Błąd", "Login jest niepoprawny", "OK");
+                EntryLogin.Text = "";
             }
             else if(Login == LOGIN && Password != PASSWORD) 
             {
                 await DisplayAlert("Błąd", "Hasło jest niepoprawne", "OK");
+                EntryPassword.Text = "";
             }
             else
             {
                 await DisplayAlert("Błąd", "Login i hasło są niepoprawne", "OK");
+                EntryLogin.Text = "";
+                EntryPassword.Text = "";
             }
         }
-        
-        // private void OnCounterClicked(object? sender, EventArgs e)
-        // {
-        //     count++;
-        //
-        //     if (count == 1)
-        //         CounterBtn.Text = $"Clicked {count} time";
-        //     else
-        //         CounterBtn.Text = $"Clicked {count} times";
-        //
-        //     SemanticScreenReader.Announce(CounterBtn.Text);
-        // }
     }
 }

@@ -2,8 +2,6 @@
 {
     public partial class RegisterPage : ContentPage
     {
-        //int count = 0;
-
         public RegisterPage()
         {
             InitializeComponent();
@@ -26,24 +24,14 @@
                 await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
+
             if (Password != RepeatedPassword)
             {
                 await DisplayAlert("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
                 return;
             }
+
             await Navigation.PopAsync();
         }
-        
-        // private void OnCounterClicked(object? sender, EventArgs e)
-        // {
-        //     count++;
-        //
-        //     if (count == 1)
-        //         CounterBtn.Text = $"Clicked {count} time";
-        //     else
-        //         CounterBtn.Text = $"Clicked {count} times";
-        //
-        //     SemanticScreenReader.Announce(CounterBtn.Text);
-        // }
     }
 }
