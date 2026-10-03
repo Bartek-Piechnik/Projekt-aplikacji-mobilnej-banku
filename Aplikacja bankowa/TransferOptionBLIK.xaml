@@ -5,32 +5,15 @@
              x:Class="Aplikacja_bankowa.TransferOptionBLIK">
 
     <ScrollView>
-        <VerticalStackLayout
-            BackgroundColor="Green"
-            Spacing="20"
-            Padding="15">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
             <Label
                 Text="Kod BLIK"
-                FontAttributes="Bold"
-                FontSize="35"
-                FontFamily="Arial"
-                TextColor="White"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center" />
+                Style="{StaticResource LabelHeader}" />
 
-            <Border>
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"></RoundRectangle>
-                </Border.StrokeShape>
-                <VerticalStackLayout
-                    BackgroundColor="White"
-                    VerticalOptions="Center"
-                    Padding="15"
-                    Spacing="20">
-                    <Border BackgroundColor="#eeeeee">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+            <Border Style="{StaticResource WhiteSectionBorder}">
+                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            BackgroundColor="#eeeeee">
                         <Label
                             Text="123 456"
                             FontAttributes="Bold"
@@ -43,14 +26,9 @@
 
                     <Button
                         Text="Skopiuj kod"
-                        VerticalOptions="Center"
                         HorizontalOptions="Center"
-                        FontAttributes="Bold"
-                        FontFamily="Arial"
                         FontSize="25"
-                        BackgroundColor="Green"
-                        TextColor="White"
-                        CornerRadius="20"
+                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonCopyCodeClicked" />
                 </VerticalStackLayout>
             </Border>

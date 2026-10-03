@@ -6,5 +6,19 @@
         {
             InitializeComponent();
         }
+        private async void OnButtonGoToMyDataPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MyDataPage());
+        }
+        
+        private async void OnButtonGoToChangePasswordPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChangePasswordPage());
+        }
+
+        private async void OnButtonGoToPaymentLimitsPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PaymentLimitsPage());
+        }
     }
 }

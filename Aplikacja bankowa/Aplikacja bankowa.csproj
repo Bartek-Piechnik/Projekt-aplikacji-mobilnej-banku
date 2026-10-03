@@ -92,6 +92,15 @@
 	  <MauiXaml Update="TransferOptionDomestic.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="MyDataPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="ChangePasswordPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="PaymentLimitsPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -123,6 +132,18 @@
 	  </Compile>
 	  <Compile Update="TransferOptionDomestic.xaml.cs">
 	    <DependentUpon>TransferOptionDomestic.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="MyDataPage.xaml.cs">
+	    <DependentUpon>MyData.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="ChangePasswordPage.xaml.cs">
+	    <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="PaymentLimitsPage.xaml.cs">
+	    <DependentUpon>PaymentLimitsPage.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
 	</ItemGroup>

@@ -5,67 +5,32 @@
              x:Class="Aplikacja_bankowa.RegisterPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="20"
-            Padding="15"
-            BackgroundColor="Green">
-
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
             <Label
                 Text="Zarejestruj się"
-                FontAttributes="Bold"
-                FontSize="30"
-                FontFamily="Arial"
-                TextColor="White"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center"
-                Padding="15" />
+                Style="{StaticResource LabelHeader}" />
 
-            <Border>
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"></RoundRectangle>
-                </Border.StrokeShape>
-                <VerticalStackLayout
-                    BackgroundColor="White"
-                    VerticalOptions="Center"
-                    Padding="15"
-                    Spacing="15">
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+            <Border Style="{StaticResource WhiteSectionBorder}">
+                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryName"
                             Keyboard="Text"
                             Placeholder="Podaj imię"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntrySurname"
                             Keyboard="Text"
                             Placeholder="Podaj nazwisko"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <VerticalStackLayout>
                             <Label
                                 Text="Podaj datę urodzenia"
@@ -88,116 +53,62 @@
                         </VerticalStackLayout>
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryEmail"
                             Keyboard="Email"
                             Placeholder="Podaj adres e-mail"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryPhoneNumber"
                             Keyboard="Telephone"
                             Placeholder="Podaj numer telefonu"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryAccountBalance"
                             Keyboard="Numeric"
                             Placeholder="Podaj saldo konta"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryLogin"
                             Keyboard="Text"
                             Placeholder="Podaj login"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryPassword"
                             Keyboard="Password"
                             Placeholder="Podaj hasło"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border Background="#cdcdcd">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            Background="#cdcdcd">
                         <Entry
                             x:Name="EntryRepeatedPassword"
                             Keyboard="Password"
                             Placeholder="Powtórz hasło"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            PlaceholderColor="#444444"
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
                     <Button
                         Text="Zarejestruj"
-                        VerticalOptions="Center"
-                        FontAttributes="Bold"
-                        FontFamily="Arial"
-                        FontSize="25"
-                        TextColor="White"
-                        BackgroundColor="Green"
-                        CornerRadius="20"
+                        Style="{StaticResource ButtonGreen}"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToLoginPageClicked" />
                 </VerticalStackLayout>

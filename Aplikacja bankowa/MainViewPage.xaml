@@ -22,29 +22,21 @@
                         Grid.Column="0"
                         Grid.Row="0"
                         Text="Wyloguj"
-                        TextColor="White"
                         FontSize="18"
-                        FontFamily="Arial"
-                        BackgroundColor="Green"
                         HeightRequest="50"
                         WidthRequest="120"
-                        CornerRadius="20"
-                        VerticalOptions="Center"
                         HorizontalOptions="Start"
+                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonLogOutClicked" />
                     <Button
                         Grid.Column="1"
                         Grid.Row="0"
                         Text="Menu"
-                        TextColor="White"
                         FontSize="18"
-                        FontFamily="Arial"
-                        BackgroundColor="Green"
                         HeightRequest="50"
                         WidthRequest="120"
-                        CornerRadius="20"
-                        VerticalOptions="Center"
                         HorizontalOptions="End"
+                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonGoToMenuPageClicked" />
                 </Grid>
                 <AbsoluteLayout
@@ -101,13 +93,10 @@
             </VerticalStackLayout>
 
             <ScrollView>
-                <Border Margin="10, 0, 10, 0"
+                <Border Style="{StaticResource WhiteSectionBorder}"
+                        Margin="10, 0, 10, 0"
                         StrokeThickness="0">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="25"></RoundRectangle>
-                    </Border.StrokeShape>
-                    <VerticalStackLayout
-                        BackgroundColor="White">
+                    <VerticalStackLayout BackgroundColor="White">
                         <Label
                             Text="Ostatnie transakcje"
                             TextColor="Black"
@@ -164,11 +153,9 @@
                 </Border>
             </ScrollView>
 
-            <Border Margin="10, 20, 10, 20"
+            <Border Style="{StaticResource WhiteSectionBorder}"
+                    Margin="10, 20, 10, 20"
                     StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"></RoundRectangle>
-                </Border.StrokeShape>
                 <VerticalStackLayout BackgroundColor="White">
                     <Label
                         Text="Opcje przelewu"
@@ -185,33 +172,24 @@
                         Margin="0, 5, 0, 10">
                         <Button
                             Text="BLIK"
-                            TextColor="White"
                             FontSize="18"
-                            FontFamily="Arial"
-                            BackgroundColor="Green"
                             HeightRequest="75"
                             WidthRequest="120"
-                            CornerRadius="20"
+                            Style="{StaticResource ButtonGreen}"
                             Clicked="OnButtonGoToTransferOptionBLIKClicked" />
                         <Button
                             Text="Krajowy"
-                            TextColor="White"
                             FontSize="18"
-                            FontFamily="Arial"
-                            BackgroundColor="Green"
                             HeightRequest="75"
                             WidthRequest="120"
-                            CornerRadius="20"
+                            Style="{StaticResource ButtonGreen}"
                             Clicked="OnButtonGoToTransferOptionDomesticClicked" />
                         <Button
                             Text="Telefon"
-                            TextColor="White"
                             FontSize="18"
-                            FontFamily="Arial"
-                            BackgroundColor="Green"
                             HeightRequest="75"
                             WidthRequest="120"
-                            CornerRadius="20"
+                            Style="{StaticResource ButtonGreen}"
                             Clicked="OnButtonGoToTransferOptionPhoneClicked" />
                     </HorizontalStackLayout>
                 </VerticalStackLayout>

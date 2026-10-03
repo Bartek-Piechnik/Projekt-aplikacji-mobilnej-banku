@@ -5,106 +5,54 @@
              x:Class="Aplikacja_bankowa.TransferOptionPhone">
 
     <ScrollView>
-        <VerticalStackLayout
-            BackgroundColor="Green"
-            Spacing="20"
-            Padding="15">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
             <Label
                 Text="Przelew BLIK na telefon"
-                FontAttributes="Bold"
-                FontSize="35"
-                FontFamily="Arial"
-                TextColor="White"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center" />
+                Style="{StaticResource LabelHeader}" />
 
-            <Border>
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"></RoundRectangle>
-                </Border.StrokeShape>
-                <VerticalStackLayout
-                    BackgroundColor="White"
-                    VerticalOptions="Center"
-                    Padding="15"
-                    Spacing="20">
-                    <Border BackgroundColor="#eeeeee">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+            <Border Style="{StaticResource WhiteSectionBorder}">
+                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            BackgroundColor="#eeeeee">
                         <Entry
                             x:Name="EntryRecipientsPhoneNumber"
                             Keyboard="Telephone"
                             Placeholder="Podaj numer telefonu odbiorcy"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            TextColor="Black"
-                            PlaceholderColor="#444444"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border BackgroundColor="#eeeeee">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            BackgroundColor="#eeeeee">
                         <Entry
                             x:Name="EntryRecipientNameAndSurname"
                             Keyboard="Text"
                             Placeholder="Podaj imię i nazwisko odbiorcy"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            TextColor="Black"
-                            PlaceholderColor="#444444"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border BackgroundColor="#eeeeee">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            BackgroundColor="#eeeeee">
                         <Entry
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
                             Placeholder="Podaj tytuł przelewu"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            TextColor="Black"
-                            PlaceholderColor="#444444"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
-                    <Border BackgroundColor="#eeeeee">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                        </Border.StrokeShape>
+                    <Border Style="{StaticResource WhiteSectionBorder}"
+                            BackgroundColor="#eeeeee">
                         <Entry
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
                             Placeholder="Podaj kwotę przelewu"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            TextColor="Black"
-                            PlaceholderColor="#444444"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
-                            FontSize="15" />
+                            Style="{StaticResource EntryForm}" />
                     </Border>
 
                     <Button
                         Text="Przelej"
-                        VerticalOptions="Center"
                         HorizontalOptions="Center"
-                        FontAttributes="Bold"
-                        FontFamily="Arial"
                         FontSize="25"
-                        BackgroundColor="Green"
-                        TextColor="White"
-                        CornerRadius="20"
+                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonTransferClicked" />
                 </VerticalStackLayout>
             </Border>
