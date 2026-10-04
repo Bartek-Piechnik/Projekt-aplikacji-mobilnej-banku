@@ -2,44 +2,39 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.RegisterPage">
+             x:Class="Aplikacja_bankowa.RegisterPage"
+             NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
-                Text="Zarejestruj się"
-                Style="{StaticResource LabelHeader}" />
+                Style="{StaticResource LabelHeader}"
+                Text="Zarejestruj się"/>
 
-            <Border Style="{StaticResource WhiteSectionBorder}">
-                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+            <Border Style="{StaticResource BorderWhiteSection}">
+                <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryName"
                             Keyboard="Text"
-                            Placeholder="Podaj imię"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj imię"/>
                     </Border>
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntrySurname"
                             Keyboard="Text"
-                            Placeholder="Podaj nazwisko"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj nazwisko"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <VerticalStackLayout>
                             <Label
+                                Style="{StaticResource LabelForm}"
                                 Text="Podaj datę urodzenia"
-                                VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Center"
-                                TextColor="Black"
-                                FontAttributes="Bold"
-                                FontFamily="Arial"
-                                FontSize="15" />
+                                FontSize="15"/>
                             <DatePicker
                                 x:Name="DatePickerDateOfBirth"
                                 Format="dd.MM.yyyy"
@@ -53,64 +48,50 @@
                         </VerticalStackLayout>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
                             Keyboard="Email"
-                            Placeholder="Podaj adres e-mail"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj adres e-mail"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryPhoneNumber"
                             Keyboard="Telephone"
-                            Placeholder="Podaj numer telefonu"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj numer telefonu"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryAccountBalance"
                             Keyboard="Numeric"
-                            Placeholder="Podaj saldo konta"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj saldo konta"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
-                            x:Name="EntryLogin"
-                            Keyboard="Text"
-                            Placeholder="Podaj login"
-                            Style="{StaticResource EntryForm}" />
-                    </Border>
-
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
-                        <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryPassword"
                             Keyboard="Password"
-                            Placeholder="Podaj hasło"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj hasło"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryRepeatedPassword"
                             Keyboard="Password"
-                            Placeholder="Powtórz hasło"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Powtórz hasło"/>
                     </Border>
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Zarejestruj"
-                        Style="{StaticResource ButtonGreen}"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToLoginPageClicked" />
+                        Clicked="OnButtonGoToLoginPageClicked"/>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

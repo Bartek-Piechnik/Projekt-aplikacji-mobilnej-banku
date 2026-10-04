@@ -2,35 +2,36 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.MenuPage">
+             x:Class="Aplikacja_bankowa.MenuPage"
+             NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
-                Text="Zarządzaj"
-                Style="{StaticResource LabelHeader}" />
+                Style="{StaticResource LabelHeader}"
+                Text="Zarządzaj"/>
 
-            <Border Style="{StaticResource WhiteSectionBorder}"
+            <Border Style="{StaticResource BorderWhiteSection}"
                     BackgroundColor="#eeeeee">
                 <VerticalStackLayout Padding="0, 0, 0, 10">
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Moje dane"
                         FontSize="25"
                         Margin="15, 20, 15, 0"
-                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonGoToMyDataPageClicked" />
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Zmiana hasła"
                         FontSize="25"
                         Margin="15, 20, 15, 0"
-                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonGoToChangePasswordPageClicked" />
                     <Button
-                        Text="Limity płatności"
+                        Style="{StaticResource Button}"
+                        Text="Limit płatności"
                         FontSize="25"
                         Margin="15, 20, 15, 0"
-                        Style="{StaticResource ButtonGreen}"
-                        Clicked="OnButtonGoToPaymentLimitsPageClicked" />
+                        Clicked="OnButtonGoToPaymentLimitPageClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

@@ -98,7 +98,7 @@
 	  <MauiXaml Update="ChangePasswordPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
-	  <MauiXaml Update="PaymentLimitsPage.xaml">
+	  <MauiXaml Update="PaymentLimitPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
 	</ItemGroup>
@@ -142,7 +142,7 @@
 	    <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
-	  <Compile Update="PaymentLimitsPage.xaml.cs">
+	  <Compile Update="PaymentLimitPage.xaml.cs">
 	    <DependentUpon>PaymentLimitsPage.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>

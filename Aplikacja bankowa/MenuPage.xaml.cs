@@ -16,9 +16,9 @@
             await Navigation.PushAsync(new ChangePasswordPage());
         }
 
-        private async void OnButtonGoToPaymentLimitsPageClicked(object sender, EventArgs e)
+        private async void OnButtonGoToPaymentLimitPageClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PaymentLimitsPage());
+            await Navigation.PushAsync(new PaymentLimitPage());
         }
     }
 }

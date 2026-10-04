@@ -2,63 +2,56 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.TransferOptionDomestic">
+             x:Class="Aplikacja_bankowa.TransferOptionDomestic"
+             NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
-                Text="Przelew krajowy"
-                Style="{StaticResource LabelHeader}" />
+                Style="{StaticResource LabelHeader}"
+                Text="Przelew krajowy"/>
 
-            <Border Style="{StaticResource WhiteSectionBorder}">
-                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+            <Border Style="{StaticResource BorderWhiteSection}">
+                <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsAccount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj rachunek odbiorcy"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj rachunek odbiorcy"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientNameAndSurname"
                             Keyboard="Text"
-                            Placeholder="Podaj imię i nazwisko odbiorcy"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj imię i nazwisko odbiorcy"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
-                            Placeholder="Podaj tytuł przelewu"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj tytuł przelewu"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj kwotę przelewu"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj kwotę przelewu"/>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+                    <Border Style="{StaticResource BorderEntry}">
                         <VerticalStackLayout>
                             <Label
+                                Style="{StaticResource LabelForm}"
                                 Text="Podaj datę przelewu"
-                                VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Center"
-                                TextColor="Black"
-                                FontAttributes="Bold"
-                                FontFamily="Arial"
-                                FontSize="15" />
+                                FontSize="15"/>
                             <DatePicker
                                 x:Name="DatePickerDateOfTransfer"
                                 Format="dd.MM.yyyy"
@@ -68,21 +61,17 @@
                                 TextColor="Black"
                                 FontAttributes="Bold"
                                 FontFamily="Arial"
-                                FontSize="15" />
+                                FontSize="15"/>
                         </VerticalStackLayout>
                     </Border>
 
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+                    <Border Style="{StaticResource BorderEntry}">
                         <VerticalStackLayout>
                             <Label
+                                Style="{StaticResource LabelForm}"
                                 Text="Wybierz typ przelewu"
-                                VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Center"
-                                TextColor="Black"
-                                FontAttributes="Bold"
-                                FontFamily="Arial"
-                                FontSize="15" />
+                                FontSize="15"/>
                             <RadioButton
                                 x:Name="RadioButtonStandard"
                                 Content="Standardowy"
@@ -100,10 +89,10 @@
                     </Border>
 
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Przelej"
                         HorizontalOptions="Center"
                         FontSize="25"
-                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonTransferClicked" />
                 </VerticalStackLayout>
             </Border>

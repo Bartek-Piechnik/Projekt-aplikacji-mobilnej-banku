@@ -2,115 +2,94 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.MyDataPage">
+             x:Class="Aplikacja_bankowa.MyDataPage"
+             NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
-            <Border Style="{StaticResource WhiteSectionBorder}"
-                    Background="#cdcdcd">
-                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}"
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
+            <Border Style="{StaticResource BorderWhiteSection}">
+                <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}"
                                      Padding="5">
                     <VerticalStackLayout>
                         <Label
+                            Style="{StaticResource LabelForm}" 
                             Text="Imię"
                             HorizontalTextAlignment="Center"
-                            Padding="15"
-                            Style="{StaticResource LabelForm}" />
-                        <Border Style="{StaticResource WhiteSectionBorder}">
-                            <HorizontalStackLayout BackgroundColor="#cdcdcd">
-                                <Entry
-                                    x:Name="EntryName"
-                                    Text=""
-                                    Placeholder=""
-                                    Style="{StaticResource EntryForm2}" />
-                                <Button
-                                    Text="Zmień"
-                                    Style="{StaticResource ButtonGreen}" />
-                            </HorizontalStackLayout>
+                            Padding="15"/>
+                        <Border Style="{StaticResource BorderEntry}">
+                            <Entry
+                                Style="{StaticResource EntryForm}" 
+                                x:Name="EntryName"
+                                Text=""/>
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label
+                            Style="{StaticResource LabelForm}" 
                             Text="Nazwisko"
                             HorizontalTextAlignment="Center"
-                            Padding="15"
-                            Style="{StaticResource LabelForm}" />
-                        <Border Style="{StaticResource WhiteSectionBorder}">
-                            <HorizontalStackLayout BackgroundColor="#cdcdcd">
-                                <Entry
-                                    x:Name="EntrySurname"
-                                    Text=""
-                                    Placeholder=""
-                                    Style="{StaticResource EntryForm2}" />
-                                <Button
-                                    Text="Zmień"
-                                    Style="{StaticResource ButtonGreen}" />
-                            </HorizontalStackLayout>
+                            Padding="15"/>
+                        <Border Style="{StaticResource BorderEntry}">
+                            <Entry
+                                Style="{StaticResource EntryForm}"
+                                x:Name="EntrySurname"
+                                Text=""/>
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label
+                            Style="{StaticResource LabelForm}"
                             Text="Data urodzenia"
                             HorizontalTextAlignment="Center"
-                            Padding="15"
-                            Style="{StaticResource LabelForm}" />
-                        <Border Style="{StaticResource WhiteSectionBorder}">
-                            <VerticalStackLayout BackgroundColor="#cdcdcd">
-                                <DatePicker
-                                    x:Name="DatePickerDateOfBirth"
-                                    Format="dd.MM.yyyy"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Center"
-                                    BackgroundColor="#cdcdcd"
-                                    TextColor="Black"
-                                    FontAttributes="Bold"
-                                    FontFamily="Arial"
-                                    FontSize="15" />
-                            </VerticalStackLayout>
+                            Padding="15"/>
+                        <Border Style="{StaticResource BorderEntry}">
+                            <DatePicker
+                                x:Name="DatePickerDateOfBirth"
+                                Format="dd.MM.yyyy"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                BackgroundColor="#cdcdcd"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                FontFamily="Arial"
+                                FontSize="15" />
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label
+                            Style="{StaticResource LabelForm}"
                             Text="Adres e-mail"
                             HorizontalTextAlignment="Center"
-                            Padding="15"
-                            Style="{StaticResource LabelForm}" />
-                        <Border Style="{StaticResource WhiteSectionBorder}">
-                            <HorizontalStackLayout BackgroundColor="#cdcdcd">
-                                <Entry
-                                    x:Name="EntryEmail"
-                                    Text=""
-                                    Placeholder=""
-                                    Style="{StaticResource EntryForm2}" />
-                                <Button
-                                    Text="Zmień"
-                                    Style="{StaticResource ButtonGreen}" />
-                            </HorizontalStackLayout>
+                            Padding="15"/>
+                        <Border Style="{StaticResource BorderEntry}">
+                            <Entry
+                                Style="{StaticResource EntryForm}"
+                                x:Name="EntryEmail"
+                                Text=""/>
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label
+                            Style="{StaticResource LabelForm}"
                             Text="Numer telefonu"
                             HorizontalTextAlignment="Center"
-                            Padding="15"
-                            Style="{StaticResource LabelForm}" />
-                        <Border Style="{StaticResource WhiteSectionBorder}">
-                            <HorizontalStackLayout BackgroundColor="#cdcdcd">
-                                <Entry
-                                    x:Name="EntryPhoneNumber"
-                                    Text=""
-                                    Placeholder=""
-                                    Style="{StaticResource EntryForm2}" />
-                                <Button
-                                    Text="Zmień"
-                                    Style="{StaticResource ButtonGreen}" />
-                            </HorizontalStackLayout>
+                            Padding="15"/>
+                        <Border Style="{StaticResource BorderEntry}">
+                            <Entry
+                                Style="{StaticResource EntryForm}"
+                                x:Name="EntryPhoneNumber"
+                                Text=""/>
                         </Border>
                     </VerticalStackLayout>
+                    
+                    <Button
+                        Style="{StaticResource Button}"
+                        Text="Zmień"
+                        Clicked="OnButtonGoToMenuPageClicked"/>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

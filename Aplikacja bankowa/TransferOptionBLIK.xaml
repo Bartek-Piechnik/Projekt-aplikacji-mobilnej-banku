@@ -2,33 +2,31 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.TransferOptionBLIK">
+             x:Class="Aplikacja_bankowa.TransferOptionBLIK"
+             NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
-                Text="Kod BLIK"
-                Style="{StaticResource LabelHeader}" />
+                Style="{StaticResource LabelHeader}"
+                Text="Kod BLIK"/>
 
-            <Border Style="{StaticResource WhiteSectionBorder}">
-                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#eeeeee">
+            <Border Style="{StaticResource BorderWhiteSection}">
+                <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Label
+                            Style="{StaticResource LabelForm}"
                             Text="123 456"
-                            FontAttributes="Bold"
                             FontSize="30"
-                            FontFamily="Arial"
-                            TextColor="Black"
                             Padding="10"
-                            HorizontalOptions="Center" />
+                            HorizontalOptions="Center"/>
                     </Border>
 
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Skopiuj kod"
                         HorizontalOptions="Center"
                         FontSize="25"
-                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonCopyCodeClicked" />
                 </VerticalStackLayout>
             </Border>

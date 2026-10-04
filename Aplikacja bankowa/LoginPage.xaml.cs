@@ -14,24 +14,24 @@
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
-            var LOGIN = "login1234";
+            var EMAIL = "login1234";
             var PASSWORD = "password1234";
             
-            var Login = EntryLogin.Text;
+            var Email = EntryEmail.Text;
             var Password = EntryPassword.Text;
 
-            if (Login == LOGIN && Password == PASSWORD)
+            if (Email == EMAIL && Password == PASSWORD)
             {
                 await Navigation.PushAsync(new MainViewPage());
-                EntryLogin.Text = "";
+                EntryEmail.Text = "";
                 EntryPassword.Text = "";
             }
-            else if (Login != LOGIN && Password == PASSWORD)
+            else if (Email != EMAIL && Password == PASSWORD)
             {
                 await DisplayAlert("Błąd", "Login jest niepoprawny", "OK");
-                EntryLogin.Text = "";
+                EntryEmail.Text = "";
             }
-            else if(Login == LOGIN && Password != PASSWORD) 
+            else if(Email == EMAIL && Password != PASSWORD) 
             {
                 await DisplayAlert("Błąd", "Hasło jest niepoprawne", "OK");
                 EntryPassword.Text = "";
@@ -39,7 +39,7 @@
             else
             {
                 await DisplayAlert("Błąd", "Login i hasło są niepoprawne", "OK");
-                EntryLogin.Text = "";
+                EntryEmail.Text = "";
                 EntryPassword.Text = "";
             }
         }

@@ -2,7 +2,8 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.MainViewPage">
+             x:Class="Aplikacja_bankowa.MainViewPage"
+             NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <VerticalStackLayout BackgroundColor="#dedede">
             <VerticalStackLayout>
@@ -17,28 +18,27 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-
+                    
                     <Button
+                        Style="{StaticResource Button}"
                         Grid.Column="0"
                         Grid.Row="0"
-                        Text="Wyloguj"
-                        FontSize="18"
+                        ImageSource="logout.png"
                         HeightRequest="50"
                         WidthRequest="120"
                         HorizontalOptions="Start"
-                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonLogOutClicked" />
                     <Button
+                        Style="{StaticResource Button}"
                         Grid.Column="1"
                         Grid.Row="0"
-                        Text="Menu"
-                        FontSize="18"
+                        ImageSource="menu.png"
                         HeightRequest="50"
                         WidthRequest="120"
                         HorizontalOptions="End"
-                        Style="{StaticResource ButtonGreen}"
                         Clicked="OnButtonGoToMenuPageClicked" />
                 </Grid>
+                
                 <AbsoluteLayout
                     Margin="15"
                     HeightRequest="200">
@@ -93,18 +93,16 @@
             </VerticalStackLayout>
 
             <ScrollView>
-                <Border Style="{StaticResource WhiteSectionBorder}"
+                <Border Style="{StaticResource BorderWhiteSection}"
                         Margin="10, 0, 10, 0"
                         StrokeThickness="0">
                     <VerticalStackLayout BackgroundColor="White">
                         <Label
+                            Style="{StaticResource LabelForm}"
                             Text="Ostatnie transakcje"
-                            TextColor="Black"
                             FontSize="30"
-                            FontAttributes="Bold"
-                            FontFamily="Arial"
                             VerticalTextAlignment="Start"
-                            HorizontalTextAlignment="Center" />
+                            HorizontalTextAlignment="Center"/>
 
                         <AbsoluteLayout Margin="15"
                                         HeightRequest="300">
@@ -153,17 +151,14 @@
                 </Border>
             </ScrollView>
 
-            <Border Style="{StaticResource WhiteSectionBorder}"
+            <Border Style="{StaticResource BorderWhiteSection}"
                     Margin="10, 20, 10, 20"
                     StrokeThickness="0">
                 <VerticalStackLayout BackgroundColor="White">
                     <Label
+                        Style="{StaticResource LabelForm}"
                         Text="Opcje przelewu"
-                        TextColor="Black"
                         FontSize="20"
-                        FontAttributes="Bold"
-                        FontFamily="Arial"
-                        VerticalTextAlignment="Center"
                         HorizontalTextAlignment="Center">
                     </Label>
                     <HorizontalStackLayout
@@ -171,25 +166,25 @@
                         Spacing="10"
                         Margin="0, 5, 0, 10">
                         <Button
+                            Style="{StaticResource Button}"
                             Text="BLIK"
                             FontSize="18"
                             HeightRequest="75"
                             WidthRequest="120"
-                            Style="{StaticResource ButtonGreen}"
                             Clicked="OnButtonGoToTransferOptionBLIKClicked" />
                         <Button
+                            Style="{StaticResource Button}"
                             Text="Krajowy"
                             FontSize="18"
                             HeightRequest="75"
                             WidthRequest="120"
-                            Style="{StaticResource ButtonGreen}"
                             Clicked="OnButtonGoToTransferOptionDomesticClicked" />
                         <Button
+                            Style="{StaticResource Button}"
                             Text="Telefon"
                             FontSize="18"
                             HeightRequest="75"
                             WidthRequest="120"
-                            Style="{StaticResource ButtonGreen}"
                             Clicked="OnButtonGoToTransferOptionPhoneClicked" />
                     </HorizontalStackLayout>
                 </VerticalStackLayout>

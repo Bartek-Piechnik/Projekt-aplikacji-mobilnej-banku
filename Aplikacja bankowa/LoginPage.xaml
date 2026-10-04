@@ -3,43 +3,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Aplikacja_bankowa.LoginPage"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Style="{StaticResource VerticalStackLayoutBackground}">
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
-                Text="Zaloguj się"
-                Style="{StaticResource LabelHeader}" />
+                Style="{StaticResource LabelHeader}"
+                Text="Zaloguj się"/>
 
-            <Border Style="{StaticResource WhiteSectionBorder}">
-                <VerticalStackLayout Style="{StaticResource WhiteSectionVerticalStackLayoutBackground}">
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            BackgroundColor="#cdcdcd">
+            <Border Style="{StaticResource BorderWhiteSection}">
+                <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
-                            x:Name="EntryLogin"
-                            Keyboard="Text"
-                            Placeholder="Podaj login"
-                            Style="{StaticResource EntryForm}" />
+                            Style="{StaticResource EntryForm}"
+                            x:Name="EntryEmail"
+                            Keyboard="Email"
+                            Placeholder="Podaj adres e-mail"/>
                     </Border>
-                    <Border Style="{StaticResource WhiteSectionBorder}"
-                            Background="#cdcdcd">
+                    <Border Style="{StaticResource BorderEntry}">
                         <Entry
+                            Style="{StaticResource EntryForm}"
                             x:Name="EntryPassword"
                             Keyboard="Password"
-                            Placeholder="Podaj hasło"
-                            Style="{StaticResource EntryForm}" />
+                            Placeholder="Podaj hasło"/>
                     </Border>
 
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Zaloguj"
-                        Style="{StaticResource ButtonGreen}"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToMainViewPageClicked" />
                     <Button
+                        Style="{StaticResource Button}"
                         Text="Nie masz konta ? Zarejestruj się"
                         HorizontalOptions="End"
                         FontAttributes="Italic"
-                        FontFamily="Arial"
                         FontSize="12"
                         TextColor="Green"
                         BackgroundColor="Transparent"

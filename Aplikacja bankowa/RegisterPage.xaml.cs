@@ -15,11 +15,10 @@
             var Email = EntryEmail.Text;
             var PhoneNumber = EntryPhoneNumber.Text;
             var AccountBalance = EntryAccountBalance.Text;
-            var Login = EntryLogin.Text;
             var Password = EntryPassword.Text;
             var RepeatedPassword = EntryRepeatedPassword.Text;
 
-            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Surname) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(PhoneNumber) || string.IsNullOrEmpty(AccountBalance) || string.IsNullOrEmpty(Login) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(RepeatedPassword))
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Surname) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(PhoneNumber) || string.IsNullOrEmpty(AccountBalance) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(RepeatedPassword))
             {
                 await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
