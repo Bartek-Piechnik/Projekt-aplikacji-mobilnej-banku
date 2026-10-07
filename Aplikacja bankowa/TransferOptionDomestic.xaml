@@ -74,8 +74,7 @@
                                 FontSize="15"/>
                             <RadioButton
                                 x:Name="RadioButtonStandard"
-                                Content="Standardowy"
-                                IsChecked="True">
+                                Content="Standardowy">
                             </RadioButton>
                             <RadioButton
                                 x:Name="RadioButtonBlueCash"

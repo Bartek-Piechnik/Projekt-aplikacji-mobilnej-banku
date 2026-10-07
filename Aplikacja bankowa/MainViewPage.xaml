@@ -89,6 +89,12 @@
                         FontAttributes="Bold"
                         AbsoluteLayout.LayoutBounds="0.1, 0.94, 170, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Image
+                        Source="appiconfg.svg"
+                        WidthRequest="140"
+                        HeightRequest="140"
+                        AbsoluteLayout.LayoutBounds="0.95, 0.95, 140, 140"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
                 </AbsoluteLayout>
             </VerticalStackLayout>
 

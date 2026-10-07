@@ -14,10 +14,22 @@
             var TransferReference = EntryTransferReference.Text;
             var TransferAmount = EntryTransferAmount.Text;
             var DateOfTransfer = DatePickerDateOfTransfer.Date;
+            var TransferType = "";
+            
+            if (RadioButtonStandard.IsChecked)
+            {
+                TransferType = RadioButtonStandard.Content.ToString();
+            }
+            else if (RadioButtonBlueCash.IsChecked)
+            {
+                TransferType = RadioButtonBlueCash.Content.ToString();
+            }
+            else if (RadioButtonExpressElixir.IsChecked)
+            {
+                TransferType = RadioButtonExpressElixir.Content.ToString();
+            }
 
-            //   DODAĆ POBIERANIE TYPU PRZELEWU
-
-            if (string.IsNullOrEmpty(RecipientsAccount) || string.IsNullOrEmpty(RecipientNameAndSurname) || string.IsNullOrEmpty(TransferReference) || string.IsNullOrEmpty(TransferAmount))
+            if (string.IsNullOrEmpty(RecipientsAccount) || string.IsNullOrEmpty(RecipientNameAndSurname) || string.IsNullOrEmpty(TransferReference) || string.IsNullOrEmpty(TransferAmount) || string.IsNullOrEmpty(TransferType))
             {
                 await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
             }
