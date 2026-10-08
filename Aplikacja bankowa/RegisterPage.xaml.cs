@@ -1,35 +1,38 @@
-﻿namespace Aplikacja_bankowa
+﻿using BankSQLite.Data;
+using BankSQLite.Models;
+
+namespace Aplikacja_bankowa
 {
     public partial class RegisterPage : ContentPage
     {
-        public RegisterPage()
+        private readonly UserItemDatabase database;
+        public UserItem Item { get; set; }
+        public RegisterPage(UserItemDatabase userItemDatabase)
         {
             InitializeComponent();
+
+            database = userItemDatabase;
+            Item = new UserItem();
+            BindingContext = this;
         }
 
         private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
         {
-            var Name = EntryName.Text;
-            var Surname = EntrySurname.Text;
-            var DateOfBirth = DatePickerDateOfBirth.Date;
-            var Email = EntryEmail.Text;
-            var PhoneNumber = EntryPhoneNumber.Text;
-            var AccountBalance = EntryAccountBalance.Text;
-            var Password = EntryPassword.Text;
             var RepeatedPassword = EntryRepeatedPassword.Text;
 
-            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Surname) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(PhoneNumber) || string.IsNullOrEmpty(AccountBalance) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(RepeatedPassword))
+            if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) || string.IsNullOrEmpty(Item.Password) || string.IsNullOrEmpty(RepeatedPassword))
             {
-                await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
 
-            if (Password != RepeatedPassword)
+            if (Item.Password != RepeatedPassword)
             {
-                await DisplayAlert("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
+                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
                 return;
             }
 
+            await database.SaveItemAsync(Item);
             await Navigation.PopAsync();
         }
     }

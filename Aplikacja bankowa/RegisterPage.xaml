@@ -18,14 +18,16 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryName"
                             Keyboard="Text"
-                            Placeholder="Podaj imię" />
+                            Placeholder="Podaj imię"
+                            Text="{Binding Item.Name}"/>
                     </Border>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntrySurname"
                             Keyboard="Text"
-                            Placeholder="Podaj nazwisko" />
+                            Placeholder="Podaj nazwisko"
+                            Text="{Binding Item.Surname}"/>
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -37,7 +39,8 @@
                                 FontSize="15" />
                             <DatePicker
                                 Style="{StaticResource DatePickerForm}"
-                                x:Name="DatePickerDateOfBirth" />
+                                x:Name="DatePickerDateOfBirth"
+                                Date="{Binding Item.DateOfBirth}" />
                         </VerticalStackLayout>
                     </Border>
 
@@ -46,7 +49,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
                             Keyboard="Email"
-                            Placeholder="Podaj adres e-mail" />
+                            Placeholder="Podaj adres e-mail"
+                            Text="{Binding Item.Email}"/>
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -54,7 +58,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPhoneNumber"
                             Keyboard="Telephone"
-                            Placeholder="Podaj numer telefonu" />
+                            Placeholder="Podaj numer telefonu"
+                            Text="{Binding Item.PhoneNumber}"/>
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -62,7 +67,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryAccountBalance"
                             Keyboard="Numeric"
-                            Placeholder="Podaj saldo konta" />
+                            Placeholder="Podaj saldo konta"
+                            Text="{Binding Item.AccountBalance}"/>
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -70,7 +76,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPassword"
                             Keyboard="Password"
-                            Placeholder="Podaj hasło" />
+                            Placeholder="Podaj hasło"
+                            Text="{Binding Item.Password}"/>
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">

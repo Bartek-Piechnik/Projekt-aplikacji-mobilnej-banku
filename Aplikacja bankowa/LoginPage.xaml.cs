@@ -1,46 +1,41 @@
-﻿namespace Aplikacja_bankowa
+﻿using BankSQLite.Data;
+using BankSQLite.Models;
+using System.Collections.ObjectModel;
+
+namespace Aplikacja_bankowa
 {
     public partial class LoginPage : ContentPage
     {
-        public LoginPage()
+        private readonly UserItemDatabase database;
+        public LoginPage(UserItemDatabase userItemDatabase)
         {
             InitializeComponent();
+            database = userItemDatabase;
+            BindingContext = this;
         }
 
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterPage());
+            await Navigation.PushAsync(new RegisterPage(database));
         }
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
-            var EMAIL = "login1234";
-            var PASSWORD = "password1234";
+            var users = await database.GetItemsAsync();
             
-            var Email = EntryEmail.Text;
-            var Password = EntryPassword.Text;
+            var email = EntryEmail.Text;
+            var password = EntryPassword.Text;
 
-            if (Email == EMAIL && Password == PASSWORD)
+            var user = users.FirstOrDefault(x =>
+                        x.Email == email &&
+                        x.Password == password);
+            if (user != null)
             {
                 await Navigation.PushAsync(new MainViewPage());
-                EntryEmail.Text = "";
-                EntryPassword.Text = "";
-            }
-            else if (Email != EMAIL && Password == PASSWORD)
-            {
-                await DisplayAlert("Błąd", "Login jest niepoprawny", "OK");
-                EntryEmail.Text = "";
-            }
-            else if(Email == EMAIL && Password != PASSWORD) 
-            {
-                await DisplayAlert("Błąd", "Hasło jest niepoprawne", "OK");
-                EntryPassword.Text = "";
             }
             else
             {
-                await DisplayAlert("Błąd", "Login i hasło są niepoprawne", "OK");
-                EntryEmail.Text = "";
-                EntryPassword.Text = "";
+                await DisplayAlertAsync("Błąd", "Niepoprane hasło lub email", "OK");
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
 {
@@ -15,9 +16,12 @@ namespace Aplikacja_bankowa
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
     		builder.Logging.AddDebug();
-#endif
+
+            builder.Services.AddSingleton<UserItemDatabase>();
+            builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<RegisterPage>();
+
 
             return builder.Build();
         }

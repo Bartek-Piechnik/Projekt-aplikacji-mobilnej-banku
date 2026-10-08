@@ -9,7 +9,7 @@
 
         private async void OnButtonLogOutClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await Navigation.PopToRootAsync();
         }
 
         private async void OnButtonGoToMenuPageClicked(object sender, EventArgs e)
