@@ -9,7 +9,7 @@
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
                 Style="{StaticResource LabelHeader}"
-                Text="Zarejestruj się"/>
+                Text="Zarejestruj się" />
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
@@ -18,14 +18,14 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryName"
                             Keyboard="Text"
-                            Placeholder="Podaj imię"/>
+                            Placeholder="Podaj imię" />
                     </Border>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntrySurname"
                             Keyboard="Text"
-                            Placeholder="Podaj nazwisko"/>
+                            Placeholder="Podaj nazwisko" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -34,17 +34,10 @@
                                 Style="{StaticResource LabelForm}"
                                 Text="Podaj datę urodzenia"
                                 HorizontalTextAlignment="Center"
-                                FontSize="15"/>
-                            <DatePicker
-                                x:Name="DatePickerDateOfBirth"
-                                Format="dd.MM.yyyy"
-                                VerticalOptions="Center"
-                                HorizontalOptions="Center"
-                                BackgroundColor="#cdcdcd"
-                                TextColor="Black"
-                                FontAttributes="Bold"
-                                FontFamily="Arial"
                                 FontSize="15" />
+                            <DatePicker
+                                Style="{StaticResource DatePickerForm}"
+                                x:Name="DatePickerDateOfBirth" />
                         </VerticalStackLayout>
                     </Border>
 
@@ -53,7 +46,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
                             Keyboard="Email"
-                            Placeholder="Podaj adres e-mail"/>
+                            Placeholder="Podaj adres e-mail" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -61,7 +54,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPhoneNumber"
                             Keyboard="Telephone"
-                            Placeholder="Podaj numer telefonu"/>
+                            Placeholder="Podaj numer telefonu" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -69,7 +62,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryAccountBalance"
                             Keyboard="Numeric"
-                            Placeholder="Podaj saldo konta"/>
+                            Placeholder="Podaj saldo konta" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -77,7 +70,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPassword"
                             Keyboard="Password"
-                            Placeholder="Podaj hasło"/>
+                            Placeholder="Podaj hasło" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -85,13 +78,13 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRepeatedPassword"
                             Keyboard="Password"
-                            Placeholder="Powtórz hasło"/>
+                            Placeholder="Powtórz hasło" />
                     </Border>
                     <Button
                         Style="{StaticResource Button}"
                         Text="Zarejestruj"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToLoginPageClicked"/>
+                        Clicked="OnButtonGoToLoginPageClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

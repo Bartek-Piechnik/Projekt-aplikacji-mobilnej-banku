@@ -12,29 +12,29 @@
                                      Padding="5">
                     <VerticalStackLayout>
                         <Label
-                            Style="{StaticResource LabelForm}" 
+                            Style="{StaticResource LabelForm}"
                             Text="Imię"
                             HorizontalTextAlignment="Center"
-                            Padding="15"/>
+                            Padding="15" />
                         <Border Style="{StaticResource BorderEntry}">
                             <Entry
-                                Style="{StaticResource EntryForm}" 
+                                Style="{StaticResource EntryForm}"
                                 x:Name="EntryName"
-                                Text=""/>
+                                Text="" />
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label
-                            Style="{StaticResource LabelForm}" 
+                            Style="{StaticResource LabelForm}"
                             Text="Nazwisko"
                             HorizontalTextAlignment="Center"
-                            Padding="15"/>
+                            Padding="15" />
                         <Border Style="{StaticResource BorderEntry}">
                             <Entry
                                 Style="{StaticResource EntryForm}"
                                 x:Name="EntrySurname"
-                                Text=""/>
+                                Text="" />
                         </Border>
                     </VerticalStackLayout>
 
@@ -43,18 +43,11 @@
                             Style="{StaticResource LabelForm}"
                             Text="Data urodzenia"
                             HorizontalTextAlignment="Center"
-                            Padding="15"/>
+                            Padding="15" />
                         <Border Style="{StaticResource BorderEntry}">
                             <DatePicker
-                                x:Name="DatePickerDateOfBirth"
-                                Format="dd.MM.yyyy"
-                                VerticalOptions="Center"
-                                HorizontalOptions="Center"
-                                BackgroundColor="#cdcdcd"
-                                TextColor="Black"
-                                FontAttributes="Bold"
-                                FontFamily="Arial"
-                                FontSize="15" />
+                                Style="{StaticResource DatePickerForm}"
+                                x:Name="DatePickerDateOfBirth" />
                         </Border>
                     </VerticalStackLayout>
 
@@ -63,12 +56,12 @@
                             Style="{StaticResource LabelForm}"
                             Text="Adres e-mail"
                             HorizontalTextAlignment="Center"
-                            Padding="15"/>
+                            Padding="15" />
                         <Border Style="{StaticResource BorderEntry}">
                             <Entry
                                 Style="{StaticResource EntryForm}"
                                 x:Name="EntryEmail"
-                                Text=""/>
+                                Text="" />
                         </Border>
                     </VerticalStackLayout>
 
@@ -77,19 +70,19 @@
                             Style="{StaticResource LabelForm}"
                             Text="Numer telefonu"
                             HorizontalTextAlignment="Center"
-                            Padding="15"/>
+                            Padding="15" />
                         <Border Style="{StaticResource BorderEntry}">
                             <Entry
                                 Style="{StaticResource EntryForm}"
                                 x:Name="EntryPhoneNumber"
-                                Text=""/>
+                                Text="" />
                         </Border>
                     </VerticalStackLayout>
-                    
+
                     <Button
                         Style="{StaticResource Button}"
                         Text="Zmień"
-                        Clicked="OnButtonGoToMenuPageClicked"/>
+                        Clicked="OnButtonGoToMenuPageClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

@@ -9,7 +9,7 @@
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
                 Style="{StaticResource LabelHeader}"
-                Text="Zaloguj się"/>
+                Text="Zaloguj się" />
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
@@ -18,14 +18,14 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
                             Keyboard="Email"
-                            Placeholder="Podaj adres e-mail"/>
+                            Placeholder="Podaj adres e-mail" />
                     </Border>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPassword"
                             Keyboard="Password"
-                            Placeholder="Podaj hasło"/>
+                            Placeholder="Podaj hasło" />
                     </Border>
 
                     <Button
@@ -39,7 +39,7 @@
                         HorizontalOptions="End"
                         FontAttributes="Italic"
                         FontSize="12"
-                        TextColor="Green"
+                        TextColor="#388e3c"
                         BackgroundColor="Transparent"
                         Clicked="OnButtonGoToRegisterPageClicked" />
                 </VerticalStackLayout>

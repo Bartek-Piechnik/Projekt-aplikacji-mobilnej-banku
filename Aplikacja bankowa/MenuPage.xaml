@@ -9,10 +9,11 @@
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
                 Style="{StaticResource LabelHeader}"
-                Text="Zarządzaj"/>
+                Text="Zarządzaj" />
 
-            <Border Style="{StaticResource BorderWhiteSection}"
-                    BackgroundColor="#eeeeee">
+            <Border
+                Style="{StaticResource BorderWhiteSection}"
+                BackgroundColor="#eeeeee">
                 <VerticalStackLayout Padding="0, 0, 0, 10">
                     <Button
                         Style="{StaticResource Button}"

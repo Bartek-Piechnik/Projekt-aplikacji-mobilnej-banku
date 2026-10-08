@@ -9,7 +9,7 @@
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
                 Style="{StaticResource LabelHeader}"
-                Text="Przelew krajowy"/>
+                Text="Przelew krajowy" />
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
@@ -18,7 +18,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsAccount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj rachunek odbiorcy"/>
+                            Placeholder="Podaj rachunek odbiorcy" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -26,7 +26,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientNameAndSurname"
                             Keyboard="Text"
-                            Placeholder="Podaj imię i nazwisko odbiorcy"/>
+                            Placeholder="Podaj imię i nazwisko odbiorcy" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -34,7 +34,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
-                            Placeholder="Podaj tytuł przelewu"/>
+                            Placeholder="Podaj tytuł przelewu" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -42,7 +42,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj kwotę przelewu"/>
+                            Placeholder="Podaj kwotę przelewu" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -51,17 +51,10 @@
                                 Style="{StaticResource LabelForm}"
                                 Text="Podaj datę przelewu"
                                 HorizontalTextAlignment="Center"
-                                FontSize="15"/>
+                                FontSize="15" />
                             <DatePicker
-                                x:Name="DatePickerDateOfTransfer"
-                                Format="dd.MM.yyyy"
-                                VerticalOptions="Center"
-                                HorizontalOptions="Center"
-                                BackgroundColor="#cdcdcd"
-                                TextColor="Black"
-                                FontAttributes="Bold"
-                                FontFamily="Arial"
-                                FontSize="15"/>
+                                Style="{StaticResource DatePickerForm}"
+                                x:Name="DatePickerDateOfTransfer" />
                         </VerticalStackLayout>
                     </Border>
 
@@ -71,7 +64,7 @@
                                 Style="{StaticResource LabelForm}"
                                 Text="Wybierz typ przelewu"
                                 HorizontalTextAlignment="Center"
-                                FontSize="15"/>
+                                FontSize="15" />
                             <RadioButton
                                 x:Name="RadioButtonStandard"
                                 Content="Standardowy">
@@ -91,7 +84,6 @@
                         Style="{StaticResource Button}"
                         Text="Przelej"
                         HorizontalOptions="Center"
-                        FontSize="25"
                         Clicked="OnButtonTransferClicked" />
                 </VerticalStackLayout>
             </Border>

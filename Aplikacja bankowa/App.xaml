@@ -12,13 +12,13 @@
             </ResourceDictionary.MergedDictionaries>
             
             <Style x:Key="VerticalStackLayout" TargetType="VerticalStackLayout">
-                <Setter Property="BackgroundColor" Value="Green" />
+                <Setter Property="BackgroundColor" Value="#8bc34a" />
                 <Setter Property="Spacing" Value="20" />
                 <Setter Property="Padding" Value="15" />
             </Style>
 
             <Style x:Key="VerticalStackLayoutWhiteSection" TargetType="VerticalStackLayout">
-                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#f2f9f1" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Spacing" Value="20" />
                 <Setter Property="Padding" Value="15" />
@@ -38,14 +38,14 @@
                         <RoundRectangle CornerRadius="10" />
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BackgroundColor" Value="#cdcdcd"></Setter>
+                <Setter Property="BackgroundColor" Value="#ddeedf"></Setter>
             </Style>
             
             <Style x:Key="LabelHeader" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="35" />
                 <Setter Property="FontFamily" Value="Arial" />
-                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TextColor" Value="#f2f9f1" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="Padding" Value="15" />
@@ -68,13 +68,24 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="PlaceholderColor" Value="#444444" />
             </Style>
+            
+            <Style x:Key="DatePickerForm" TargetType="DatePicker">
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="FontFamily" Value="Arial"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="BackgroundColor" Value="#ddeedf"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="Format" Value="dd.MM.yyyy"></Setter>
+            </Style>
 
             <Style x:Key="Button" TargetType="Button">
                 <Setter Property="FontAttributes" Value="Bold"></Setter>
                 <Setter Property="FontSize" Value="25"></Setter>
                 <Setter Property="FontFamily" Value="Arial"></Setter>
-                <Setter Property="TextColor" Value="White"></Setter>
-                <Setter Property="BackgroundColor" Value="Green"></Setter>
+                <Setter Property="TextColor" Value="#f2f9f1"></Setter>
+                <Setter Property="BackgroundColor" Value="#388e3c"></Setter>
                 <Setter Property="VerticalOptions" Value="Center"></Setter>
                 <Setter Property="CornerRadius" Value="20"></Setter>
             </Style>

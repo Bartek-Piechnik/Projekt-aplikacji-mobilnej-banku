@@ -9,7 +9,7 @@
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
                 Style="{StaticResource LabelHeader}"
-                Text="Kod BLIK"/>
+                Text="Kod BLIK" />
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
@@ -19,14 +19,13 @@
                             Text="123 456"
                             FontSize="30"
                             Padding="10"
-                            HorizontalOptions="Center"/>
+                            HorizontalOptions="Center" />
                     </Border>
 
                     <Button
                         Style="{StaticResource Button}"
                         Text="Skopiuj kod"
                         HorizontalOptions="Center"
-                        FontSize="25"
                         Clicked="OnButtonCopyCodeClicked" />
                 </VerticalStackLayout>
             </Border>

@@ -8,9 +8,9 @@
     <ScrollView>
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
-                Style="{StaticResource LabelHeader}" 
-                Text="Zmień limit płatności"/>
-            
+                Style="{StaticResource LabelHeader}"
+                Text="Zmień limit płatności" />
+
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
                     <Border Style="{StaticResource BorderEntry}">
@@ -18,14 +18,14 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryMaxAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj maksymalną kwotę"/>
+                            Placeholder="Podaj maksymalną kwotę" />
                     </Border>
 
                     <Button
                         Style="{StaticResource Button}"
                         Text="Zmień limit płatności"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToMenuPageClicked"/>
+                        Clicked="OnButtonGoToMenuPageClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

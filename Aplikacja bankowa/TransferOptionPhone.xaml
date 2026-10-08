@@ -9,7 +9,7 @@
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
             <Label
                 Style="{StaticResource LabelHeader}"
-                Text="Przelew BLIK na telefon"/>
+                Text="Przelew BLIK na telefon" />
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
@@ -18,7 +18,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsPhoneNumber"
                             Keyboard="Telephone"
-                            Placeholder="Podaj numer telefonu odbiorcy"/>
+                            Placeholder="Podaj numer telefonu odbiorcy" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -26,7 +26,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientNameAndSurname"
                             Keyboard="Text"
-                            Placeholder="Podaj imię i nazwisko odbiorcy"/>
+                            Placeholder="Podaj imię i nazwisko odbiorcy" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -34,7 +34,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
-                            Placeholder="Podaj tytuł przelewu"/>
+                            Placeholder="Podaj tytuł przelewu" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -42,15 +42,14 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj kwotę przelewu"/>
+                            Placeholder="Podaj kwotę przelewu" />
                     </Border>
 
                     <Button
                         Style="{StaticResource Button}"
                         Text="Przelej"
                         HorizontalOptions="Center"
-                        FontSize="25"
-                        Clicked="OnButtonTransferClicked"/>
+                        Clicked="OnButtonTransferClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

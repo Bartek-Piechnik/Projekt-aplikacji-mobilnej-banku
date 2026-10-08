@@ -18,7 +18,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    
+
                     <Button
                         Style="{StaticResource Button}"
                         Grid.Column="0"
@@ -38,12 +38,12 @@
                         HorizontalOptions="End"
                         Clicked="OnButtonGoToMenuPageClicked" />
                 </Grid>
-                
+
                 <AbsoluteLayout
                     Margin="15"
                     HeightRequest="200">
                     <BoxView
-                        BackgroundColor="Green"
+                        BackgroundColor="#8bc34a"
                         CornerRadius="20"
                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                         AbsoluteLayout.LayoutFlags="All" />
@@ -94,24 +94,26 @@
                         WidthRequest="140"
                         HeightRequest="140"
                         AbsoluteLayout.LayoutBounds="0.95, 0.95, 140, 140"
-                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                        AbsoluteLayout.LayoutFlags="PositionProportional" />
                 </AbsoluteLayout>
             </VerticalStackLayout>
 
             <ScrollView>
-                <Border Style="{StaticResource BorderWhiteSection}"
-                        Margin="10, 0, 10, 0"
-                        StrokeThickness="0">
+                <Border
+                    Style="{StaticResource BorderWhiteSection}"
+                    Margin="10, 0, 10, 0"
+                    StrokeThickness="0">
                     <VerticalStackLayout BackgroundColor="White">
                         <Label
                             Style="{StaticResource LabelForm}"
                             Text="Ostatnie transakcje"
                             FontSize="30"
                             VerticalTextAlignment="Start"
-                            HorizontalTextAlignment="Center"/>
+                            HorizontalTextAlignment="Center" />
 
-                        <AbsoluteLayout Margin="15"
-                                        HeightRequest="300">
+                        <AbsoluteLayout
+                            Margin="15"
+                            HeightRequest="300">
                             <Label
                                 Text="Wtorek 29.09.2026"
                                 TextColor="Gray"
@@ -157,9 +159,10 @@
                 </Border>
             </ScrollView>
 
-            <Border Style="{StaticResource BorderWhiteSection}"
-                    Margin="10, 20, 10, 20"
-                    StrokeThickness="0">
+            <Border
+                Style="{StaticResource BorderWhiteSection}"
+                Margin="10, 20, 10, 20"
+                StrokeThickness="0">
                 <VerticalStackLayout BackgroundColor="White">
                     <Label
                         Style="{StaticResource LabelForm}"
