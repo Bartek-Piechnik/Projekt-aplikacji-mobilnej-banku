@@ -7,16 +7,18 @@ namespace Aplikacja_bankowa
 {
     public partial class App : Application
     {
-        private readonly UserItemDatabase database;
-        public App(UserItemDatabase userItemDatabase)
+        private readonly UserItemDatabase _userItemDatabase;
+        private readonly TransactionItemDatabase _transactionItemDatabase;
+        public App(UserItemDatabase userItemDatabase, TransactionItemDatabase transactionItemDatabase)
         {
             InitializeComponent();
-            database = userItemDatabase;
+            _userItemDatabase = userItemDatabase;
+            _transactionItemDatabase = transactionItemDatabase;
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new LoginPage(database)));
+            return new Window(new NavigationPage(new LoginPage(_userItemDatabase, _transactionItemDatabase)));
         }
     }
 }

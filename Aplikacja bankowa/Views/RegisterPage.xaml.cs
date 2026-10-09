@@ -5,13 +5,13 @@ namespace Aplikacja_bankowa
 {
     public partial class RegisterPage : ContentPage
     {
-        private readonly UserItemDatabase database;
+        private readonly UserItemDatabase _userItemDatabase;
         public UserItem Item { get; set; }
         public RegisterPage(UserItemDatabase userItemDatabase)
         {
             InitializeComponent();
 
-            database = userItemDatabase;
+            _userItemDatabase = userItemDatabase;
             Item = new UserItem();
             BindingContext = this;
         }
@@ -32,7 +32,7 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            await database.SaveItemAsync(Item);
+            await _userItemDatabase.SaveItemAsync(Item);
             await Navigation.PopAsync();
         }
     }

@@ -19,6 +19,7 @@ namespace Aplikacja_bankowa
     		builder.Logging.AddDebug();
 
             builder.Services.AddSingleton<UserItemDatabase>();
+            builder.Services.AddSingleton<TransactionItemDatabase>();
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<RegisterPage>();
 
