@@ -2,7 +2,7 @@
 
 namespace BankSQLite.Models;
 
-public class UserItem
+public class UsersItem
 {
     [PrimaryKey, AutoIncrement]
     public int ID { get; set; }

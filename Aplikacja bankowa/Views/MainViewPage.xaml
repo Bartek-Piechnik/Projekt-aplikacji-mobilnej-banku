@@ -69,7 +69,8 @@
                         AbsoluteLayout.LayoutBounds="0.05, 0.5, 170, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Label
-                        Text="1 000,00 PLN"
+                        x:Name="LabelAvailableFunds"
+                        Text=""
                         TextColor="White"
                         FontSize="18"
                         FontAttributes="Bold"
@@ -83,7 +84,8 @@
                         AbsoluteLayout.LayoutBounds="0.05, 0.8, 170, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Label
-                        Text="1 500,00 PLN"
+                        x:Name="LabelBalance"
+                        Text=""
                         TextColor="White"
                         FontSize="18"
                         FontAttributes="Bold"

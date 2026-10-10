@@ -6,24 +6,22 @@ namespace Aplikacja_bankowa
 {
     public partial class LoginPage : ContentPage
     {
-        private readonly UserItemDatabase _userItemDatabase;
-        private readonly TransactionItemDatabase _transactionItemDatabase;
-        public LoginPage(UserItemDatabase userItemDatabase,  TransactionItemDatabase transactionItemDatabase)
+        private readonly Database database;
+        public LoginPage(Database database_)
         {
             InitializeComponent();
-            _userItemDatabase = userItemDatabase;
-            _transactionItemDatabase = transactionItemDatabase;
+            database = database_;
             BindingContext = this;
         }
 
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterPage(_userItemDatabase));
+            await Navigation.PushAsync(new RegisterPage(database));
         }
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
-            var users = await _userItemDatabase.GetItemsAsync();
+            var users = await database.GetItemsAsync();
             
             var email = EntryEmail.Text;
             var password = EntryPassword.Text;
@@ -33,7 +31,8 @@ namespace Aplikacja_bankowa
                         x.Password == password);
             if (user != null)
             {
-                await Navigation.PushAsync(new MainViewPage(_userItemDatabase, _transactionItemDatabase));
+                Preferences.Set("UserId", user.ID);
+                await Navigation.PushAsync(new MainViewPage(database));
             }
             else
             {

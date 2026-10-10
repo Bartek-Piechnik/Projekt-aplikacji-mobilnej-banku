@@ -5,14 +5,14 @@ namespace Aplikacja_bankowa
 {
     public partial class TransferOptionDomestic : ContentPage
     {
-        private readonly TransactionItemDatabase _transactionItemDatabase;
+        private readonly Database database;
         public TransactionsItem Item { get; set; }
         
-        public TransferOptionDomestic(TransactionItemDatabase transactionItemDatabase)
+        public TransferOptionDomestic(Database database_)
         {
             InitializeComponent();
             
-            _transactionItemDatabase = transactionItemDatabase;
+            database = database_;
             Item = new TransactionsItem();
             BindingContext = this;
         }
@@ -25,7 +25,7 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            await _transactionItemDatabase.SaveItemAsync(Item);
+            await database.SaveTransactionsAsync(Item);
             await Navigation.PopAsync();
         }
     }

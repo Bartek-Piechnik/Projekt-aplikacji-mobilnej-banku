@@ -5,20 +5,37 @@ namespace Aplikacja_bankowa
 {
     public partial class MainViewPage : ContentPage
     {
-        private readonly UserItemDatabase _userItemDatabase;
-        private readonly TransactionItemDatabase _transactionItemDatabase;
+        private readonly Database database;
         public TransactionsItem Item { get; set; }
         
-        public MainViewPage(UserItemDatabase userItemDatabase, TransactionItemDatabase transactionItemDatabase)
+        public MainViewPage(Database database_)
         {
             InitializeComponent();
-            _userItemDatabase = userItemDatabase;
-            _transactionItemDatabase = transactionItemDatabase;
+            database = database_;
             BindingContext = this;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var UserId = Preferences.Get("UserId", 0);
+            UsersItem user = await database.GetItemAsync(UserId);
+
+            if (user != null)
+            {
+                LabelBalance.Text = $"{user.AccountBalance:F2} PLN";
+                LabelAvailableFunds.Text = $"{user.AccountBalance:F2} PLN";
+            }
+            else
+            {
+                await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
+            }
         }
 
         private async void OnButtonLogOutClicked(object sender, EventArgs e)
         {
+            Preferences.Remove("UserId");
             await Navigation.PopToRootAsync();
         }
 
@@ -34,12 +51,12 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToTransferOptionDomesticClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TransferOptionDomestic(_transactionItemDatabase));
+            await Navigation.PushAsync(new TransferOptionDomestic(database));
         }
 
         private async void OnButtonGoToTransferOptionPhoneClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TransferOptionPhone(_transactionItemDatabase));
+            await Navigation.PushAsync(new TransferOptionPhone(database));
         }
     }
 }
