@@ -30,11 +30,13 @@
 
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToMainViewPage"
                         Text="Zaloguj"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToMainViewPageClicked" />
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToRegisterPage"
                         Text="Nie masz konta ? Zarejestruj się"
                         HorizontalOptions="End"
                         FontAttributes="Italic"

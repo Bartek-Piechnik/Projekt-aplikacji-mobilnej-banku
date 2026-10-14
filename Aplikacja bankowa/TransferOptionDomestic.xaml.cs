@@ -9,6 +9,9 @@
 
         private async void OnButtonTransferClicked(object sender, EventArgs e)
         {
+            await ButtonTransfer.ScaleToAsync(1.1, 150);
+            await ButtonTransfer.ScaleToAsync(1.0, 150);
+            
             var RecipientsAccount = EntryRecipientsAccount.Text;
             var RecipientNameAndSurname = EntryRecipientNameAndSurname.Text;
             var TransferReference = EntryTransferReference.Text;
