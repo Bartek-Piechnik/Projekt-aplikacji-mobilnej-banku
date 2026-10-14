@@ -19,7 +19,7 @@
 
             if (string.IsNullOrEmpty(RecipientsPhoneNumber) || string.IsNullOrEmpty(RecipientNameAndSurname) || string.IsNullOrEmpty(TransferReference) || string.IsNullOrEmpty(TransferAmount))
             {
-                await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
             }
             else
             {

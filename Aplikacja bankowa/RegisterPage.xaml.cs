@@ -23,13 +23,13 @@
 
             if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Surname) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(PhoneNumber) || string.IsNullOrEmpty(AccountBalance) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(RepeatedPassword))
             {
-                await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
 
             if (Password != RepeatedPassword)
             {
-                await DisplayAlert("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
+                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
                 return;
             }
 
