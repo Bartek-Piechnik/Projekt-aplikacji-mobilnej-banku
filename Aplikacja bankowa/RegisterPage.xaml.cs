@@ -9,6 +9,9 @@
 
         private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
         {
+            await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
+            await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
+            
             var Name = EntryName.Text;
             var Surname = EntrySurname.Text;
             var DateOfBirth = DatePickerDateOfBirth.Date;

@@ -21,6 +21,7 @@
 
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonLogOut"
                         Grid.Column="0"
                         Grid.Row="0"
                         ImageSource="logout.png"
@@ -30,6 +31,7 @@
                         Clicked="OnButtonLogOutClicked" />
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToMenuPage"
                         Grid.Column="1"
                         Grid.Row="0"
                         ImageSource="menu.png"
@@ -176,6 +178,7 @@
                         Margin="0, 5, 0, 10">
                         <Button
                             Style="{StaticResource Button}"
+                            x:Name="ButtonGoToTransferOptionBLIK"
                             Text="BLIK"
                             FontSize="18"
                             HeightRequest="75"
@@ -183,6 +186,7 @@
                             Clicked="OnButtonGoToTransferOptionBLIKClicked" />
                         <Button
                             Style="{StaticResource Button}"
+                            x:Name="ButtonGoToTransferOptionDomestic"
                             Text="Krajowy"
                             FontSize="18"
                             HeightRequest="75"
@@ -190,6 +194,7 @@
                             Clicked="OnButtonGoToTransferOptionDomesticClicked" />
                         <Button
                             Style="{StaticResource Button}"
+                            x:Name="ButtonGoToTransferOptionPhone"
                             Text="Telefon"
                             FontSize="18"
                             HeightRequest="75"

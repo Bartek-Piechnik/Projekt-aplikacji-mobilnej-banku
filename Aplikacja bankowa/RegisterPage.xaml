@@ -82,6 +82,7 @@
                     </Border>
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToLoginPage"
                         Text="Zarejestruj"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToLoginPageClicked" />

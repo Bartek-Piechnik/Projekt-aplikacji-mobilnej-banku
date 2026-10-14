@@ -81,6 +81,7 @@
 
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToMenuPage"
                         Text="Zmień"
                         Clicked="OnButtonGoToMenuPageClicked" />
                 </VerticalStackLayout>

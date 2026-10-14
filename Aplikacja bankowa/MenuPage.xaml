@@ -17,18 +17,21 @@
                 <VerticalStackLayout Padding="0, 0, 0, 10">
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToMyDataPage"
                         Text="Moje dane"
                         FontSize="25"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToMyDataPageClicked" />
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToChangePasswordPage"
                         Text="Zmiana hasła"
                         FontSize="25"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToChangePasswordPageClicked" />
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonGoToPaymentLimitPage"
                         Text="Limit płatności"
                         FontSize="25"
                         Margin="15, 20, 15, 0"
