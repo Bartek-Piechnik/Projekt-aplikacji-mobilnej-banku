@@ -34,17 +34,17 @@
             }
             else if (Email != EMAIL && Password == PASSWORD)
             {
-                await DisplayAlert("Błąd", "Login jest niepoprawny", "OK");
+                await DisplayAlertAsync("Błąd", "Login jest niepoprawny", "OK");
                 EntryEmail.Text = "";
             }
             else if(Email == EMAIL && Password != PASSWORD) 
             {
-                await DisplayAlert("Błąd", "Hasło jest niepoprawne", "OK");
+                await DisplayAlertAsync("Błąd", "Hasło jest niepoprawne", "OK");
                 EntryPassword.Text = "";
             }
             else
             {
-                await DisplayAlert("Błąd", "Login i hasło są niepoprawne", "OK");
+                await DisplayAlertAsync("Błąd", "Login i hasło są niepoprawne", "OK");
                 EntryEmail.Text = "";
                 EntryPassword.Text = "";
             }

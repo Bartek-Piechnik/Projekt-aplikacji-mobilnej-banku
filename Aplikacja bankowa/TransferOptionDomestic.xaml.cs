@@ -34,7 +34,7 @@
 
             if (string.IsNullOrEmpty(RecipientsAccount) || string.IsNullOrEmpty(RecipientNameAndSurname) || string.IsNullOrEmpty(TransferReference) || string.IsNullOrEmpty(TransferAmount) || string.IsNullOrEmpty(TransferType))
             {
-                await DisplayAlert("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
             }
             else
             {
