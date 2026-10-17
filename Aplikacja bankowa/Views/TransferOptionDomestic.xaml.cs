@@ -17,6 +17,14 @@ namespace Aplikacja_bankowa
             BindingContext = this;
         }
 
+        private void OnTransferTypeChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (sender is RadioButton radioButton)
+            {
+                Item.TransferType = radioButton.Content.ToString()!;
+            }
+        }
+
         private async void OnButtonTransferClicked(object sender, EventArgs e)
         {
             await ButtonTransfer.ScaleToAsync(1.1, 150);
@@ -27,9 +35,16 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
+            else if (Item.TransferAmount <= 0)
+            {
+                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
+                return;
+            }
 
             await database.SaveTransactionsAsync(Item);
             await Navigation.PopAsync();
         }
+
+        
     }
 }

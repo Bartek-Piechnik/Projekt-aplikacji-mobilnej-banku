@@ -27,7 +27,12 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
-            
+            else if (Item.TransferAmount <= 0)
+            {
+                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
+                return;
+            }
+
             await database.SaveTransactionsAsync(Item);
             await Navigation.PopAsync();
         }

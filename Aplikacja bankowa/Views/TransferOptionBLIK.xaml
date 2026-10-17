@@ -16,6 +16,7 @@
                     <Border Style="{StaticResource BorderEntry}">
                         <Label
                             Style="{StaticResource LabelForm}"
+                            x:Name="LabelCode"
                             Text="123 456"
                             FontSize="30"
                             Padding="10"

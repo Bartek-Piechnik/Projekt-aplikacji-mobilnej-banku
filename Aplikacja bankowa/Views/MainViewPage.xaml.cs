@@ -6,7 +6,6 @@ namespace Aplikacja_bankowa
     public partial class MainViewPage : ContentPage
     {
         private readonly Database database;
-        public TransactionsItem Item { get; set; }
         
         public MainViewPage(Database database_)
         {

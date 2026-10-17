@@ -72,15 +72,21 @@
                                 FontSize="15" />
                             <RadioButton
                                 x:Name="RadioButtonStandard"
-                                Content="Standardowy">
+                                Content="Standardowy"
+                                CheckedChanged="OnTransferTypeChanged"
+                                TextColor="Black">
                             </RadioButton>
                             <RadioButton
                                 x:Name="RadioButtonBlueCash"
-                                Content="BlueCash">
+                                Content="BlueCash"
+                                CheckedChanged="OnTransferTypeChanged"
+                                TextColor="Black">
                             </RadioButton>
                             <RadioButton
                                 x:Name="RadioButtonExpressElixir"
-                                Content="Express Elixir">
+                                Content="Express Elixir"
+                                CheckedChanged="OnTransferTypeChanged"
+                                TextColor="Black">
                             </RadioButton>
                         </VerticalStackLayout>
                     </Border>

@@ -21,14 +21,26 @@ namespace Aplikacja_bankowa
             await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
             await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
 
+            var users = await database.GetItemsAsync();
+            
             var RepeatedPassword = EntryRepeatedPassword.Text;
+            
 
             if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) || string.IsNullOrEmpty(Item.Password) || string.IsNullOrEmpty(RepeatedPassword))
             {
+                
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
+            Item.Email = Item.Email.Trim().ToLowerInvariant();
+            var userEmail = users.FirstOrDefault(x =>
+                        x.Email == Item.Email);
 
+            if (userEmail != null)
+            {
+                await DisplayAlertAsync("Błąd", "Email niedostępny!", "OK");
+                return;
+            }
             if (Item.Password != RepeatedPassword)
             {
                 await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
