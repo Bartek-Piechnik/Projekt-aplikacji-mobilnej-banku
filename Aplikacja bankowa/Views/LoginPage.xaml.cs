@@ -16,11 +16,16 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
+            await ButtonGoToRegisterPage.ScaleToAsync(1.1, 150);
+            await ButtonGoToRegisterPage.ScaleToAsync(1.0, 150);
+
             await Navigation.PushAsync(new RegisterPage(database));
         }
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
+            await ButtonGoToMainViewPage.ScaleToAsync(1.1, 150);
+            await ButtonGoToMainViewPage.ScaleToAsync(1.0, 150);
             var users = await database.GetItemsAsync();
             
             var email = EntryEmail.Text;

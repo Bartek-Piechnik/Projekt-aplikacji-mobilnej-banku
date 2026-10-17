@@ -51,6 +51,7 @@
 
                     <Button
                         Style="{StaticResource Button}"
+                        x:Name="ButtonTransfer"
                         Text="Przelej"
                         HorizontalOptions="Center"
                         Clicked="OnButtonTransferClicked" />

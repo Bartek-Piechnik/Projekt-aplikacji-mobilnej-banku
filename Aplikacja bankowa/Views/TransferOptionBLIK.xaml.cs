@@ -9,6 +9,9 @@
 
         private async void OnButtonCopyCodeClicked(object sender, EventArgs e)
         {
+            await ButtonCopyCode.ScaleToAsync(1.1, 150);
+            await ButtonCopyCode.ScaleToAsync(1.0, 150);
+
             await Navigation.PopAsync();
         }
     }

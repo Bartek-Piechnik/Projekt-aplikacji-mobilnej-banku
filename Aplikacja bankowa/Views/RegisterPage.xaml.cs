@@ -18,6 +18,9 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
         {
+            await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
+            await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
+
             var RepeatedPassword = EntryRepeatedPassword.Text;
 
             if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) || string.IsNullOrEmpty(Item.Password) || string.IsNullOrEmpty(RepeatedPassword))
