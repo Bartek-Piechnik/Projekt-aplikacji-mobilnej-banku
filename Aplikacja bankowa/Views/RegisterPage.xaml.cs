@@ -9,22 +9,50 @@ namespace Aplikacja_bankowa
         public UsersItem Item { get; set; }
         public RegisterPage(Database database_)
         {
-            InitializeComponent();
-
+            InitializeComponent(); 
             database = database_;
             Item = new UsersItem();
             BindingContext = this;
         }
 
+           
+        private void OnButtonChangeVisibilityPasswordClicked(object sender, EventArgs e)
+        {
+            if (EntryPassword.IsPassword)
+            {
+                EntryPassword.IsPassword = false;
+                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_on.png";
+            }
+            else
+            {
+                EntryPassword.IsPassword = true;
+                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_off.png";
+            }
+        }
+        
+        private void OnButtonChangeVisibilityRepeatedPasswordClicked(object sender, EventArgs e)
+        {
+            if (EntryRepeatedPassword.IsPassword)
+            {
+                EntryRepeatedPassword.IsPassword = false;
+                ButtonChangeVisibilityRepeatedPassword.ImageSource = "password_visibility_on.png";
+            }
+            else
+            {
+                EntryRepeatedPassword.IsPassword = true;
+                ButtonChangeVisibilityRepeatedPassword.ImageSource = "password_visibility_off.png";
+            }
+        }
+        
         private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
         {
             await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
             await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
-
+            
             var users = await database.GetItemsAsync();
             
             var RepeatedPassword = EntryRepeatedPassword.Text;
-            
+
 
             if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) || string.IsNullOrEmpty(Item.Password) || string.IsNullOrEmpty(RepeatedPassword))
             {

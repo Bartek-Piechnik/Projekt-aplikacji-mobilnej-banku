@@ -21,11 +21,21 @@
                             Placeholder="Podaj adres e-mail" />
                     </Border>
                     <Border Style="{StaticResource BorderEntry}">
-                        <Entry
-                            Style="{StaticResource EntryForm}"
-                            x:Name="EntryPassword"
-                            Keyboard="Password"
-                            Placeholder="Podaj hasło" />
+                        <Grid ColumnDefinitions="*, 50">
+                            <Entry
+                                Grid.Column="0"
+                                Style="{StaticResource EntryForm}"
+                                x:Name="EntryPassword"
+                                Keyboard="Text"
+                                Placeholder="Podaj hasło" 
+                                IsPassword="True" 
+                                HorizontalOptions="Fill"/>
+                            <Button
+                                Grid.Column="1"
+                                Style="{StaticResource ButtonChangeVisibilityPassword}"
+                                x:Name="ButtonChangeVisibilityPassword"
+                                Clicked="OnButtonChangeVisibilityPasswordClicked" />
+                        </Grid>
                     </Border>
 
                     <Button

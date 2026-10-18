@@ -14,11 +14,25 @@ namespace Aplikacja_bankowa
             BindingContext = this;
         }
 
+        private void OnButtonChangeVisibilityPasswordClicked(object sender, EventArgs e)
+        {
+            if (EntryPassword.IsPassword)
+            {
+                EntryPassword.IsPassword = false;
+                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_on.png";
+            }
+            else
+            {
+                EntryPassword.IsPassword = true;
+                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_off.png";
+            }
+        }
+        
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
             await ButtonGoToRegisterPage.ScaleToAsync(1.1, 150);
             await ButtonGoToRegisterPage.ScaleToAsync(1.0, 150);
-
+            
             await Navigation.PushAsync(new RegisterPage(database));
         }
 

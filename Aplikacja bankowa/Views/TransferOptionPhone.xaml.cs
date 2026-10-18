@@ -21,7 +21,7 @@ namespace Aplikacja_bankowa
         {
             await ButtonTransfer.ScaleToAsync(1.1, 150);
             await ButtonTransfer.ScaleToAsync(1.0, 150);
-
+            
             if (string.IsNullOrEmpty(Item.RecipientsPhoneNumber) || string.IsNullOrEmpty(Item.RecipientNameAndSurname) || string.IsNullOrEmpty(Item.TransferReference))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");

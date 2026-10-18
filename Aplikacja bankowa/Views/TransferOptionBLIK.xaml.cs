@@ -11,7 +11,7 @@
         {
             await ButtonCopyCode.ScaleToAsync(1.1, 150);
             await ButtonCopyCode.ScaleToAsync(1.0, 150);
-
+            
             await Clipboard.Default.SetTextAsync(LabelCode.Text);
 
             await DisplayAlertAsync("Sukces", "Kod został skopiowany!", "OK");
