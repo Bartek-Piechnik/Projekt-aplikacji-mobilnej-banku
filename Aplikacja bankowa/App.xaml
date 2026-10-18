@@ -89,6 +89,13 @@
                 <Setter Property="VerticalOptions" Value="Center"></Setter>
                 <Setter Property="CornerRadius" Value="20"></Setter>
             </Style>
+            
+            <Style x:Key="ButtonChangeVisibilityPassword" TargetType="Button" BasedOn="{StaticResource Button}">
+                <Setter Property="ImageSource" Value="password_visibility_off.png"></Setter>
+                <Setter Property="HeightRequest" Value="45"></Setter>
+                <Setter Property="WidthRequest" Value="45"></Setter>
+                <Setter Property="HorizontalOptions" Value="End"></Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

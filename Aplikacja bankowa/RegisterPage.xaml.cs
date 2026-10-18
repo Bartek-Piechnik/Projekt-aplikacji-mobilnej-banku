@@ -7,6 +7,34 @@
             InitializeComponent();
         }
 
+        private void OnButtonChangeVisibilityPasswordClicked(object sender, EventArgs e)
+        {
+            if (EntryPassword.IsPassword)
+            {
+                EntryPassword.IsPassword = false;
+                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_on.png";
+            }
+            else
+            {
+                EntryPassword.IsPassword = true;
+                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_off.png";
+            }
+        }
+        
+        private void OnButtonChangeVisibilityRepeatedPasswordClicked(object sender, EventArgs e)
+        {
+            if (EntryRepeatedPassword.IsPassword)
+            {
+                EntryRepeatedPassword.IsPassword = false;
+                ButtonChangeVisibilityRepeatedPassword.ImageSource = "password_visibility_on.png";
+            }
+            else
+            {
+                EntryRepeatedPassword.IsPassword = true;
+                ButtonChangeVisibilityRepeatedPassword.ImageSource = "password_visibility_off.png";
+            }
+        }
+        
         private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
         {
             await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
