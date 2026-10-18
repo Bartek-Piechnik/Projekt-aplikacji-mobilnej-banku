@@ -62,7 +62,15 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
-
+            
+            Random random = new Random();
+            var number1 = random.Next(0, 10000000);
+            var number2 = random.Next(0, 10000000);
+            var number3 = random.Next(0, 10000000);
+            var number4 = random.Next(0, 100000); 
+            var recipientsAccount = number1.ToString("D7") + number2.ToString("D7") + number3.ToString("D7") + number4.ToString("D5");
+            Preferences.Set("recipientsAccount", recipientsAccount);
+            
             Item.Email = Item.Email.Trim().ToLowerInvariant();
             var userEmail = users.FirstOrDefault(x =>
                 x.Email == Item.Email);
@@ -78,7 +86,7 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
                 return;
             }
-
+            
             await database.SaveItemAsync(Item);
             await Navigation.PopAsync();
         }

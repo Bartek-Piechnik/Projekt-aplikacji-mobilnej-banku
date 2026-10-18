@@ -57,7 +57,7 @@
                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 220, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Label
-                        Text="01 2345 6789 1011 1213 1415 1617"
+                        x:Name="LabelRecipientsAccount"
                         TextColor="White"
                         FontSize="17"
                         FontAttributes="Bold"
@@ -72,7 +72,6 @@
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Label
                         x:Name="LabelAvailableFunds"
-                        Text=""
                         TextColor="White"
                         FontSize="18"
                         FontAttributes="Bold"

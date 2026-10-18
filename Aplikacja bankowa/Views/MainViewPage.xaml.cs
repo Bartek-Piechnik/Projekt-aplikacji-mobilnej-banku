@@ -12,6 +12,9 @@ namespace Aplikacja_bankowa
             InitializeComponent();
             database = database_;
             BindingContext = this;
+            
+            var RecipientsAccount = Preferences.Get("recipientsAccount", string.Empty);
+            LabelRecipientsAccount.Text = RecipientsAccount;
         }
 
         protected override async void OnAppearing()
