@@ -80,7 +80,8 @@
                                 Keyboard="Text"
                                 Placeholder="Podaj hasło" 
                                 IsPassword="True" 
-                                HorizontalOptions="Fill"/>
+                                HorizontalOptions="Fill"
+                                Text="{Binding Item.Password}"/>
                             <Button
                                 Grid.Column="1"
                                 Style="{StaticResource ButtonChangeVisibilityPassword}"

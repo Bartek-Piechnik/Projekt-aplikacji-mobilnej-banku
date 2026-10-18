@@ -23,11 +23,7 @@ namespace Aplikacja_bankowa
             {
                 Item.TransferType = radioButton.Content.ToString()!;
             }
-            else if (RadioButtonBlueCash.IsChecked)
-            {
-                TransferType = RadioButtonBlueCash.Content.ToString();
-            }
-
+        }
         private async void OnButtonTransferClicked(object sender, EventArgs e)
             {
             await ButtonTransfer.ScaleToAsync(1.1, 150);
