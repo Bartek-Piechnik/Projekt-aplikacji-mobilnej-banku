@@ -16,12 +16,12 @@ namespace Aplikacja_bankowa
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 
             builder.Services.AddSingleton<Database>();
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<RegisterPage>();
-            
+
             return builder.Build();
         }
     }

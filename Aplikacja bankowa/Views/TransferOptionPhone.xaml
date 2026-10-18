@@ -18,8 +18,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsPhoneNumber"
                             Keyboard="Telephone"
-                            Placeholder="Podaj numer telefonu odbiorcy" 
-                            Text="{Binding Item.RecipientsPhoneNumber}"/>
+                            Placeholder="Podaj numer telefonu odbiorcy"
+                            Text="{Binding Item.RecipientsPhoneNumber}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -27,8 +27,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientNameAndSurname"
                             Keyboard="Text"
-                            Placeholder="Podaj imię i nazwisko odbiorcy" 
-                            Text="{Binding Item.RecipientNameAndSurname}"/>
+                            Placeholder="Podaj imię i nazwisko odbiorcy"
+                            Text="{Binding Item.RecipientNameAndSurname}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -36,8 +36,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
-                            Placeholder="Podaj tytuł przelewu" 
-                            Text="{Binding Item.TransferReference}"/>
+                            Placeholder="Podaj tytuł przelewu"
+                            Text="{Binding Item.TransferReference}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -45,8 +45,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj kwotę przelewu" 
-                            Text="{Binding Item.TransferAmount}"/>
+                            Placeholder="Podaj kwotę przelewu"
+                            Text="{Binding Item.TransferAmount}" />
                     </Border>
 
                     <Button

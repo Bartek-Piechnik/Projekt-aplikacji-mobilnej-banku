@@ -6,7 +6,7 @@
         {
             InitializeComponent();
         }
-        
+
         private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
         {
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);

@@ -6,7 +6,7 @@ namespace Aplikacja_bankowa
     public partial class MainViewPage : ContentPage
     {
         private readonly Database database;
-        
+
         public MainViewPage(Database database_)
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace Aplikacja_bankowa
             else
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
-        }
+            }
         }
 
         private async void OnButtonLogOutClicked(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Aplikacja_bankowa
         {
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
-            
+
             await Navigation.PushAsync(new MenuPage());
         }
 
@@ -53,7 +53,7 @@ namespace Aplikacja_bankowa
         {
             await ButtonGoToTransferOptionBLIK.ScaleToAsync(1.1, 150);
             await ButtonGoToTransferOptionBLIK.ScaleToAsync(1.0, 150);
-            
+
             await Navigation.PushAsync(new TransferOptionBLIK());
         }
 
@@ -61,7 +61,7 @@ namespace Aplikacja_bankowa
         {
             await ButtonGoToTransferOptionDomestic.ScaleToAsync(1.1, 150);
             await ButtonGoToTransferOptionDomestic.ScaleToAsync(1.0, 150);
-            
+
             await Navigation.PushAsync(new TransferOptionDomestic(database));
         }
 
@@ -69,7 +69,7 @@ namespace Aplikacja_bankowa
         {
             await ButtonGoToTransferOptionPhone.ScaleToAsync(1.1, 150);
             await ButtonGoToTransferOptionPhone.ScaleToAsync(1.0, 150);
-            
+
             await Navigation.PushAsync(new TransferOptionPhone(database));
         }
     }

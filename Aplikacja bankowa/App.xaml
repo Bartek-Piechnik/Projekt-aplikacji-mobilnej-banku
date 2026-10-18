@@ -10,7 +10,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
             <Style x:Key="VerticalStackLayout" TargetType="VerticalStackLayout">
                 <Setter Property="BackgroundColor" Value="#8bc34a" />
                 <Setter Property="Spacing" Value="20" />
@@ -23,7 +23,7 @@
                 <Setter Property="Spacing" Value="20" />
                 <Setter Property="Padding" Value="15" />
             </Style>
-            
+
             <Style x:Key="BorderWhiteSection" TargetType="Border">
                 <Setter Property="StrokeShape">
                     <Setter.Value>
@@ -31,7 +31,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            
+
             <Style x:Key="BorderEntry" TargetType="Border">
                 <Setter Property="StrokeShape">
                     <Setter.Value>
@@ -40,7 +40,7 @@
                 </Setter>
                 <Setter Property="BackgroundColor" Value="#ddeedf"></Setter>
             </Style>
-            
+
             <Style x:Key="LabelHeader" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="35" />
@@ -68,7 +68,7 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="PlaceholderColor" Value="#444444" />
             </Style>
-            
+
             <Style x:Key="DatePickerForm" TargetType="DatePicker">
                 <Setter Property="FontAttributes" Value="Bold"></Setter>
                 <Setter Property="FontSize" Value="15"></Setter>
@@ -89,7 +89,7 @@
                 <Setter Property="VerticalOptions" Value="Center"></Setter>
                 <Setter Property="CornerRadius" Value="20"></Setter>
             </Style>
-            
+
             <Style x:Key="ButtonChangeVisibilityPassword" TargetType="Button" BasedOn="{StaticResource Button}">
                 <Setter Property="ImageSource" Value="password_visibility_off.png"></Setter>
                 <Setter Property="HeightRequest" Value="45"></Setter>

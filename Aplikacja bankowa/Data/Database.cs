@@ -22,6 +22,7 @@ public class Database
         await Init();
         return await database.Table<UsersItem>().ToListAsync();
     }
+
     public async Task<List<TransactionsItem>> GetTransactionsAsync()
     {
         await Init();
@@ -33,6 +34,7 @@ public class Database
         await Init();
         return await database.Table<UsersItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
     }
+
     public async Task<TransactionsItem> GetTransactionsAsync(int id)
     {
         await Init();
@@ -51,6 +53,7 @@ public class Database
             return await database.InsertAsync(item);
         }
     }
+
     public async Task<int> SaveTransactionsAsync(TransactionsItem item)
     {
         await Init();
@@ -69,6 +72,7 @@ public class Database
         await Init();
         return await database.DeleteAsync(item);
     }
+
     public async Task<int> DeleteTransactionsAsync(TransactionsItem item)
     {
         await Init();

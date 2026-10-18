@@ -19,7 +19,7 @@
                             x:Name="EntryName"
                             Keyboard="Text"
                             Placeholder="Podaj imię"
-                            Text="{Binding Item.Name}"/>
+                            Text="{Binding Item.Name}" />
                     </Border>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
@@ -27,7 +27,7 @@
                             x:Name="EntrySurname"
                             Keyboard="Text"
                             Placeholder="Podaj nazwisko"
-                            Text="{Binding Item.Surname}"/>
+                            Text="{Binding Item.Surname}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -50,7 +50,7 @@
                             x:Name="EntryEmail"
                             Keyboard="Email"
                             Placeholder="Podaj adres e-mail"
-                            Text="{Binding Item.Email}"/>
+                            Text="{Binding Item.Email}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -59,7 +59,7 @@
                             x:Name="EntryPhoneNumber"
                             Keyboard="Telephone"
                             Placeholder="Podaj numer telefonu"
-                            Text="{Binding Item.PhoneNumber}"/>
+                            Text="{Binding Item.PhoneNumber}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -68,7 +68,7 @@
                             x:Name="EntryAccountBalance"
                             Keyboard="Numeric"
                             Placeholder="Podaj saldo konta"
-                            Text="{Binding Item.AccountBalance}"/>
+                            Text="{Binding Item.AccountBalance}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -78,10 +78,10 @@
                                 Style="{StaticResource EntryForm}"
                                 x:Name="EntryPassword"
                                 Keyboard="Text"
-                                Placeholder="Podaj hasło" 
-                                IsPassword="True" 
+                                Placeholder="Podaj hasło"
+                                IsPassword="True"
                                 HorizontalOptions="Fill"
-                                Text="{Binding Item.Password}"/>
+                                Text="{Binding Item.Password}" />
                             <Button
                                 Grid.Column="1"
                                 Style="{StaticResource ButtonChangeVisibilityPassword}"
@@ -89,7 +89,7 @@
                                 Clicked="OnButtonChangeVisibilityPasswordClicked" />
                         </Grid>
                     </Border>
-                    
+
                     <Border Style="{StaticResource BorderEntry}">
                         <Grid ColumnDefinitions="*, 50">
                             <Entry
@@ -97,9 +97,9 @@
                                 Style="{StaticResource EntryForm}"
                                 x:Name="EntryRepeatedPassword"
                                 Keyboard="Text"
-                                Placeholder="Powtórz hasło" 
-                                IsPassword="True" 
-                                HorizontalOptions="Fill"/>
+                                Placeholder="Powtórz hasło"
+                                IsPassword="True"
+                                HorizontalOptions="Fill" />
                             <Button
                                 Grid.Column="1"
                                 Style="{StaticResource ButtonChangeVisibilityPassword}"
@@ -107,7 +107,7 @@
                                 Clicked="OnButtonChangeVisibilityRepeatedPasswordClicked" />
                         </Grid>
                     </Border>
-                    
+
                     <Button
                         Style="{StaticResource Button}"
                         x:Name="ButtonGoToLoginPage"

@@ -6,6 +6,7 @@
         {
             InitializeComponent();
         }
+
         private async void OnButtonGoToMyDataPageClicked(object sender, EventArgs e)
         {
             await ButtonGoToMyDataPage.ScaleToAsync(1.1, 150);

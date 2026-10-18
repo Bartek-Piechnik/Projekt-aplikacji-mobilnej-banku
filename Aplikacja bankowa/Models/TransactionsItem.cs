@@ -4,8 +4,7 @@ namespace BankSQLite.Models;
 
 public class TransactionsItem
 {
-    [PrimaryKey, AutoIncrement]
-    public int ID { get; set; }
+    [PrimaryKey, AutoIncrement] public int ID { get; set; }
     public int RecipientId { get; set; }
     public string RecipientsAccount { get; set; } = string.Empty;
     public string RecipientNameAndSurname { get; set; } = string.Empty;

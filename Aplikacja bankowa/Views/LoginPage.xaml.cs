@@ -7,6 +7,7 @@ namespace Aplikacja_bankowa
     public partial class LoginPage : ContentPage
     {
         private readonly Database database;
+
         public LoginPage(Database database_)
         {
             InitializeComponent();
@@ -27,12 +28,12 @@ namespace Aplikacja_bankowa
                 ButtonChangeVisibilityPassword.ImageSource = "password_visibility_off.png";
             }
         }
-        
+
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
             await ButtonGoToRegisterPage.ScaleToAsync(1.1, 150);
             await ButtonGoToRegisterPage.ScaleToAsync(1.0, 150);
-            
+
             await Navigation.PushAsync(new RegisterPage(database));
         }
 
@@ -41,13 +42,13 @@ namespace Aplikacja_bankowa
             await ButtonGoToMainViewPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMainViewPage.ScaleToAsync(1.0, 150);
             var users = await database.GetItemsAsync();
-            
+
             var email = EntryEmail.Text;
             var password = EntryPassword.Text;
 
             var user = users.FirstOrDefault(x =>
-                        x.Email == email &&
-                        x.Password == password);
+                x.Email == email &&
+                x.Password == password);
             if (user != null)
             {
                 Preferences.Set("UserId", user.ID);

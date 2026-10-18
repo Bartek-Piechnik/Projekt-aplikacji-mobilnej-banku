@@ -7,22 +7,23 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         public TransactionsItem Item { get; set; }
-        
-        public TransferOptionPhone(Database  database_)
+
+        public TransferOptionPhone(Database database_)
         {
             InitializeComponent();
-            
+
             database = database_;
             Item = new TransactionsItem();
-            BindingContext =  this;
+            BindingContext = this;
         }
 
         private async void OnButtonTransferClicked(object sender, EventArgs e)
         {
             await ButtonTransfer.ScaleToAsync(1.1, 150);
             await ButtonTransfer.ScaleToAsync(1.0, 150);
-            
-            if (string.IsNullOrEmpty(Item.RecipientsPhoneNumber) || string.IsNullOrEmpty(Item.RecipientNameAndSurname) || string.IsNullOrEmpty(Item.TransferReference))
+
+            if (string.IsNullOrEmpty(Item.RecipientsPhoneNumber) ||
+                string.IsNullOrEmpty(Item.RecipientNameAndSurname) || string.IsNullOrEmpty(Item.TransferReference))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;

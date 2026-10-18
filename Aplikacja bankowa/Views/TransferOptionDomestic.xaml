@@ -18,8 +18,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsAccount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj rachunek odbiorcy" 
-                            Text="{Binding Item.RecipientsAccount}"/>
+                            Placeholder="Podaj rachunek odbiorcy"
+                            Text="{Binding Item.RecipientsAccount}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -27,8 +27,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientNameAndSurname"
                             Keyboard="Text"
-                            Placeholder="Podaj imię i nazwisko odbiorcy" 
-                            Text="{Binding Item.RecipientNameAndSurname}"/>
+                            Placeholder="Podaj imię i nazwisko odbiorcy"
+                            Text="{Binding Item.RecipientNameAndSurname}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -36,8 +36,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
-                            Placeholder="Podaj tytuł przelewu" 
-                            Text="{Binding Item.TransferReference}"/>
+                            Placeholder="Podaj tytuł przelewu"
+                            Text="{Binding Item.TransferReference}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -45,8 +45,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj kwotę przelewu" 
-                            Text="{Binding Item.TransferAmount}"/>
+                            Placeholder="Podaj kwotę przelewu"
+                            Text="{Binding Item.TransferAmount}" />
                     </Border>
 
                     <Border Style="{StaticResource BorderEntry}">
@@ -58,8 +58,8 @@
                                 FontSize="15" />
                             <DatePicker
                                 Style="{StaticResource DatePickerForm}"
-                                x:Name="DatePickerDateOfTransfer" 
-                                Date="{Binding Item.DateOfTransfer}"/>
+                                x:Name="DatePickerDateOfTransfer"
+                                Date="{Binding Item.DateOfTransfer}" />
                         </VerticalStackLayout>
                     </Border>
 

@@ -4,8 +4,7 @@ namespace BankSQLite.Models;
 
 public class UsersItem
 {
-    [PrimaryKey, AutoIncrement]
-    public int ID { get; set; }
+    [PrimaryKey, AutoIncrement] public int ID { get; set; }
     public string Name { get; set; } = String.Empty;
     public string Surname { get; set; } = String.Empty;
     public DateTime DateOfBirth { get; set; }

@@ -27,9 +27,9 @@
                                 Style="{StaticResource EntryForm}"
                                 x:Name="EntryPassword"
                                 Keyboard="Text"
-                                Placeholder="Podaj hasło" 
-                                IsPassword="True" 
-                                HorizontalOptions="Fill"/>
+                                Placeholder="Podaj hasło"
+                                IsPassword="True"
+                                HorizontalOptions="Fill" />
                             <Button
                                 Grid.Column="1"
                                 Style="{StaticResource ButtonChangeVisibilityPassword}"

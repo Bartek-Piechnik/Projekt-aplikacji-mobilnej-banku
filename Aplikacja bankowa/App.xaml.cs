@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-
 using BankSQLite.Data;
 using BankSQLite.Models;
 
@@ -8,6 +7,7 @@ namespace Aplikacja_bankowa
     public partial class App : Application
     {
         private readonly Database database;
+
         public App(Database database_)
         {
             InitializeComponent();
