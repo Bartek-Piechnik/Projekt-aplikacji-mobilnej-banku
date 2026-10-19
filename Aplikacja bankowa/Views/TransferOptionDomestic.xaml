@@ -13,6 +13,9 @@
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Rachunek odbiorcy"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -22,6 +25,9 @@
                             Text="{Binding Item.RecipientsAccount}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Imię i nazwisko odbiorcy"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -31,6 +37,9 @@
                             Text="{Binding Item.RecipientNameAndSurname}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Tytuł przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -40,6 +49,9 @@
                             Text="{Binding Item.TransferReference}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Kwota przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -49,27 +61,21 @@
                             Text="{Binding Item.TransferAmount}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Data przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
-                        <VerticalStackLayout>
-                            <Label
-                                Style="{StaticResource LabelForm}"
-                                Text="Podaj datę przelewu"
-                                HorizontalTextAlignment="Center"
-                                FontSize="15" />
-                            <DatePicker
-                                Style="{StaticResource DatePickerForm}"
-                                x:Name="DatePickerDateOfTransfer"
-                                Date="{Binding Item.DateOfTransfer}" />
-                        </VerticalStackLayout>
+                        <DatePicker
+                            Style="{StaticResource DatePickerForm}"
+                            x:Name="DatePickerDateOfTransfer"
+                            Date="{Binding Item.DateOfTransfer}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Typ przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <VerticalStackLayout>
-                            <Label
-                                Style="{StaticResource LabelForm}"
-                                Text="Wybierz typ przelewu"
-                                HorizontalTextAlignment="Center"
-                                FontSize="15" />
                             <RadioButton
                                 x:Name="RadioButtonStandard"
                                 Content="Standardowy"

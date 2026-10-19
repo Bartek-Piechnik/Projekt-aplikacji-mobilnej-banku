@@ -13,6 +13,9 @@
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Numer telefonu odbiorcy"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -22,6 +25,9 @@
                             Text="{Binding Item.RecipientsPhoneNumber}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Imię i nazwisko odbiorcy"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -31,6 +37,9 @@
                             Text="{Binding Item.RecipientNameAndSurname}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Tytuł przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -40,6 +49,9 @@
                             Text="{Binding Item.TransferReference}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Kwota przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"

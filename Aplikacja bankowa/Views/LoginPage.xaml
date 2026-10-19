@@ -13,6 +13,9 @@
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Adres e-mail"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -20,6 +23,9 @@
                             Keyboard="Email"
                             Placeholder="Podaj adres e-mail" />
                     </Border>
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Hasło"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Grid ColumnDefinitions="*, 50">
                             <Entry

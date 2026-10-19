@@ -13,6 +13,9 @@
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Imię"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -21,6 +24,10 @@
                             Placeholder="Podaj imię"
                             Text="{Binding Item.Name}" />
                     </Border>
+                    
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Nazwisko"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -29,21 +36,20 @@
                             Placeholder="Podaj nazwisko"
                             Text="{Binding Item.Surname}" />
                     </Border>
-
+                    
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Data urodzenia"/>
                     <Border Style="{StaticResource BorderEntry}">
-                        <VerticalStackLayout>
-                            <Label
-                                Style="{StaticResource LabelForm}"
-                                Text="Podaj datę urodzenia"
-                                HorizontalTextAlignment="Center"
-                                FontSize="15" />
-                            <DatePicker
-                                Style="{StaticResource DatePickerForm}"
-                                x:Name="DatePickerDateOfBirth"
-                                Date="{Binding Item.DateOfBirth}" />
-                        </VerticalStackLayout>
+                        <DatePicker
+                            Style="{StaticResource DatePickerForm}"
+                            x:Name="DatePickerDateOfBirth"
+                            Date="{Binding Item.DateOfBirth}" />
                     </Border>
-
+                    
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Email"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -53,6 +59,9 @@
                             Text="{Binding Item.Email}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Numer telefonu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -62,6 +71,9 @@
                             Text="{Binding Item.PhoneNumber}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Saldo konta"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"
@@ -71,6 +83,9 @@
                             Text="{Binding Item.AccountBalance}" />
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Hasło"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Grid ColumnDefinitions="*, 50">
                             <Entry
@@ -90,6 +105,9 @@
                         </Grid>
                     </Border>
 
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Powtórzone hasło"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Grid ColumnDefinitions="*, 50">
                             <Entry

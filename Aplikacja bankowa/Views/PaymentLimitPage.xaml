@@ -13,6 +13,9 @@
 
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Maksymalna kwota"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Entry
                             Style="{StaticResource EntryForm}"

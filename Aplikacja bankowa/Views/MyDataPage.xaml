@@ -10,74 +10,58 @@
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}"
                                      Padding="5">
-                    <VerticalStackLayout>
-                        <Label
-                            Style="{StaticResource LabelForm}"
-                            Text="Imię"
-                            HorizontalTextAlignment="Center"
-                            Padding="15" />
-                        <Border Style="{StaticResource BorderEntry}">
-                            <Entry
-                                Style="{StaticResource EntryForm}"
-                                x:Name="EntryName"
-                                Text="" />
-                        </Border>
-                    </VerticalStackLayout>
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Imię" />
+                    <Border Style="{StaticResource BorderEntry}">
+                        <Entry
+                            Style="{StaticResource EntryForm}"
+                            x:Name="EntryName"
+                            Placeholder="Podaj imię"
+                            Text="" />
+                    </Border>
 
-                    <VerticalStackLayout>
-                        <Label
-                            Style="{StaticResource LabelForm}"
-                            Text="Nazwisko"
-                            HorizontalTextAlignment="Center"
-                            Padding="15" />
-                        <Border Style="{StaticResource BorderEntry}">
-                            <Entry
-                                Style="{StaticResource EntryForm}"
-                                x:Name="EntrySurname"
-                                Text="" />
-                        </Border>
-                    </VerticalStackLayout>
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Nazwisko" />
+                    <Border Style="{StaticResource BorderEntry}">
+                        <Entry
+                            Style="{StaticResource EntryForm}"
+                            x:Name="EntrySurname"
+                            Placeholder="Podaj nazwisko"
+                            Text="" />
+                    </Border>
 
-                    <VerticalStackLayout>
-                        <Label
-                            Style="{StaticResource LabelForm}"
-                            Text="Data urodzenia"
-                            HorizontalTextAlignment="Center"
-                            Padding="15" />
-                        <Border Style="{StaticResource BorderEntry}">
-                            <DatePicker
-                                Style="{StaticResource DatePickerForm}"
-                                x:Name="DatePickerDateOfBirth" />
-                        </Border>
-                    </VerticalStackLayout>
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Data urodzenia" />
+                    <Border Style="{StaticResource BorderEntry}">
+                        <DatePicker
+                            Style="{StaticResource DatePickerForm}"
+                            x:Name="DatePickerDateOfBirth" />
+                    </Border>
 
-                    <VerticalStackLayout>
-                        <Label
-                            Style="{StaticResource LabelForm}"
-                            Text="Adres e-mail"
-                            HorizontalTextAlignment="Center"
-                            Padding="15" />
-                        <Border Style="{StaticResource BorderEntry}">
-                            <Entry
-                                Style="{StaticResource EntryForm}"
-                                x:Name="EntryEmail"
-                                Text="" />
-                        </Border>
-                    </VerticalStackLayout>
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Adres e-mail" />
+                    <Border Style="{StaticResource BorderEntry}">
+                        <Entry
+                            Style="{StaticResource EntryForm}"
+                            x:Name="EntryEmail"
+                            Placeholder="Podaj adres e-mail"
+                            Text="" />
+                    </Border>
 
-                    <VerticalStackLayout>
-                        <Label
-                            Style="{StaticResource LabelForm}"
-                            Text="Numer telefonu"
-                            HorizontalTextAlignment="Center"
-                            Padding="15" />
-                        <Border Style="{StaticResource BorderEntry}">
-                            <Entry
-                                Style="{StaticResource EntryForm}"
-                                x:Name="EntryPhoneNumber"
-                                Text="" />
-                        </Border>
-                    </VerticalStackLayout>
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Numer telefonu" />
+                    <Border Style="{StaticResource BorderEntry}">
+                        <Entry
+                            Style="{StaticResource EntryForm}"
+                            x:Name="EntryPhoneNumber"
+                            Placeholder="Podaj numer telefonu"
+                            Text="" />
+                    </Border>
 
                     <Button
                         Style="{StaticResource Button}"

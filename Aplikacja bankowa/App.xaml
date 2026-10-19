@@ -20,7 +20,7 @@
             <Style x:Key="VerticalStackLayoutWhiteSection" TargetType="VerticalStackLayout">
                 <Setter Property="BackgroundColor" Value="#f2f9f1" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Spacing" Value="20" />
+                <Setter Property="Spacing" Value="10" />
                 <Setter Property="Padding" Value="15" />
             </Style>
 
@@ -57,6 +57,12 @@
                 <Setter Property="FontFamily" Value="Arial"></Setter>
                 <Setter Property="TextColor" Value="Black"></Setter>
                 <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+            </Style>
+            
+            <Style x:Key="LabelFormMini" TargetType="Label" BasedOn="{StaticResource LabelForm}">
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="Padding" Value="15"></Setter>
             </Style>
 
             <Style x:Key="EntryForm" TargetType="Entry">
