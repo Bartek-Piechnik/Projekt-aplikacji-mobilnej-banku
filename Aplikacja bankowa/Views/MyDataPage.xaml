@@ -7,6 +7,10 @@
 
     <ScrollView>
         <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
+            <Label
+                Style="{StaticResource LabelHeader}"
+                Text="Zmień moje dane" />
+
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}"
                                      Padding="5">
