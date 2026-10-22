@@ -26,7 +26,6 @@
                             AbsoluteLayout.LayoutFlags="PositionProportional" />
                         <Label
                             x:Name="Labelinitials"
-                            Text=""
                             TextColor="White"
                             FontSize="50"
                             FontAttributes="Bold"
