@@ -1,10 +1,16 @@
-﻿namespace Aplikacja_bankowa
+﻿using BankSQLite.Data;
+
+namespace Aplikacja_bankowa
 {
     public partial class ChangePasswordPage : ContentPage
     {
-        public ChangePasswordPage()
+        private readonly Database database;
+        
+        public ChangePasswordPage(Database database_)
         {
             InitializeComponent();
+            database = database_;
+            BindingContext = this;
         }
 
         private void OnButtonChangeVisibilityOldPasswordClicked(object sender, EventArgs e)
@@ -40,7 +46,7 @@
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
 
-            await Navigation.PushAsync(new MenuPage());
+            await Navigation.PushAsync(new MenuPage(database));
         }
     }
 }

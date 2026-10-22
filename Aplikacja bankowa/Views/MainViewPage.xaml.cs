@@ -49,7 +49,7 @@ namespace Aplikacja_bankowa
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
 
-            await Navigation.PushAsync(new MenuPage());
+            await Navigation.PushAsync(new MenuPage(database));
         }
 
         private async void OnButtonGoToTransferOptionBLIKClicked(object sender, EventArgs e)

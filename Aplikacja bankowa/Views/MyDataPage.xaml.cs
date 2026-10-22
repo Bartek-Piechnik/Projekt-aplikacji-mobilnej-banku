@@ -1,18 +1,57 @@
-﻿namespace Aplikacja_bankowa
+﻿using BankSQLite.Data;
+using BankSQLite.Models;
+
+namespace Aplikacja_bankowa
 {
     public partial class MyDataPage : ContentPage
     {
-        public MyDataPage()
+        private readonly Database database;
+        
+        public MyDataPage(Database database_)
         {
             InitializeComponent();
+            database = database_;
+            BindingContext = this;
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            
+            var UserId = Preferences.Get("UserId", 0);
+            UsersItem user = await database.GetItemAsync(UserId);
+            
+            if (user != null)
+            {
+                var userName = user.Name;
+                var userSurname = user.Surname;
+                var userDateOfBirth = user.DateOfBirth;
+                var userEmail = user.Email;
+                var userPhoneNumber = user.PhoneNumber;
+                
+                var userNameFirstLetter = userName[0].ToString().ToUpper();
+                var userSurnameFirstLetter = userSurname[0].ToString().ToUpper();
+                var userInitials = userNameFirstLetter +  userSurnameFirstLetter;
+                Labelinitials.Text = $"{userInitials}";
+
+                EntryName.Text = $"{userName}";
+                EntrySurname.Text = $"{userSurname}";
+                DatePickerDateOfBirth.Date = userDateOfBirth ?? DateTime.Now;
+                EntryEmail.Text = $"{userEmail}";
+                EntryPhoneNumber.Text = $"{userPhoneNumber}";
+            }
+            else
+            {
+                await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
+            }
+        }
+        
         private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
         {
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
 
-            await Navigation.PushAsync(new MenuPage());
+            await Navigation.PushAsync(new MenuPage(database));
         }
     }
 }

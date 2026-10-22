@@ -14,6 +14,27 @@
             <Border Style="{StaticResource BorderWhiteSection}">
                 <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}"
                                      Padding="5">
+                    <AbsoluteLayout
+                        Margin="5"
+                        HeightRequest="150">
+                        <BoxView
+                            BackgroundColor="#8bc34a"
+                            WidthRequest="150"
+                            HeightRequest="150"
+                            CornerRadius="75"
+                            AbsoluteLayout.LayoutBounds="0.5, 0.5, 150, 150"
+                            AbsoluteLayout.LayoutFlags="PositionProportional" />
+                        <Label
+                            x:Name="Labelinitials"
+                            Text=""
+                            TextColor="White"
+                            FontSize="50"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            AbsoluteLayout.LayoutBounds="0.5, 0.5, 150, 150"
+                            AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    </AbsoluteLayout>
                     <Label
                         Style="{StaticResource LabelFormMini}"
                         Text="Imię" />
@@ -21,8 +42,7 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryName"
-                            Placeholder="Podaj imię"
-                            Text="" />
+                            Placeholder="Podaj imię"/>
                     </Border>
 
                     <Label
@@ -32,8 +52,7 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntrySurname"
-                            Placeholder="Podaj nazwisko"
-                            Text="" />
+                            Placeholder="Podaj nazwisko"/>
                     </Border>
 
                     <Label
@@ -42,7 +61,7 @@
                     <Border Style="{StaticResource BorderEntry}">
                         <DatePicker
                             Style="{StaticResource DatePickerForm}"
-                            x:Name="DatePickerDateOfBirth" />
+                            x:Name="DatePickerDateOfBirth"/>
                     </Border>
 
                     <Label
@@ -52,8 +71,7 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
-                            Placeholder="Podaj adres e-mail"
-                            Text="" />
+                            Placeholder="Podaj adres e-mail"/>
                     </Border>
 
                     <Label
@@ -63,8 +81,7 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPhoneNumber"
-                            Placeholder="Podaj numer telefonu"
-                            Text="" />
+                            Placeholder="Podaj numer telefonu"/>
                     </Border>
 
                     <Button
