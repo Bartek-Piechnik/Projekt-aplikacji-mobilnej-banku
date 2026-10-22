@@ -7,11 +7,13 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
 
+        public UsersItem Item { get; set; }
+
         public MyDataPage(Database database_)
         {
             InitializeComponent();
             database = database_;
-            BindingContext = this;
+            Item = new UsersItem();
         }
 
         protected override async void OnAppearing()
@@ -19,26 +21,13 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
 
             var UserId = Preferences.Get("UserId", 0);
-            UsersItem user = await database.GetItemAsync(UserId);
+            Item = await database.GetItemAsync(UserId);
 
-            if (user != null)
+            if (Item != null)
             {
-                var userName = user.Name;
-                var userSurname = user.Surname;
-                var userDateOfBirth = user.DateOfBirth;
-                var userEmail = user.Email;
-                var userPhoneNumber = user.PhoneNumber;
-
-                var userNameFirstLetter = userName[0].ToString().ToUpper();
-                var userSurnameFirstLetter = userSurname[0].ToString().ToUpper();
-                var userInitials = userNameFirstLetter + userSurnameFirstLetter;
+                BindingContext = this;
+                var userInitials = Item.Name[0].ToString().ToUpper() + Item.Surname[0].ToString().ToUpper();
                 Labelinitials.Text = $"{userInitials}";
-
-                EntryName.Text = $"{userName}";
-                EntrySurname.Text = $"{userSurname}";
-                DatePickerDateOfBirth.Date = userDateOfBirth ?? DateTime.Now;
-                EntryEmail.Text = $"{userEmail}";
-                EntryPhoneNumber.Text = $"{userPhoneNumber}";
             }
             else
             {
@@ -51,38 +40,28 @@ namespace Aplikacja_bankowa
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
             
-            var UserId = Preferences.Get("UserId", 0);
-            UsersItem user = await database.GetItemAsync(UserId);
-            
-            if (user == null)
+            if (Item == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
                 return;
             }
             
-            var userName = EntryName.Text?.Trim();
-            var userSurname = EntrySurname.Text?.Trim();
-            var userDateOfBirth = DatePickerDateOfBirth.Date;
-            var userEmail = EntryEmail.Text?.Trim();
-            var userPhoneNumber = EntryPhoneNumber.Text?.Trim();
+            Item.Name = Item.Name.Trim();
+            Item.Surname = Item.Surname.Trim();
+            Item.Email = Item.Email.Trim().ToLowerInvariant();
+            Item.PhoneNumber = Item.PhoneNumber.Trim();
             
-            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(userSurname) || userDateOfBirth == null || 
-                string.IsNullOrEmpty(userEmail) || string.IsNullOrEmpty(userPhoneNumber))
+            if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || Item.DateOfBirth == null || 
+                string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
             
-            user.Name = userName;
-            user.Surname = userSurname;
-            user.DateOfBirth = userDateOfBirth;
-            user.Email = userEmail;
-            user.PhoneNumber = userPhoneNumber;
-            
             var users = await database.GetItemsAsync();
             
             var userEmail_ = users.FirstOrDefault(x =>
-                x.Email.Equals(userEmail, StringComparison.OrdinalIgnoreCase) && x.ID != user.ID);
+                x.Email.Equals(Item.Email, StringComparison.OrdinalIgnoreCase) && x.ID != Item.ID);
 
             if (userEmail_ != null)
             {
@@ -90,7 +69,7 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            await database.SaveItemAsync(user);
+            await database.SaveItemAsync(Item);
             await Navigation.PopAsync();
         }
     }

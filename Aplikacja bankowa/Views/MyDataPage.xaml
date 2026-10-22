@@ -41,7 +41,8 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryName"
-                            Placeholder="Podaj imię"/>
+                            Placeholder="Podaj imię"
+                            Text="{Binding Item.Name}"/>
                     </Border>
 
                     <Label
@@ -51,7 +52,8 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntrySurname"
-                            Placeholder="Podaj nazwisko"/>
+                            Placeholder="Podaj nazwisko"
+                            Text="{Binding Item.Surname}"/>
                     </Border>
 
                     <Label
@@ -60,7 +62,8 @@
                     <Border Style="{StaticResource BorderEntry}">
                         <DatePicker
                             Style="{StaticResource DatePickerForm}"
-                            x:Name="DatePickerDateOfBirth"/>
+                            x:Name="DatePickerDateOfBirth"
+                            Date="{Binding Item.DateOfBirth}"/>
                     </Border>
 
                     <Label
@@ -70,7 +73,8 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
-                            Placeholder="Podaj adres e-mail"/>
+                            Placeholder="Podaj adres e-mail"
+                            Text="{Binding Item.Email}"/>
                     </Border>
 
                     <Label
@@ -80,7 +84,8 @@
                         <Entry
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPhoneNumber"
-                            Placeholder="Podaj numer telefonu"/>
+                            Placeholder="Podaj numer telefonu"
+                            Text="{Binding Item.PhoneNumber}"/>
                     </Border>
 
                     <Button
