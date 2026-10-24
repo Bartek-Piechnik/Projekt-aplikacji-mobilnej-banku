@@ -1,5 +1,6 @@
 ﻿using BankSQLite.Data;
 using BankSQLite.Models;
+using System.Security.Cryptography;
 
 namespace Aplikacja_bankowa
 {
@@ -59,14 +60,12 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            Random random = new Random();
-            var number1 = random.Next(0, 10000000);
-            var number2 = random.Next(0, 10000000);
-            var number3 = random.Next(0, 10000000);
-            var number4 = random.Next(0, 100000);
-            var recipientsAccount = number1.ToString("D7") + number2.ToString("D7") + number3.ToString("D7") +
-                                    number4.ToString("D5");
-            Preferences.Set("recipientsAccount", recipientsAccount);
+            Item.AccountNumber = string.Concat(
+                RandomNumberGenerator.GetInt32(0, 10_000_000).ToString("D7"),
+                RandomNumberGenerator.GetInt32(0, 10_000_000).ToString("D7"),
+                RandomNumberGenerator.GetInt32(0, 10_000_000).ToString("D7"),
+                RandomNumberGenerator.GetInt32(0, 100_000).ToString("D5")
+            );
 
             Item.Email = Item.Email.Trim().ToLowerInvariant();
             var userEmail = await database.GetItemByEmailAsync(Item.Email);

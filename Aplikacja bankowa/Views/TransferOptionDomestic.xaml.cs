@@ -30,8 +30,7 @@ namespace Aplikacja_bankowa
             await ButtonTransfer.ScaleToAsync(1.1, 150);
             await ButtonTransfer.ScaleToAsync(1.0, 150);
 
-            if (string.IsNullOrEmpty(Item.RecipientsAccount) || string.IsNullOrEmpty(Item.RecipientNameAndSurname) ||
-                string.IsNullOrEmpty(Item.TransferReference) || string.IsNullOrEmpty(Item.TransferType))
+            if (string.IsNullOrEmpty(Item.RecipientsAccount) || string.IsNullOrEmpty(Item.TransferReference) || string.IsNullOrEmpty(Item.TransferType))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
@@ -42,6 +41,16 @@ namespace Aplikacja_bankowa
                 return;
             }
 
+            var recipientsAccount = await database.GetItemByAccountNumberAsync(Item.RecipientsAccount);
+            if (recipientsAccount != null)
+            {
+                Item.RecipientNameAndSurname = $"{recipientsAccount.Name} {recipientsAccount.Surname}";
+            }
+            else
+            {
+                await DisplayAlertAsync("Błąd", "Nie znaleziono konta odbiorcy!", "OK");
+                return;
+            }
             await database.SaveTransactionsAsync(Item);
             await Navigation.PopAsync();
         }
