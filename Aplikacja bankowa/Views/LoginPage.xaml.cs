@@ -41,18 +41,15 @@ namespace Aplikacja_bankowa
         {
             await ButtonGoToMainViewPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMainViewPage.ScaleToAsync(1.0, 150);
-            var users = await database.GetItemsAsync();
-
+            
             var email = EntryEmail.Text;
             var password = EntryPassword.Text;
-
-            var user = users.FirstOrDefault(x =>
-                x.Email == email &&
-                x.Password == password);
-            if (user != null)
+            var user = await database.GetItemByEmailAsync(email);
+            if (user != null && user.Password == password)
             {
                 Preferences.Set("UserId", user.ID);
                 await Navigation.PushAsync(new MainViewPage(database));
+                
             }
             else
             {

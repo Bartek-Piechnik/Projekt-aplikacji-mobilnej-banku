@@ -49,10 +49,7 @@ namespace Aplikacja_bankowa
             await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
             await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
 
-            var users = await database.GetItemsAsync();
-
             var RepeatedPassword = EntryRepeatedPassword.Text;
-
 
             if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || Item.DateOfBirth == null ||
                 string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) ||
@@ -72,8 +69,7 @@ namespace Aplikacja_bankowa
             Preferences.Set("recipientsAccount", recipientsAccount);
 
             Item.Email = Item.Email.Trim().ToLowerInvariant();
-            var userEmail = users.FirstOrDefault(x =>
-                x.Email == Item.Email);
+            var userEmail = await database.GetItemByEmailAsync(Item.Email);
 
             if (userEmail != null)
             {

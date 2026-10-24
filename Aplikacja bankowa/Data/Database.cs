@@ -35,6 +35,12 @@ public class Database
         return await database.Table<UsersItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
     }
 
+    public async Task<UsersItem> GetItemByEmailAsync(string email)
+    {
+        await Init();
+        return await database.Table<UsersItem>().Where(i => i.Email == email).FirstOrDefaultAsync();
+    }
+
     public async Task<TransactionsItem> GetTransactionsAsync(int id)
     {
         await Init();

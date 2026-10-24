@@ -14,16 +14,16 @@ namespace Aplikacja_bankowa
             database = database_;
             BindingContext = this;
             
-            var RecipientsAccount = Preferences.Get("recipientsAccount", string.Empty);
-            LabelRecipientsAccount.Text = RecipientsAccount;
+            var recipientsAccount = Preferences.Get("recipientsAccount", string.Empty);
+            LabelRecipientsAccount.Text = recipientsAccount;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            var UserId = Preferences.Get("UserId", 0);
-            UsersItem user = await database.GetItemAsync(UserId);
+            var userId = Preferences.Get("UserId", 0);
+            UsersItem user = await database.GetItemAsync(userId);
 
             if (user != null)
             {
