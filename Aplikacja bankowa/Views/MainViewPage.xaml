@@ -91,12 +91,15 @@
                         FontAttributes="Bold"
                         AbsoluteLayout.LayoutBounds="0.1, 0.94, 170, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
-                    <Image
-                        Source="appiconfg.svg"
-                        WidthRequest="140"
-                        HeightRequest="140"
-                        AbsoluteLayout.LayoutBounds="0.95, 0.95, 140, 140"
-                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Button
+                        Style="{StaticResource Button}"
+                        x:Name="BlockUnblockCardButton"
+                        ImageSource="credit_card_on.png"
+                        WidthRequest="70"
+                        HeightRequest="70"
+                        AbsoluteLayout.LayoutBounds="0.95, 0.75, 70, 70"
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        Clicked="OnButtonBlockUnblockCardClicked"/>
                 </AbsoluteLayout>
             </VerticalStackLayout>
 

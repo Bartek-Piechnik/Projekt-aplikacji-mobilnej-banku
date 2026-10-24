@@ -6,6 +6,7 @@ namespace Aplikacja_bankowa
     public partial class MainViewPage : ContentPage
     {
         private readonly Database database;
+        private bool IsCardBlocked = false;
 
         public MainViewPage(Database database_)
         {
@@ -52,6 +53,24 @@ namespace Aplikacja_bankowa
             await Navigation.PushAsync(new MenuPage(database));
         }
 
+        private async void OnButtonBlockUnblockCardClicked(object sender, EventArgs e)
+        {
+            if (IsCardBlocked)
+            {
+                IsCardBlocked = false;
+                Preferences.Set("IsCardBlocked", false);
+                BlockUnblockCardButton.ImageSource = "credit_card_on.png";
+                await DisplayAlertAsync("Sukces", "Karta została pomyślnie odblokowana", "OK");
+            }
+            else
+            {
+                IsCardBlocked = true;
+                Preferences.Set("IsCardBlocked", true);
+                BlockUnblockCardButton.ImageSource =  "credit_card_off.png";
+                await DisplayAlertAsync("Sukces", "Karta została pomyślnie zablokowana", "OK");
+            }
+        }
+        
         private async void OnButtonGoToTransferOptionBLIKClicked(object sender, EventArgs e)
         {
             await ButtonGoToTransferOptionBLIK.ScaleToAsync(1.1, 150);
