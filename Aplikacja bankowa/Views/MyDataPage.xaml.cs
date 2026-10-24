@@ -68,7 +68,8 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Błąd", "Email niedostępny!", "OK");
                 return;
             }
-
+            
+            await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono dane:\n Imię: {Item.Name},\n Nazwisko: {Item.Surname},\n Data urodzenia: {Item.DateOfBirth},\n Adres e-mail: {Item.Email},\n Numer telefonu: {Item.PhoneNumber}", "OK");
             await database.SaveItemAsync(Item);
             await Navigation.PopAsync();
         }
