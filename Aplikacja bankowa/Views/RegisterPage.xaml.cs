@@ -1,4 +1,5 @@
-﻿using BankSQLite.Data;
+﻿using BankSQLite;
+using BankSQLite.Data;
 using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
@@ -49,16 +50,23 @@ namespace Aplikacja_bankowa
             await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
             await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
 
-            var RepeatedPassword = EntryRepeatedPassword.Text;
+            var password = EntryPassword.Text ?? String.Empty;
+            var repeatedPassword = EntryRepeatedPassword.Text ?? String.Empty;
 
             if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || Item.DateOfBirth == null ||
                 string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) ||
-                string.IsNullOrEmpty(Item.Password) || string.IsNullOrEmpty(RepeatedPassword))
+                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatedPassword))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
 
+            if (password != repeatedPassword)
+            {
+                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
+                return;
+            }
+            
             Random random = new Random();
             var number1 = random.Next(0, 10000000);
             var number2 = random.Next(0, 10000000);
@@ -77,11 +85,9 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            if (Item.Password != RepeatedPassword)
-            {
-                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
-                return;
-            }
+            var (hash, salt) = PasswordHash.Hash(password);
+            Item.PasswordHash =  hash;
+            Item.PasswordSalt = salt;
 
             await database.SaveItemAsync(Item);
             await Navigation.PopAsync();
