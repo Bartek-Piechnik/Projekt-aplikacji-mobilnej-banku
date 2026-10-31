@@ -29,8 +29,9 @@ namespace Aplikacja_bankowa
         {
             await ButtonTransfer.ScaleToAsync(1.1, 150);
             await ButtonTransfer.ScaleToAsync(1.0, 150);
+            var recipientsAccount = EntryRecipientsAccount.Text;
 
-            if (string.IsNullOrEmpty(Item.RecipientsAccount) || string.IsNullOrEmpty(Item.TransferReference) || string.IsNullOrEmpty(Item.TransferType))
+            if (string.IsNullOrEmpty(recipientsAccount) || string.IsNullOrEmpty(Item.TransferTitle) || string.IsNullOrEmpty(Item.TransferType))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
@@ -41,18 +42,28 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            var recipientsAccount = await database.GetItemByAccountNumberAsync(Item.RecipientsAccount);
-            if (recipientsAccount != null)
+            var recipient = await database.GetItemByAccountNumberAsync(recipientsAccount);
+            if (recipient != null)
             {
-                Item.RecipientNameAndSurname = $"{recipientsAccount.Name} {recipientsAccount.Surname}";
+                Item.RecipientId = recipient.ID;
             }
             else
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono konta odbiorcy!", "OK");
                 return;
             }
-            await database.SaveTransactionsAsync(Item);
-            await Navigation.PopAsync();
+
+            Item.SenderId = Preferences.Get("UserId", 0);
+            if (Item.SenderId == Item.RecipientId)
+            {
+                await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
+                return;
+            }
+            if (Item.SenderId != 0)
+            {
+                await database.SaveTransactionsAsync(Item);
+                await Navigation.PopAsync();
+            }
         }
     }
 }

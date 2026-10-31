@@ -21,8 +21,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsAccount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj rachunek odbiorcy"
-                            Text="{Binding Item.RecipientsAccount}" />
+                            Placeholder="Podaj rachunek odbiorcy" />
                     </Border>
 
                     <Label
@@ -34,7 +33,7 @@
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
                             Placeholder="Podaj tytuł przelewu"
-                            Text="{Binding Item.TransferReference}" />
+                            Text="{Binding Item.TransferTitle}" />
                     </Border>
 
                     <Label

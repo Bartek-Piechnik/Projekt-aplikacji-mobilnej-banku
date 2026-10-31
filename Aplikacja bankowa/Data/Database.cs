@@ -47,6 +47,11 @@ public class Database
         return await database.Table<UsersItem>().Where(i => i.AccountNumber == accountNumber).FirstOrDefaultAsync();
     }
 
+    public async Task<UsersItem> GetItemByPhoneNumberAsync(string phoneNumber)
+    {
+        await Init();
+        return await database.Table<UsersItem>().Where(i => i.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
+    }
     public async Task<TransactionsItem> GetTransactionsAsync(int id)
     {
         await Init();
