@@ -50,16 +50,6 @@
 
                     <Label
                         Style="{StaticResource LabelFormMini}"
-                        Text="Data przelewu"/>
-                    <Border Style="{StaticResource BorderEntry}">
-                        <DatePicker
-                            Style="{StaticResource DatePickerForm}"
-                            x:Name="DatePickerDateOfTransfer"
-                            Date="{Binding Item.DateOfTransfer}" />
-                    </Border>
-
-                    <Label
-                        Style="{StaticResource LabelFormMini}"
                         Text="Typ przelewu"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <VerticalStackLayout>

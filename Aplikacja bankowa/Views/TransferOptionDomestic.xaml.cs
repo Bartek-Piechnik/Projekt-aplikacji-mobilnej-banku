@@ -29,7 +29,10 @@ namespace Aplikacja_bankowa
         {
             await ButtonTransfer.ScaleToAsync(1.1, 150);
             await ButtonTransfer.ScaleToAsync(1.0, 150);
+
             var recipientsAccount = EntryRecipientsAccount.Text;
+
+            Item.DateOfTransfer = DateTime.UtcNow;
 
             if (string.IsNullOrEmpty(recipientsAccount) || string.IsNullOrEmpty(Item.TransferTitle) || string.IsNullOrEmpty(Item.TransferType))
             {
@@ -61,8 +64,16 @@ namespace Aplikacja_bankowa
             }
             if (Item.SenderId != 0)
             {
-                await database.SaveTransactionsAsync(Item);
-                await Navigation.PopAsync();
+                try
+                {
+                    await database.ExecuteTransferAsync(Item);
+                    await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
+                    await Navigation.PopAsync();
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlertAsync("Błąd", ex.Message, "OK");
+                }
             }
         }
     }

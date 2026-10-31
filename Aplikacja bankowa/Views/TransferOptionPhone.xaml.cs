@@ -24,6 +24,8 @@ namespace Aplikacja_bankowa
 
             var recipientsPhoneNumber = EntryRecipientsPhoneNumber.Text;
 
+            Item.DateOfTransfer = DateTime.UtcNow;
+
             if (string.IsNullOrEmpty(recipientsPhoneNumber) || string.IsNullOrEmpty(Item.TransferTitle))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
@@ -54,8 +56,19 @@ namespace Aplikacja_bankowa
             }
             if (Item.SenderId != 0)
             {
-                await database.SaveTransactionsAsync(Item);
-                await Navigation.PopAsync();
+                if (Item.SenderId != 0)
+                {
+                    try
+                    {
+                        await database.ExecuteTransferAsync(Item);
+                        await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
+                        await Navigation.PopAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlertAsync("Błąd", ex.Message, "OK");
+                    }
+                }
             }
         }
     }

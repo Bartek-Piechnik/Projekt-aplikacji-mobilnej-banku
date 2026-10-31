@@ -95,4 +95,30 @@ public class Database
         await Init();
         return await database.DeleteAsync(item);
     }
+    public async Task ExecuteTransferAsync(TransactionsItem item)
+    {
+        await Init();
+
+        var sender = await GetItemAsync(item.SenderId);
+        var recipient = await GetItemAsync(item.RecipientId);
+
+        if (sender == null || recipient == null)
+            throw new Exception("Nie znaleziono użytkownika.");
+
+        if (item.TransferAmount <= 0)
+            throw new Exception("Nieprawidłowa kwota.");
+
+        if (sender.AccountBalance < item.TransferAmount)
+            throw new Exception("Brak środków.");
+
+        await database.RunInTransactionAsync(conn =>
+        {
+            sender.AccountBalance -= item.TransferAmount;
+            recipient.AccountBalance += item.TransferAmount;
+
+            conn.Update(sender);
+            conn.Update(recipient);
+            conn.Insert(item);
+        });
+    }
 }
