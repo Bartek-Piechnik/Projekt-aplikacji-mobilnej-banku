@@ -1,6 +1,7 @@
 ﻿using BankSQLite.Data;
 using BankSQLite.Models;
 using System.Collections.ObjectModel;
+using BankSQLite;
 
 namespace Aplikacja_bankowa
 {
@@ -42,18 +43,30 @@ namespace Aplikacja_bankowa
             await ButtonGoToMainViewPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMainViewPage.ScaleToAsync(1.0, 150);
             
-            var email = EntryEmail.Text;
-            var password = EntryPassword.Text;
+            var email = EntryEmail.Text?.Trim().ToLowerInvariant() ?? String.Empty;
+            var password = EntryPassword.Text ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                await DisplayAlertAsync("Błąd", "Podaj email i hasło.", "OK");
+                return;
+            }
+            
             var user = await database.GetItemByEmailAsync(email);
-            if (user != null && user.Password == password)
+            if (user == null)
+            {
+                await DisplayAlertAsync("Błąd", "Niepoprawny email lub hasło.", "OK");
+                return;
+            }
+            
+            bool isPasswordValid = BankSQLite.PasswordHash.Verify(password, user.PasswordHash, user.PasswordSalt);
+            if (isPasswordValid)
             {
                 Preferences.Set("UserId", user.ID);
                 await Navigation.PushAsync(new MainViewPage(database));
-                
             }
             else
             {
-                await DisplayAlertAsync("Błąd", "Niepoprawne hasło lub email", "OK");
+                await DisplayAlertAsync("Błąd", "Niepoprawny email lub hasło.", "OK");
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿using BankSQLite.Data;
+﻿using BankSQLite;
+using BankSQLite.Data;
+using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
@@ -6,11 +8,13 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         
+        public UsersItem Item { get; set; }
+        
         public ChangePasswordPage(Database database_)
         {
             InitializeComponent();
             database = database_;
-            BindingContext = this;
+            Item = new UsersItem();
         }
 
         private void OnButtonChangeVisibilityOldPasswordClicked(object sender, EventArgs e)
@@ -41,11 +45,61 @@ namespace Aplikacja_bankowa
             }
         }
 
+        private void OnButtonChangeVisibilityRepeatedNewPasswordClicked(object sender, EventArgs e)
+        {
+            if (EntryRepeatedNewPassword.IsPassword)
+            {
+                EntryRepeatedNewPassword.IsPassword = false;
+                ButtonChangeVisibilityRepeatedNewPassword.ImageSource = "password_visibility_on.png";
+            }
+            else
+            {
+                EntryRepeatedNewPassword.IsPassword = true;
+                ButtonChangeVisibilityRepeatedNewPassword.ImageSource = "password_visibility_off.png";
+            }
+        }
+
         private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
         {
             await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
             await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
 
+            var userId = Preferences.Get("UserId", 0);
+            Item = await database.GetItemAsync(userId);
+            if (Item == null)
+            {
+                await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
+                return;
+            }
+            
+            var oldPassword = EntryOldPassword.Text ?? string.Empty;
+            var newPassword = EntryNewPassword.Text ?? string.Empty;
+            var repeatedNewPassword = EntryRepeatedNewPassword.Text ?? string.Empty;
+            
+            if (string.IsNullOrWhiteSpace(oldPassword) || string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(repeatedNewPassword))
+            {
+                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                return;
+            }
+            
+            if (newPassword != repeatedNewPassword)
+            {
+                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
+                return;
+            }
+            
+            bool isPasswordValid = BankSQLite.PasswordHash.Verify(oldPassword, Item.PasswordHash, Item.PasswordSalt);
+            if (!isPasswordValid)
+            {
+                await DisplayAlertAsync("Błąd", "Niepoprawne stare hasło.", "OK");
+                return;
+            }
+            
+            var (hash, salt) = PasswordHash.Hash(newPassword);
+            Item.PasswordHash =  hash;
+            Item.PasswordSalt = salt;
+
+            await database.SaveItemAsync(Item);
             await Navigation.PushAsync(new MenuPage(database));
         }
     }
