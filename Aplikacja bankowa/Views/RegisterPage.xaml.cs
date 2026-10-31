@@ -1,6 +1,7 @@
 ﻿using BankSQLite;
 using BankSQLite.Data;
 using BankSQLite.Models;
+using System.Security.Cryptography;
 
 namespace Aplikacja_bankowa
 {

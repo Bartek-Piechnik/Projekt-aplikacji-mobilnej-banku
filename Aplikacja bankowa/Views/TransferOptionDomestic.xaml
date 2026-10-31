@@ -21,20 +21,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryRecipientsAccount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj rachunek odbiorcy"
-                            Text="{Binding Item.RecipientsAccount}" />
-                    </Border>
-
-                    <Label
-                        Style="{StaticResource LabelFormMini}"
-                        Text="Imię i nazwisko odbiorcy"/>
-                    <Border Style="{StaticResource BorderEntry}">
-                        <Entry
-                            Style="{StaticResource EntryForm}"
-                            x:Name="EntryRecipientNameAndSurname"
-                            Keyboard="Text"
-                            Placeholder="Podaj imię i nazwisko odbiorcy"
-                            Text="{Binding Item.RecipientNameAndSurname}" />
+                            Placeholder="Podaj rachunek odbiorcy" />
                     </Border>
 
                     <Label
@@ -46,7 +33,7 @@
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
                             Placeholder="Podaj tytuł przelewu"
-                            Text="{Binding Item.TransferReference}" />
+                            Text="{Binding Item.TransferTitle}" />
                     </Border>
 
                     <Label
@@ -59,16 +46,6 @@
                             Keyboard="Numeric"
                             Placeholder="Podaj kwotę przelewu"
                             Text="{Binding Item.TransferAmount}" />
-                    </Border>
-
-                    <Label
-                        Style="{StaticResource LabelFormMini}"
-                        Text="Data przelewu"/>
-                    <Border Style="{StaticResource BorderEntry}">
-                        <DatePicker
-                            Style="{StaticResource DatePickerForm}"
-                            x:Name="DatePickerDateOfTransfer"
-                            Date="{Binding Item.DateOfTransfer}" />
                     </Border>
 
                     <Label

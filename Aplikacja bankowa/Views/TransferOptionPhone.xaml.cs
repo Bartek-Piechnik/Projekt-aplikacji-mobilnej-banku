@@ -22,8 +22,11 @@ namespace Aplikacja_bankowa
             await ButtonTransfer.ScaleToAsync(1.1, 150);
             await ButtonTransfer.ScaleToAsync(1.0, 150);
 
-            if (string.IsNullOrEmpty(Item.RecipientsPhoneNumber) ||
-                string.IsNullOrEmpty(Item.RecipientNameAndSurname) || string.IsNullOrEmpty(Item.TransferReference))
+            var recipientsPhoneNumber = EntryRecipientsPhoneNumber.Text;
+
+            Item.DateOfTransfer = DateTime.UtcNow;
+
+            if (string.IsNullOrEmpty(recipientsPhoneNumber) || string.IsNullOrEmpty(Item.TransferTitle))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
@@ -34,8 +37,39 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            await database.SaveTransactionsAsync(Item);
-            await Navigation.PopAsync();
+            var recipient = await database.GetItemByPhoneNumberAsync(recipientsPhoneNumber);
+            if (recipient != null)
+            {
+                Item.RecipientId = recipient.ID;
+            }
+            else
+            {
+                await DisplayAlertAsync("Błąd", "Nie znaleziono konta odbiorcy!", "OK");
+                return;
+            }
+
+            Item.SenderId = Preferences.Get("UserId", 0);
+            if (Item.SenderId == Item.RecipientId)
+            {
+                await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
+                return;
+            }
+            if (Item.SenderId != 0)
+            {
+                if (Item.SenderId != 0)
+                {
+                    try
+                    {
+                        await database.ExecuteTransferAsync(Item);
+                        await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
+                        await Navigation.PopAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlertAsync("Błąd", ex.Message, "OK");
+                    }
+                }
+            }
         }
     }
 }
