@@ -75,6 +75,7 @@ namespace Aplikacja_bankowa
             var number4 = random.Next(0, 100000);
             var recipientsAccount = number1.ToString("D7") + number2.ToString("D7") + number3.ToString("D7") +
                                     number4.ToString("D5");
+            Item.AccountNumber = recipientsAccount;
             Preferences.Set("recipientsAccount", recipientsAccount);
 
             Item.Email = Item.Email.Trim().ToLowerInvariant();
