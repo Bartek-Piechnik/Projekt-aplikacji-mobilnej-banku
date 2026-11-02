@@ -1,5 +1,4 @@
 ﻿using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {

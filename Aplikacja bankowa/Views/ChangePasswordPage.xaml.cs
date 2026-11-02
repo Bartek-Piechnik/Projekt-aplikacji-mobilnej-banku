@@ -75,16 +75,35 @@ namespace Aplikacja_bankowa
             var oldPassword = EntryOldPassword.Text ?? string.Empty;
             var newPassword = EntryNewPassword.Text ?? string.Empty;
             var repeatedNewPassword = EntryRepeatedNewPassword.Text ?? string.Empty;
+            List<string> errors = new List<string>();
             
-            if (string.IsNullOrWhiteSpace(oldPassword) || string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(repeatedNewPassword))
+            if (string.IsNullOrWhiteSpace(oldPassword))
             {
-                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
-                return;
+                errors.Add("Pole stare hasło nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(newPassword))
+            {
+                errors.Add("Pole nowe hasło nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(repeatedNewPassword))
+            {
+                errors.Add("Pole powtórzone nowe hasło nie może być puste!");
             }
             
-            if (newPassword != repeatedNewPassword)
+            if (!string.IsNullOrWhiteSpace(newPassword) && !RegexValidate.IsValidPassword(newPassword))
             {
-                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
+                errors.Add("Hasło musi zawierać co najmniej 8 znaków!");
+            }
+            
+            if (!string.IsNullOrWhiteSpace(newPassword) && !string.IsNullOrWhiteSpace(repeatedNewPassword) && newPassword != repeatedNewPassword)
+            {
+                errors.Add("Hasło i powtórzone hasło muszą być identyczne!");
+            }
+
+            if (errors.Count > 0)
+            {
+                string errorMessage = string.Join("\n\n", errors);
+                await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
             
