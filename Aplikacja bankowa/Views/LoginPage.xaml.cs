@@ -1,7 +1,5 @@
-﻿using BankSQLite.Data;
-using BankSQLite.Models;
-using System.Collections.ObjectModel;
-using BankSQLite;
+﻿using BankSQLite;
+using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
 {
@@ -45,9 +43,26 @@ namespace Aplikacja_bankowa
             
             var email = EntryEmail.Text?.Trim().ToLowerInvariant() ?? String.Empty;
             var password = EntryPassword.Text ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            List<string> errors = new List<string>();
+            
+            if (string.IsNullOrWhiteSpace(email))
             {
-                await DisplayAlertAsync("Błąd", "Podaj email i hasło.", "OK");
+                errors.Add("Pole email nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                errors.Add("Pole hasło nie może być puste!");
+            }
+            
+            if (!string.IsNullOrWhiteSpace(email) && !RegexValidate.IsValidEmail(email))
+            {
+                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
+            }
+            
+            if (errors.Count > 0)
+            {
+                string errorMessage = string.Join("\n\n", errors);
+                await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
             

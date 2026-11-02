@@ -1,7 +1,6 @@
 ﻿using BankSQLite;
 using BankSQLite.Data;
 using BankSQLite.Models;
-using System.Security.Cryptography;
 
 namespace Aplikacja_bankowa
 {
@@ -50,21 +49,70 @@ namespace Aplikacja_bankowa
         {
             await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
             await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
-
+            
             var password = EntryPassword.Text ?? String.Empty;
             var repeatedPassword = EntryRepeatedPassword.Text ?? String.Empty;
-
-            if (string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Surname) || Item.DateOfBirth == null ||
-                string.IsNullOrEmpty(Item.Email) || string.IsNullOrEmpty(Item.PhoneNumber) ||
-                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(repeatedPassword))
+            List<string> errors = new List<string>();
+            
+            if (string.IsNullOrWhiteSpace(Item.Name))
             {
-                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
-                return;
+                errors.Add("Pole imię nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(Item.Surname))
+            {
+                errors.Add("Pole nazwisko nie może być puste!");
+            }
+            if (Item.DateOfBirth == null)
+            {
+                errors.Add("Wybierz datę urodzenia!");
+            }
+            if (string.IsNullOrWhiteSpace(Item.Email))
+            {
+                errors.Add("Pole email nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(Item.PhoneNumber))
+            {
+                errors.Add("Pole numer telefonu nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                errors.Add("Pole hasło nie może być puste!");
+            }
+            if (string.IsNullOrWhiteSpace(repeatedPassword))
+            {
+                errors.Add("Pole powtórzone hasło nie może być puste!");
+            }
+            
+            if (!string.IsNullOrWhiteSpace(Item.Name) && !RegexValidate.IsValidName(Item.Name))
+            {
+                errors.Add("Imię musi zaczynać się wielką literą i zawierać wyłącznie litery. Możliwe jest użycie łącznika lub spacji w imionach dwuczłonowych!");
+            }
+            if (!string.IsNullOrWhiteSpace(Item.Surname) && !RegexValidate.IsValidSurname(Item.Surname))
+            {
+                errors.Add("Nazwisko musi zaczynać się wielką literą. Możliwe są nazwiska dwuczłonowe!");
+            }
+            if (!string.IsNullOrWhiteSpace(Item.Email) && !RegexValidate.IsValidEmail(Item.Email))
+            {
+                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
+            }
+            if (!string.IsNullOrWhiteSpace(Item.PhoneNumber) && !RegexValidate.IsValidPhoneNumber(Item.PhoneNumber))
+            {
+                errors.Add("Numer telefonu musi zawierać 9 cyfr. Możesz również podać numer z prefiksem kraju, np. +48123456789!");
+            }
+            if (!string.IsNullOrWhiteSpace(password) && !RegexValidate.IsValidPassword(password))
+            {
+                errors.Add("Hasło musi zawierać co najmniej 8 znaków!");
+            }
+            
+            if (!string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(repeatedPassword) && password != repeatedPassword)
+            {
+                errors.Add("Hasło i powtórzone hasło muszą być identyczne!");
             }
 
-            if (password != repeatedPassword)
+            if (errors.Count > 0)
             {
-                await DisplayAlertAsync("Błąd", "Hasło i powtórzone hasło muszą być identyczne!", "OK");
+                string errorMessage = string.Join("\n\n", errors);
+                await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
             
