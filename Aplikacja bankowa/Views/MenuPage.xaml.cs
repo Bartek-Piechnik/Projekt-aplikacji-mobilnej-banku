@@ -36,5 +36,13 @@ namespace Aplikacja_bankowa
 
             await Navigation.PushAsync(new PaymentLimitPage(database));
         }
+        
+        private async void OnButtonGoToCashMachinePageClicked(object sender, EventArgs e)
+        {
+            await ButtonGoToCashMachinePage.ScaleToAsync(1.1, 150);
+            await ButtonGoToCashMachinePage.ScaleToAsync(1.0, 150);
+
+            await Navigation.PushAsync(new CashMachinePage(database));
+        }
     }
 }

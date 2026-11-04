@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.CashMachinePage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
+            <Label
+                Style="{StaticResource LabelHeader}"
+                Text="Bankomat" />
+
+            <Border Style="{StaticResource BorderWhiteSection}">
+                <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWhiteSection}">
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Kwota"/>
+                    <Border Style="{StaticResource BorderEntry}">
+                        <Entry
+                            Style="{StaticResource EntryForm}"
+                            x:Name="EntryAmount"
+                            Keyboard="Numeric"
+                            Placeholder="Podaj kwotę przelewu" 
+                            Text="{Binding Item.TransferAmount}"/>
+                    </Border>
+
+                    <Label
+                        Style="{StaticResource LabelFormMini}"
+                        Text="Typ operacji"/>
+                    <Border Style="{StaticResource BorderEntry}">
+                        <VerticalStackLayout>
+                            <RadioButton
+                                x:Name="RadioButtonDeposit"
+                                Content="Wpłata"
+                                CheckedChanged="OnOperationTypeChanged"
+                                TextColor="Black">
+                            </RadioButton>
+                            <RadioButton
+                                x:Name="RadioButtonWithdrawal"
+                                Content="Wypłata"
+                                CheckedChanged="OnOperationTypeChanged"
+                                TextColor="Black">
+                            </RadioButton>
+                        </VerticalStackLayout>
+                    </Border>
+                    
+                    <Button
+                        Style="{StaticResource Button}"
+                        x:Name="ButtonGoToMenuPage"
+                        Text="Wykonaj operację"
+                        Margin="15, 20, 15, 0"
+                        Clicked="OnButtonGoToMenuPageClicked" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
