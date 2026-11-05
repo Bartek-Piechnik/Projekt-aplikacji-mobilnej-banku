@@ -68,7 +68,7 @@ namespace Aplikacja_bankowa
                 BlockUnblockCardButton.ImageSource =  "credit_card_off.png";
                 await DisplayAlertAsync("Sukces", "Karta została pomyślnie zablokowana", "OK");
             }
-            else
+            else if(Item.IsCardBlocked)
             {
                 Item.IsCardBlocked = false;
                 BlockUnblockCardButton.ImageSource = "credit_card_on.png";
@@ -82,13 +82,17 @@ namespace Aplikacja_bankowa
             await ButtonGoToTransferOptionBLIK.ScaleToAsync(1.1, 150);
             await ButtonGoToTransferOptionBLIK.ScaleToAsync(1.0, 150);
 
-            if (!Item.IsCardBlocked)
+            if (Item.IsCardBlocked)
             {
-                await Navigation.PushAsync(new TransferOptionBLIK());
+                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
+            }
+            else if (Item.AccountBalance <= 0)
+            {
+                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji - Przejdź do \"Menu\" a następnie kliknij przycisk \"Bankomat\" aby dodać środki!", "OK"); 
             }
             else
             {
-                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
+                await Navigation.PushAsync(new TransferOptionBLIK());
             }
         }
 
@@ -97,13 +101,17 @@ namespace Aplikacja_bankowa
             await ButtonGoToTransferOptionDomestic.ScaleToAsync(1.1, 150);
             await ButtonGoToTransferOptionDomestic.ScaleToAsync(1.0, 150);
 
-            if (!Item.IsCardBlocked)
+            if (Item.IsCardBlocked)
             {
-                await Navigation.PushAsync(new TransferOptionDomestic(database));
+                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
+            }
+            else if (Item.AccountBalance <= 0)
+            {
+                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji - Przejdź do \"Menu\" a następnie kliknij przycisk \"Bankomat\" aby dodać środki!", "OK"); 
             }
             else
             {
-                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
+                await Navigation.PushAsync(new TransferOptionDomestic(database));
             }
         }
 
@@ -112,13 +120,17 @@ namespace Aplikacja_bankowa
             await ButtonGoToTransferOptionPhone.ScaleToAsync(1.1, 150);
             await ButtonGoToTransferOptionPhone.ScaleToAsync(1.0, 150);
 
-            if (!Item.IsCardBlocked)
+            if (Item.IsCardBlocked)
             {
-                await Navigation.PushAsync(new TransferOptionPhone(database));
+                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
+            }
+            else if (Item.AccountBalance <= 0)
+            {
+                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji - Przejdź do \"Menu\" a następnie kliknij przycisk \"Bankomat\" aby dodać środki!", "OK"); 
             }
             else
             {
-                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
+                await Navigation.PushAsync(new TransferOptionPhone(database));
             }
         }
     }
