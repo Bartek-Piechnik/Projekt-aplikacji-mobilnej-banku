@@ -107,6 +107,9 @@
 	  <MauiXaml Update="Views\TransferOptionPhone.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\CashMachinePage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -152,6 +155,10 @@
 	  </Compile>
 	  <Compile Update="Views\TransferOptionPhone.xaml.cs">
 	    <DependentUpon>TransferOptionPhone.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\CashMachinePage.xaml.cs">
+	    <DependentUpon>CashMachinePage.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
 	</ItemGroup>

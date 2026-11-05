@@ -21,7 +21,8 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryMaxAmount"
                             Keyboard="Numeric"
-                            Placeholder="Podaj maksymalną kwotę" />
+                            Placeholder="Podaj maksymalną kwotę" 
+                            Text="{Binding Item.PaymentLimit}"/>
                     </Border>
 
                     <Button

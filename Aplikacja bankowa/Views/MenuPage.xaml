@@ -36,6 +36,13 @@
                         FontSize="25"
                         Margin="15, 20, 15, 0"
                         Clicked="OnButtonGoToPaymentLimitPageClicked" />
+                    <Button
+                        Style="{StaticResource Button}"
+                        x:Name="ButtonGoToCashMachinePage"
+                        Text="Bankomat"
+                        FontSize="25"
+                        Margin="15, 20, 15, 0"
+                        Clicked="OnButtonGoToCashMachinePageClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

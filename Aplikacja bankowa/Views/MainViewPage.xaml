@@ -66,30 +66,16 @@
                     <Label
                         Text="Dostępne środki"
                         TextColor="White"
-                        FontSize="20"
+                        FontSize="25"
                         FontAttributes="Bold"
-                        AbsoluteLayout.LayoutBounds="0.05, 0.5, 170, 35"
+                        AbsoluteLayout.LayoutBounds="0.05, 0.6, 250, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Label
                         x:Name="LabelAvailableFunds"
                         TextColor="White"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        AbsoluteLayout.LayoutBounds="0.1, 0.67, 170, 35"
-                        AbsoluteLayout.LayoutFlags="PositionProportional" />
-                    <Label
-                        Text="Saldo"
-                        TextColor="White"
                         FontSize="20"
                         FontAttributes="Bold"
-                        AbsoluteLayout.LayoutBounds="0.05, 0.8, 170, 35"
-                        AbsoluteLayout.LayoutFlags="PositionProportional" />
-                    <Label
-                        x:Name="LabelBalance"
-                        TextColor="White"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        AbsoluteLayout.LayoutBounds="0.1, 0.94, 170, 35"
+                        AbsoluteLayout.LayoutBounds="0.1, 0.77, 250, 35"
                         AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Button
                         Style="{StaticResource Button}"

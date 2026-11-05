@@ -15,4 +15,5 @@ public class UsersItem
     public string AccountNumber { get; set; } = String.Empty;
     public decimal AccountBalance { get; set; }
     public bool IsCardBlocked { get; set; }
+    public decimal PaymentLimit { get; set; }
 }

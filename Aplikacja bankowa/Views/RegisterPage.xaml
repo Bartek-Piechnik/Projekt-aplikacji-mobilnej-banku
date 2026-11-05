@@ -73,18 +73,6 @@
 
                     <Label
                         Style="{StaticResource LabelFormMini}"
-                        Text="Saldo konta"/>
-                    <Border Style="{StaticResource BorderEntry}">
-                        <Entry
-                            Style="{StaticResource EntryForm}"
-                            x:Name="EntryAccountBalance"
-                            Keyboard="Numeric"
-                            Placeholder="Podaj saldo konta"
-                            Text="{Binding Item.AccountBalance}" />
-                    </Border>
-
-                    <Label
-                        Style="{StaticResource LabelFormMini}"
                         Text="Hasło"/>
                     <Border Style="{StaticResource BorderEntry}">
                         <Grid ColumnDefinitions="*, 50">
