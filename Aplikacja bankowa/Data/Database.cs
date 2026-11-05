@@ -115,6 +115,11 @@ public class Database
         {
             throw new Exception("Nieprawidłowa kwota.");
         }
+        
+        if (item.TransferAmount > sender.PaymentLimit)
+        {
+            throw new Exception($"Przekroczono limit płatności! Maksymalna kwota jednej transakcji: {sender.PaymentLimit} PLN.");
+        }
 
         if (sender.AccountBalance < item.TransferAmount)
         {

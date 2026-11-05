@@ -26,7 +26,6 @@ namespace Aplikacja_bankowa
             if (Item != null)
             {
                 LabelRecipientsAccount.Text = Item.AccountNumber;
-                LabelBalance.Text = $"{Item.AccountBalance:F2} PLN";
                 LabelAvailableFunds.Text = $"{Item.AccountBalance:F2} PLN";
 
                 if (Item.IsCardBlocked)
