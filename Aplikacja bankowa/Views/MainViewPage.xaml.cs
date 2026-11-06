@@ -1,5 +1,6 @@
 ﻿using BankSQLite.Data;
 using BankSQLite.Models;
+using System.Collections.ObjectModel;
 
 namespace Aplikacja_bankowa
 {
@@ -7,6 +8,7 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         public UsersItem Item { get; set; }
+        public ObservableCollection<TransactionsItem> Transactions { get; set; } = new();
 
         public MainViewPage(Database database_)
         {
@@ -20,8 +22,8 @@ namespace Aplikacja_bankowa
         {
             base.OnAppearing();
 
-            var UserId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(UserId);
+            var userId = Preferences.Get("UserId", 0);
+            Item = await database.GetItemAsync(userId);
 
             if (Item != null)
             {
@@ -40,6 +42,15 @@ namespace Aplikacja_bankowa
             else
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
+            }
+
+            var transactions = await database.GetUserTransactionsAsync(userId);
+
+            Transactions.Clear();
+
+            foreach (var item in transactions)
+            {
+                Transactions.Add(item);
             }
         }
 

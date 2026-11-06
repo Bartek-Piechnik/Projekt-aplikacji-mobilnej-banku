@@ -136,7 +136,16 @@ public class Database
             conn.Insert(item);
         });
     }
-    
+
+    public async Task<List<TransactionsItem>> GetUserTransactionsAsync(int userId)
+    {
+        await Init();
+
+        return await database.Table<TransactionsItem>()
+            .Where(t => t.SenderId == userId)
+            .OrderByDescending(t => t.DateOfTransfer)
+            .ToListAsync();
+    }
     public async Task DepositAsync(TransactionsItem item)
     {
         await ExecuteCashMachineOperationAsync(item, true);
