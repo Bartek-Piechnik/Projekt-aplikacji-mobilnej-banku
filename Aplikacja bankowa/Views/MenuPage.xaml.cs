@@ -1,4 +1,5 @@
-﻿using BankSQLite.Data;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
 {
@@ -15,32 +16,28 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToMyDataPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToMyDataPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToMyDataPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMyDataPage);
 
             await Navigation.PushAsync(new MyDataPage(database));
         }
 
         private async void OnButtonGoToChangePasswordPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToChangePasswordPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToChangePasswordPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToChangePasswordPage);
 
             await Navigation.PushAsync(new ChangePasswordPage(database));
         }
 
         private async void OnButtonGoToPaymentLimitPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToPaymentLimitPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToPaymentLimitPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToPaymentLimitPage);
 
             await Navigation.PushAsync(new PaymentLimitPage(database));
         }
         
         private async void OnButtonGoToCashMachinePageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToCashMachinePage.ScaleToAsync(1.1, 150);
-            await ButtonGoToCashMachinePage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToCashMachinePage);
 
             await Navigation.PushAsync(new CashMachinePage(database));
         }

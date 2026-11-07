@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.HistoryPage"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
+            <Label
+                Style="{StaticResource LabelHeader}"
+                Text="Zaloguj się" />
+            <Border
+                Style="{StaticResource BorderWhiteSection}"
+                Margin="10,0,10,0"
+                StrokeThickness="0">
+                <VerticalStackLayout BackgroundColor="White">
+                    <CollectionView
+                        ItemsSource="{Binding Transactions}"
+                        ItemTemplate="{StaticResource TransactionTemplate}"
+                        SelectionMode="None"
+                        Margin="15" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

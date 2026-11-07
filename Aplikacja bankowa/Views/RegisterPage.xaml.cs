@@ -1,4 +1,5 @@
-﻿using BankSQLite;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite;
 using BankSQLite.Data;
 using BankSQLite.Models;
 
@@ -47,9 +48,8 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToLoginPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToLoginPage.ScaleToAsync(1.0, 150);
-            
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToLoginPage);
+
             var password = EntryPassword.Text ?? String.Empty;
             var repeatedPassword = EntryRepeatedPassword.Text ?? String.Empty;
             List<string> errors = new List<string>();

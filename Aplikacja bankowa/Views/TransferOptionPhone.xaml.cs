@@ -1,4 +1,5 @@
-﻿using BankSQLite.Data;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite.Data;
 using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
@@ -19,8 +20,7 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonTransferClicked(object sender, EventArgs e)
         {
-            await ButtonTransfer.ScaleToAsync(1.1, 150);
-            await ButtonTransfer.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonTransfer);
 
             var recipientsPhoneNumber = EntryRecipientsPhoneNumber.Text;
 

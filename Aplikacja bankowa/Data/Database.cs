@@ -146,6 +146,16 @@ public class Database
             .OrderByDescending(t => t.DateOfTransfer)
             .ToListAsync();
     }
+    public async Task<List<TransactionsItem>> GetUserTransactionsPreviewAsync(int userId)
+    {
+        await Init();
+
+        return await database.Table<TransactionsItem>()
+            .Where(t => t.SenderId == userId)
+            .OrderByDescending(t => t.DateOfTransfer)
+            .Take(3)
+            .ToListAsync();
+    }
     public async Task DepositAsync(TransactionsItem item)
     {
         await ExecuteCashMachineOperationAsync(item, true);

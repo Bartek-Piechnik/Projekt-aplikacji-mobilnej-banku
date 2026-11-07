@@ -1,4 +1,5 @@
-﻿using BankSQLite;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite;
 using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
@@ -30,17 +31,15 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToRegisterPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToRegisterPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToRegisterPage);
 
             await Navigation.PushAsync(new RegisterPage(database));
         }
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToMainViewPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToMainViewPage.ScaleToAsync(1.0, 150);
-            
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMainViewPage);
+
             var email = EntryEmail.Text?.Trim().ToLowerInvariant() ?? String.Empty;
             var password = EntryPassword.Text ?? string.Empty;
             List<string> errors = new List<string>();

@@ -79,6 +79,9 @@
 	  <MauiXaml Update="Views\ChangePasswordPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\HistoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>

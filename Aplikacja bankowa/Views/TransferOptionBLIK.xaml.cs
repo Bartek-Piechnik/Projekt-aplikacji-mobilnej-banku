@@ -1,4 +1,6 @@
-﻿namespace Aplikacja_bankowa
+﻿using Aplikacja_bankowa.Helpers;
+
+namespace Aplikacja_bankowa
 {
     public partial class TransferOptionBLIK : ContentPage
     {
@@ -14,8 +16,7 @@
 
         private async void OnButtonCopyCodeClicked(object sender, EventArgs e)
         {
-            await ButtonCopyCode.ScaleToAsync(1.1, 150);
-            await ButtonCopyCode.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonCopyCode);
 
             await Clipboard.Default.SetTextAsync(LabelCode.Text);
 
