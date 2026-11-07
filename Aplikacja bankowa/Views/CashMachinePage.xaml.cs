@@ -51,17 +51,19 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            Item.SenderId = Preferences.Get("UserId", 0);
-            if (Item.SenderId != 0)
+            var userId = Preferences.Get("UserId", 0);
+            if (userId != 0)
             {
                 try
                 {
                     if (Item.TransferType == "Wpłata")
                     {
+                        Item.RecipientId = userId;
                         await database.DepositAsync(Item);
                     }
                     else if (Item.TransferType == "Wypłata")
                     {
+                        Item.SenderId = userId;
                         await database.WithdrawAsync(Item);
                     }
                     

@@ -7,32 +7,32 @@
         <AbsoluteLayout HeightRequest="120">
             <Label
                  Text="{Binding DateOfTransfer, StringFormat='{0:dddd dd.MM.yyyy}'}"
-                 TextColor="#888897"
+                 TextColor="{StaticResource HistoryElement}"
                  FontSize="18"
                  FontAttributes="Italic"
                  AbsoluteLayout.LayoutBounds="0.05,0.01,230,25"
                  AbsoluteLayout.LayoutFlags="PositionProportional" />
             <BoxView
-                 BackgroundColor="#888897"
+                 BackgroundColor="{StaticResource HistoryElement}"
                  CornerRadius="20"
                  AbsoluteLayout.LayoutBounds="0,0.55,1,0.65"
                  AbsoluteLayout.LayoutFlags="All" />
             <Label
-                 Text="{Binding TransferType}"
+                 Text="{Binding TransferTitle}"
                  TextColor="White"
                  FontSize="20"
                  FontAttributes="Bold"
                  AbsoluteLayout.LayoutBounds="0.05,0.28,170,30"
                  AbsoluteLayout.LayoutFlags="PositionProportional" />
             <Label
-                 Text="{Binding TransferTitle}"
+                 Text="{Binding TransferType}"
                  TextColor="White"
                  FontSize="18"
                  AbsoluteLayout.LayoutBounds="0.05,0.58,200,30"
                  AbsoluteLayout.LayoutFlags="PositionProportional" />
             <Label
-                 Text="{Binding TransferAmount}"
-                 TextColor="White"
+                 Text="{Binding DisplayAmount}"
+                 TextColor="{Binding AmountColor}"
                  FontSize="18"
                  FontAttributes="Bold"
                  HorizontalTextAlignment="End"

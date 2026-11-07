@@ -14,8 +14,17 @@
                 Margin="10,0,10,0"
                 StrokeThickness="0">
                 <VerticalStackLayout BackgroundColor="White">
+                    <Border Style="{StaticResource BorderEntry}"
+                            Margin="20">
+                        <SearchBar
+                            TextColor="Black"
+                            PlaceholderColor="#444444"
+                            SearchIconColor="#388e3c"
+                            Placeholder="Wyszukaj po tytule lub typie transakcji"
+                            TextChanged="SearchBarTextChanged"/>
+                    </Border>
                     <CollectionView
-                        ItemsSource="{Binding Transactions}"
+                        ItemsSource="{Binding FilteredTransactions}"
                         ItemTemplate="{StaticResource TransactionTemplate}"
                         SelectionMode="None"
                         Margin="15" />

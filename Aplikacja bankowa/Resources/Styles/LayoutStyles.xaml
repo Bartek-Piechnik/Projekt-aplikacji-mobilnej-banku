@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Style x:Key="VerticalStackLayout" TargetType="VerticalStackLayout">
-        <Setter Property="BackgroundColor" Value="#8bc34a" />
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundGreen}" />
         <Setter Property="Spacing" Value="20" />
         <Setter Property="Padding" Value="15" />
     </Style>
@@ -31,5 +31,15 @@
             </Setter.Value>
         </Setter>
         <Setter Property="BackgroundColor" Value="#ddeedf"></Setter>
+    </Style>
+
+    <Style x:Key="BorderSearchBar" TargetType="Border">
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="0" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stroke" Value="{StaticResource ControlGreen}" />
+        <Setter Property="StrokeThickness" Value="2" />
     </Style>
 </ResourceDictionary>

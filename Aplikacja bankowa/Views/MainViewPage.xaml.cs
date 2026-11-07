@@ -9,7 +9,7 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         public UsersItem Item { get; set; }
-        public ObservableCollection<TransactionsItem> Transactions { get; set; } = new();
+        public ObservableCollection<TransactionDisplayItem> Transactions { get; set; } = new();
 
         public MainViewPage(Database database_)
         {
@@ -51,7 +51,7 @@ namespace Aplikacja_bankowa
 
             foreach (var item in transactions)
             {
-                Transactions.Add(item);
+                Transactions.Add(new TransactionDisplayItem(item, userId));
             }
         }
 

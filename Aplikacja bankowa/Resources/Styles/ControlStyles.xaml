@@ -29,7 +29,7 @@
         <Setter Property="FontSize" Value="25"></Setter>
         <Setter Property="FontFamily" Value="Arial"></Setter>
         <Setter Property="TextColor" Value="#f2f9f1"></Setter>
-        <Setter Property="BackgroundColor" Value="#388e3c"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource ControlGreen}"></Setter>
         <Setter Property="VerticalOptions" Value="Center"></Setter>
         <Setter Property="CornerRadius" Value="20"></Setter>
     </Style>

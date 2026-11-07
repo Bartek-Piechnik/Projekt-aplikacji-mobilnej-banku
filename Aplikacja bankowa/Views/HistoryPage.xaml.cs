@@ -9,7 +9,8 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         public UsersItem Item { get; set; }
-        public ObservableCollection<TransactionsItem> Transactions { get; set; } = new();
+        public ObservableCollection<TransactionDisplayItem> Transactions { get; set; } = new();
+        public ObservableCollection<TransactionDisplayItem> FilteredTransactions { get; set; } = new();
 
         public HistoryPage(Database database_)
         {
@@ -37,9 +38,30 @@ namespace Aplikacja_bankowa
 
             foreach (var item in transactions)
             {
-                Transactions.Add(item);
+                Transactions.Add(new TransactionDisplayItem(item, userId));
             }
+
+            FilterTransactions();
         }
 
+        private void SearchBarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            FilterTransactions(e.NewTextValue);
+        }
+
+        private void FilterTransactions(string searchText = "")
+        {
+            var filteredTransactions = Transactions.Where(transaction =>
+                string.IsNullOrWhiteSpace(searchText) ||
+                transaction.TransferType.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                transaction.TransferTitle.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+
+            FilteredTransactions.Clear();
+
+            foreach (var item in filteredTransactions)
+            {
+                FilteredTransactions.Add(item);
+            }
+        }
     }
 }
