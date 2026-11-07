@@ -17,16 +17,7 @@ namespace Aplikacja_bankowa
 
         private void OnButtonChangeVisibilityPasswordClicked(object sender, EventArgs e)
         {
-            if (EntryPassword.IsPassword)
-            {
-                EntryPassword.IsPassword = false;
-                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_on.png";
-            }
-            else
-            {
-                EntryPassword.IsPassword = true;
-                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_off.png";
-            }
+            PasswordVisibility.Toggle(EntryPassword, ButtonChangeVisibilityPassword);
         }
 
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
@@ -48,16 +39,15 @@ namespace Aplikacja_bankowa
             {
                 errors.Add("Pole email nie może być puste!");
             }
+            else if (!RegexValidate.IsValidEmail(email))
+            {
+                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
+            }
             if (string.IsNullOrWhiteSpace(password))
             {
                 errors.Add("Pole hasło nie może być puste!");
             }
-            
-            if (!string.IsNullOrWhiteSpace(email) && !RegexValidate.IsValidEmail(email))
-            {
-                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
-            }
-            
+
             if (errors.Count > 0)
             {
                 string errorMessage = string.Join("\n\n", errors);

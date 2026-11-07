@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style x:Key="VerticalStackLayout" TargetType="VerticalStackLayout">
+        <Setter Property="BackgroundColor" Value="#8bc34a" />
+        <Setter Property="Spacing" Value="20" />
+        <Setter Property="Padding" Value="15" />
+    </Style>
+
+    <Style x:Key="VerticalStackLayoutWhiteSection" TargetType="VerticalStackLayout">
+        <Setter Property="BackgroundColor" Value="#f2f9f1" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Spacing" Value="10" />
+        <Setter Property="Padding" Value="15" />
+    </Style>
+
+    <Style x:Key="BorderWhiteSection" TargetType="Border">
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="25" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BorderEntry" TargetType="Border">
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="10" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BackgroundColor" Value="#ddeedf"></Setter>
+    </Style>
+</ResourceDictionary>
