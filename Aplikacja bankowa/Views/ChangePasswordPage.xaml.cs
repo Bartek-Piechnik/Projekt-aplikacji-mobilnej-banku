@@ -48,30 +48,8 @@ namespace Aplikacja_bankowa
             var oldPassword = EntryOldPassword.Text ?? string.Empty;
             var newPassword = EntryNewPassword.Text ?? string.Empty;
             var repeatedNewPassword = EntryRepeatedNewPassword.Text ?? string.Empty;
-            List<string> errors = new List<string>();
-            
-            if (string.IsNullOrWhiteSpace(oldPassword))
-            {
-                errors.Add("Pole stare hasło nie może być puste!");
-            }
-            if (string.IsNullOrWhiteSpace(newPassword))
-            {
-                errors.Add("Pole nowe hasło nie może być puste!");
-            }
-            if (string.IsNullOrWhiteSpace(repeatedNewPassword))
-            {
-                errors.Add("Pole powtórzone nowe hasło nie może być puste!");
-            }
-            
-            if (!string.IsNullOrWhiteSpace(newPassword) && !RegexValidate.IsValidPassword(newPassword))
-            {
-                errors.Add("Hasło musi zawierać co najmniej 8 znaków!");
-            }
-            
-            if (!string.IsNullOrWhiteSpace(newPassword) && !string.IsNullOrWhiteSpace(repeatedNewPassword) && newPassword != repeatedNewPassword)
-            {
-                errors.Add("Hasło i powtórzone hasło muszą być identyczne!");
-            }
+
+            List<string> errors = FormValidation.ValidatePasswordChange(oldPassword, newPassword, repeatedNewPassword);
 
             if (errors.Count > 0)
             {

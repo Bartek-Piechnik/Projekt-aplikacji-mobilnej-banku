@@ -51,45 +51,7 @@ namespace Aplikacja_bankowa
             Item.Surname = Item.Surname.Trim();
             Item.Email = Item.Email.Trim().ToLowerInvariant();
             Item.PhoneNumber = Item.PhoneNumber.Trim();
-            List<string> errors = new List<string>();
-            
-            if (string.IsNullOrWhiteSpace(Item.Name))
-            {
-                errors.Add("Pole imię nie może być puste!");
-            }
-            if (string.IsNullOrWhiteSpace(Item.Surname))
-            {
-                errors.Add("Pole nazwisko nie może być puste!");
-            }
-            if (Item.DateOfBirth == null)
-            {
-                errors.Add("Wybierz datę urodzenia!");
-            }
-            if (string.IsNullOrWhiteSpace(Item.Email))
-            {
-                errors.Add("Pole email nie może być puste!");
-            }
-            if (string.IsNullOrWhiteSpace(Item.PhoneNumber))
-            {
-                errors.Add("Pole numer telefonu nie może być puste!");
-            }
-            
-            if (!string.IsNullOrWhiteSpace(Item.Name) && !RegexValidate.IsValidName(Item.Name))
-            {
-                errors.Add("Imię musi zaczynać się wielką literą i zawierać wyłącznie litery. Możliwe jest użycie łącznika lub spacji w imionach dwuczłonowych!");
-            }
-            if (!string.IsNullOrWhiteSpace(Item.Surname) && !RegexValidate.IsValidSurname(Item.Surname))
-            {
-                errors.Add("Nazwisko musi zaczynać się wielką literą. Możliwe są nazwiska dwuczłonowe!");
-            }
-            if (!string.IsNullOrWhiteSpace(Item.Email) && !RegexValidate.IsValidEmail(Item.Email))
-            {
-                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
-            }
-            if (!string.IsNullOrWhiteSpace(Item.PhoneNumber) && !RegexValidate.IsValidPhoneNumber(Item.PhoneNumber))
-            {
-                errors.Add("Numer telefonu musi zawierać 9 cyfr. Możesz również podać numer z prefiksem kraju, np. +48123456789!");
-            }
+            List<string> errors = FormValidation.ValidateUserData(Item);
             
             if (errors.Count > 0)
             {

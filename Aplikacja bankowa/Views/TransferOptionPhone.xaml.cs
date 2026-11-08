@@ -56,18 +56,15 @@ namespace Aplikacja_bankowa
             }
             if (Item.SenderId != 0)
             {
-                if (Item.SenderId != 0)
+                try
                 {
-                    try
-                    {
-                        await database.ExecuteTransferAsync(Item);
-                        await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
-                        await Navigation.PopAsync();
-                    }
-                    catch (Exception ex)
-                    {
-                        await DisplayAlertAsync("Błąd", ex.Message, "OK");
-                    }
+                    await database.ExecuteTransferAsync(Item);
+                    await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
+                    await Navigation.PopAsync();
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlertAsync("Błąd", ex.Message, "OK");
                 }
             }
         }

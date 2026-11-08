@@ -31,27 +31,50 @@ namespace Aplikacja_bankowa
                 LabelRecipientsAccount.Text = Item.AccountNumber;
                 LabelAvailableFunds.Text = $"{Item.AccountBalance:F2} PLN";
 
-                if (Item.IsCardBlocked)
+                UpdateCardImage();
+
+                var transactions = await database.GetUserTransactionsPreviewAsync(userId);
+
+                Transactions.Clear();
+
+                foreach (var item in transactions)
                 {
-                    BlockUnblockCardButton.ImageSource =  "credit_card_off.png";
-                }
-                else
-                {
-                    BlockUnblockCardButton.ImageSource = "credit_card_on.png";
+                    Transactions.Add(new TransactionDisplayItem(item, userId));
                 }
             }
             else
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
             }
+        }
 
-            var transactions = await database.GetUserTransactionsPreviewAsync(userId);
+        private async Task NavigateToTransferAsync(Button button, Page destination)
+        {
+            await ButtonAnimations.AnimateButtonAsync(button);
 
-            Transactions.Clear();
-
-            foreach (var item in transactions)
+            if (Item.IsCardBlocked)
             {
-                Transactions.Add(new TransactionDisplayItem(item, userId));
+                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK");
+                return;
+            }
+            else if (Item.AccountBalance <= 0)
+            {
+                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji!", "OK");
+                return;
+            }
+
+            await Navigation.PushAsync(destination);
+        }
+
+        private void UpdateCardImage()
+        {
+            if (Item.IsCardBlocked)
+            {
+                BlockUnblockCardButton.ImageSource = "credit_card_off.png";
+            }
+            else
+            {
+                BlockUnblockCardButton.ImageSource = "credit_card_on.png";
             }
         }
 
@@ -74,71 +97,33 @@ namespace Aplikacja_bankowa
         {
             if (!Item.IsCardBlocked)
             {
-                Item.IsCardBlocked = true;
-                BlockUnblockCardButton.ImageSource =  "credit_card_off.png";
                 await DisplayAlertAsync("Sukces", "Karta została pomyślnie zablokowana", "OK");
             }
             else if(Item.IsCardBlocked)
             {
-                Item.IsCardBlocked = false;
-                BlockUnblockCardButton.ImageSource = "credit_card_on.png";
                 await DisplayAlertAsync("Sukces", "Karta została pomyślnie odblokowana", "OK");
             }
+
+            Item.IsCardBlocked = !Item.IsCardBlocked;
+
+            UpdateCardImage();
+
             await database.SaveItemAsync(Item);
         }
         
         private async void OnButtonGoToTransferOptionBLIKClicked(object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToTransferOptionBLIK);
-
-            if (Item.IsCardBlocked)
-            {
-                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
-            }
-            else if (Item.AccountBalance <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji - Przejdź do \"Menu\" a następnie kliknij przycisk \"Bankomat\" aby dodać środki!", "OK"); 
-            }
-            else
-            {
-                await Navigation.PushAsync(new TransferOptionBLIK());
-            }
+            await NavigateToTransferAsync(ButtonGoToTransferOptionBLIK, new TransferOptionBLIK());
         }
 
         private async void OnButtonGoToTransferOptionDomesticClicked(object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToTransferOptionDomestic);
-
-            if (Item.IsCardBlocked)
-            {
-                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
-            }
-            else if (Item.AccountBalance <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji - Przejdź do \"Menu\" a następnie kliknij przycisk \"Bankomat\" aby dodać środki!", "OK"); 
-            }
-            else
-            {
-                await Navigation.PushAsync(new TransferOptionDomestic(database));
-            }
+            await NavigateToTransferAsync(ButtonGoToTransferOptionDomestic, new TransferOptionDomestic(database));
         }
 
         private async void OnButtonGoToTransferOptionPhoneClicked(object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToTransferOptionPhone);
-
-            if (Item.IsCardBlocked)
-            {
-                await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK"); 
-            }
-            else if (Item.AccountBalance <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji - Przejdź do \"Menu\" a następnie kliknij przycisk \"Bankomat\" aby dodać środki!", "OK"); 
-            }
-            else
-            {
-                await Navigation.PushAsync(new TransferOptionPhone(database));
-            }
+            await NavigateToTransferAsync(ButtonGoToTransferOptionPhone, new TransferOptionPhone(database));
         }
 
         private async void OnButtonGoToHistoryPageClicked(object sender, EventArgs e)

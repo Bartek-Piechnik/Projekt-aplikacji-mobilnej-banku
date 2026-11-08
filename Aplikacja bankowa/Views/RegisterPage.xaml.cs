@@ -34,66 +34,7 @@ namespace Aplikacja_bankowa
 
             var password = EntryPassword.Text ?? String.Empty;
             var repeatedPassword = EntryRepeatedPassword.Text ?? String.Empty;
-            List<string> errors = new List<string>();
-
-            if (string.IsNullOrWhiteSpace(Item.Name))
-            {
-                errors.Add("Pole imię nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidName(Item.Name))
-            {
-                errors.Add("Imię musi zaczynać się wielką literą. Możliwe jest imię dwuczłonowe!");
-            }
-
-            if (string.IsNullOrWhiteSpace(Item.Surname))
-            {
-                errors.Add("Pole nazwisko nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidSurname(Item.Surname))
-            {
-                errors.Add("Nazwisko musi zaczynać się wielką literą. Możliwe są nazwiska dwuczłonowe!");
-            }
-
-            if (Item.DateOfBirth == null)
-            {
-                errors.Add("Wybierz datę urodzenia!");
-            }
-
-            if (string.IsNullOrWhiteSpace(Item.Email))
-            {
-                errors.Add("Pole email nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidEmail(Item.Email))
-            {
-                errors.Add("Podaj poprawny adres email np. przyklad@gmail.com!");
-            }
-
-            if (string.IsNullOrWhiteSpace(Item.PhoneNumber))
-            {
-                errors.Add("Pole numer telefonu nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidPhoneNumber(Item.PhoneNumber))
-            {
-                errors.Add("Numer telefonu musi zawierać 9 cyfr. Możesz również podać numer z prefiksem kraju, np. +48123456789!");
-            }
-
-            if (string.IsNullOrWhiteSpace(password))
-            {
-                errors.Add("Pole hasło nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidPassword(password))
-            {
-                errors.Add("Hasło musi zawierać co najmniej 8 znaków!");
-            }
-
-            if (string.IsNullOrWhiteSpace(repeatedPassword))
-            {
-                errors.Add("Pole powtórzone hasło nie może być puste!");
-            }
-            else if (password != repeatedPassword)
-            {
-                errors.Add("Hasło i powtórzone hasło muszą być identyczne!");
-            }
+            List<string> errors = FormValidation.ValidateRegistration(Item, password, repeatedPassword);
 
             if (errors.Count > 0)
             {
