@@ -1,4 +1,5 @@
-﻿using BankSQLite;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite;
 using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
@@ -16,31 +17,20 @@ namespace Aplikacja_bankowa
 
         private void OnButtonChangeVisibilityPasswordClicked(object sender, EventArgs e)
         {
-            if (EntryPassword.IsPassword)
-            {
-                EntryPassword.IsPassword = false;
-                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_on.png";
-            }
-            else
-            {
-                EntryPassword.IsPassword = true;
-                ButtonChangeVisibilityPassword.ImageSource = "password_visibility_off.png";
-            }
+            PasswordVisibility.Toggle(EntryPassword, ButtonChangeVisibilityPassword);
         }
 
         private async void OnButtonGoToRegisterPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToRegisterPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToRegisterPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToRegisterPage);
 
             await Navigation.PushAsync(new RegisterPage(database));
         }
 
         private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
         {
-            await ButtonGoToMainViewPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToMainViewPage.ScaleToAsync(1.0, 150);
-            
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMainViewPage);
+
             var email = EntryEmail.Text?.Trim().ToLowerInvariant() ?? String.Empty;
             var password = EntryPassword.Text ?? string.Empty;
             List<string> errors = new List<string>();
@@ -49,16 +39,15 @@ namespace Aplikacja_bankowa
             {
                 errors.Add("Pole email nie może być puste!");
             }
+            else if (!RegexValidate.IsValidEmail(email))
+            {
+                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
+            }
             if (string.IsNullOrWhiteSpace(password))
             {
                 errors.Add("Pole hasło nie może być puste!");
             }
-            
-            if (!string.IsNullOrWhiteSpace(email) && !RegexValidate.IsValidEmail(email))
-            {
-                errors.Add("Podaj poprawny adres email w formacie np. przyklad@gmail.com!");
-            }
-            
+
             if (errors.Count > 0)
             {
                 string errorMessage = string.Join("\n\n", errors);

@@ -136,7 +136,26 @@ public class Database
             conn.Insert(item);
         });
     }
-    
+
+    public async Task<List<TransactionsItem>> GetUserTransactionsAsync(int userId)
+    {
+        await Init();
+
+        return await database.Table<TransactionsItem>()
+            .Where(t => t.SenderId == userId || t.RecipientId == userId)
+            .OrderByDescending(t => t.DateOfTransfer)
+            .ToListAsync();
+    }
+    public async Task<List<TransactionsItem>> GetUserTransactionsPreviewAsync(int userId)
+    {
+        await Init();
+
+        return await database.Table<TransactionsItem>()
+            .Where(t => t.SenderId == userId || t.RecipientId == userId)
+            .OrderByDescending(t => t.DateOfTransfer)
+            .Take(3)
+            .ToListAsync();
+    }
     public async Task DepositAsync(TransactionsItem item)
     {
         await ExecuteCashMachineOperationAsync(item, true);
@@ -151,18 +170,21 @@ public class Database
     {
         await Init();
 
-        var user = await GetItemAsync(item.SenderId);
+        
 
         if (item.TransferAmount <= 0)
         {
             throw new Exception("Nieprawidłowa kwota.");
         }
+        int userId = isDeposit ? item.RecipientId : item.SenderId;
 
-        if (item.SenderId == 0)
+        if (userId == 0)
         {
             throw new Exception("Nie znaleziono użytkownika.");
         }
-        
+
+        var user = await GetItemAsync(userId);
+
         await database.RunInTransactionAsync(conn =>
         {
             if (user == null)
@@ -189,8 +211,6 @@ public class Database
                 item.TransferType = "Wypłata";
                 item.TransferTitle = "Wypłata gotówki";
             }
-
-            item.RecipientId = 0;
 
             if (item.DateOfTransfer == default)
             {

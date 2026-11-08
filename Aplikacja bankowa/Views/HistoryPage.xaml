@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplikacja_bankowa.HistoryPage"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <VerticalStackLayout Style="{StaticResource VerticalStackLayout}">
+            <Label
+                Style="{StaticResource LabelHeader}"
+                Text="Historia transakcji" />
+            <Border
+                Style="{StaticResource BorderWhiteSection}"
+                Margin="10,0,10,0"
+                StrokeThickness="0">
+                <VerticalStackLayout BackgroundColor="White">
+                    <Border Style="{StaticResource BorderEntry}"
+                            Margin="20">
+                        <SearchBar
+                            TextColor="Black"
+                            PlaceholderColor="#444444"
+                            SearchIconColor="#388e3c"
+                            Placeholder="Wyszukaj po tytule lub typie transakcji"
+                            TextChanged="SearchBarTextChanged"/>
+                    </Border>
+                    <CollectionView
+                        ItemsSource="{Binding FilteredTransactions}"
+                        ItemTemplate="{StaticResource TransactionTemplate}"
+                        SelectionMode="None"
+                        Margin="15" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

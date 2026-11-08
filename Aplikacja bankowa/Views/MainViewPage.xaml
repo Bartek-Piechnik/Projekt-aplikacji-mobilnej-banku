@@ -89,66 +89,27 @@
                 </AbsoluteLayout>
             </VerticalStackLayout>
 
-            <ScrollView>
-                <Border
-                    Style="{StaticResource BorderWhiteSection}"
-                    Margin="10, 0, 10, 0"
-                    StrokeThickness="0">
-                    <VerticalStackLayout BackgroundColor="White">
-                        <Label
-                            Style="{StaticResource LabelForm}"
-                            Text="Ostatnie transakcje"
-                            FontSize="30"
-                            VerticalTextAlignment="Start"
-                            HorizontalTextAlignment="Center" />
-
-                        <AbsoluteLayout
-                            Margin="15"
-                            HeightRequest="300">
-                            <Label
-                                Text="Wtorek 29.09.2026"
-                                TextColor="Gray"
-                                FontSize="18"
-                                FontAttributes="Italic"
-                                FontFamily="Arial"
-                                Margin="0, 0, 0, 0.5"
-                                AbsoluteLayout.LayoutBounds="0.05, 0.01, 230, 25"
-                                AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            <BoxView
-                                BackgroundColor="#888888"
-                                HeightRequest="100"
-                                CornerRadius="20"
-                                AbsoluteLayout.LayoutBounds="0, 0.16, 1, 0.28"
-                                AbsoluteLayout.LayoutFlags="All" />
-                            <Label
-                                Text="Wpłata"
-                                TextColor="White"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                AbsoluteLayout.LayoutBounds="0.05, 0.15, 170, 35"
-                                AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            <Label
-                                Text="Tytuł wpłaty"
-                                TextColor="White"
-                                FontSize="18"
-                                AbsoluteLayout.LayoutBounds="0.2, 0.26, 300, 35"
-                                AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            <Label
-                                Text="+100,00 PLN"
-                                TextColor="White"
-                                FontSize="18"
-                                FontAttributes="Bold"
-                                AbsoluteLayout.LayoutBounds="0.96, 0.15, 130, 20"
-                                AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            <BoxView
-                                BackgroundColor="Black"
-                                HeightRequest="1"
-                                AbsoluteLayout.LayoutBounds="0, 0.45, 1, 0.28"
-                                AbsoluteLayout.LayoutFlags="All" />
-                        </AbsoluteLayout>
-                    </VerticalStackLayout>
-                </Border>
-            </ScrollView>
+            <Border
+                Style="{StaticResource BorderWhiteSection}"
+                Margin="10,0,10,0"
+                StrokeThickness="0">
+                <VerticalStackLayout BackgroundColor="White">
+                    <Button
+                        x:Name="ButtonGoToHistoryPage"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Start"
+                        Text="Historia transakcji >"
+                        FontSize="23"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Clicked="OnButtonGoToHistoryPageClicked"/>
+                    <CollectionView
+                        ItemsSource="{Binding Transactions}"
+                        ItemTemplate="{StaticResource TransactionTemplate}"
+                        SelectionMode="None"
+                        Margin="15" />
+                </VerticalStackLayout>
+            </Border>
 
             <Border
                 Style="{StaticResource BorderWhiteSection}"

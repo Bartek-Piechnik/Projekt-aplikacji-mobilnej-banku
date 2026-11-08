@@ -1,4 +1,5 @@
-﻿using BankSQLite;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite;
 using BankSQLite.Data;
 using BankSQLite.Models;
 
@@ -19,50 +20,22 @@ namespace Aplikacja_bankowa
 
         private void OnButtonChangeVisibilityOldPasswordClicked(object sender, EventArgs e)
         {
-            if (EntryOldPassword.IsPassword)
-            {
-                EntryOldPassword.IsPassword = false;
-                ButtonChangeVisibilityOldPassword.ImageSource = "password_visibility_on.png";
-            }
-            else
-            {
-                EntryOldPassword.IsPassword = true;
-                ButtonChangeVisibilityOldPassword.ImageSource = "password_visibility_off.png";
-            }
+            PasswordVisibility.Toggle(EntryOldPassword, ButtonChangeVisibilityOldPassword);
         }
 
         private void OnButtonChangeVisibilityNewPasswordClicked(object sender, EventArgs e)
         {
-            if (EntryNewPassword.IsPassword)
-            {
-                EntryNewPassword.IsPassword = false;
-                ButtonChangeVisibilityNewPassword.ImageSource = "password_visibility_on.png";
-            }
-            else
-            {
-                EntryNewPassword.IsPassword = true;
-                ButtonChangeVisibilityNewPassword.ImageSource = "password_visibility_off.png";
-            }
+            PasswordVisibility.Toggle(EntryNewPassword, ButtonChangeVisibilityNewPassword);
         }
 
         private void OnButtonChangeVisibilityRepeatedNewPasswordClicked(object sender, EventArgs e)
         {
-            if (EntryRepeatedNewPassword.IsPassword)
-            {
-                EntryRepeatedNewPassword.IsPassword = false;
-                ButtonChangeVisibilityRepeatedNewPassword.ImageSource = "password_visibility_on.png";
-            }
-            else
-            {
-                EntryRepeatedNewPassword.IsPassword = true;
-                ButtonChangeVisibilityRepeatedNewPassword.ImageSource = "password_visibility_off.png";
-            }
+            PasswordVisibility.Toggle(EntryRepeatedNewPassword, ButtonChangeVisibilityRepeatedNewPassword);
         }
 
         private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
         {
-            await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMenuPage);
 
             var userId = Preferences.Get("UserId", 0);
             Item = await database.GetItemAsync(userId);

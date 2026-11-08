@@ -1,4 +1,5 @@
-﻿using BankSQLite.Data;
+﻿using Aplikacja_bankowa.Helpers;
+using BankSQLite.Data;
 using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
@@ -35,8 +36,7 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
         {
-            await ButtonGoToMenuPage.ScaleToAsync(1.1, 150);
-            await ButtonGoToMenuPage.ScaleToAsync(1.0, 150);
+            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMenuPage);
 
             Item.DateOfTransfer = DateTime.UtcNow;
             
@@ -51,17 +51,19 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            Item.SenderId = Preferences.Get("UserId", 0);
-            if (Item.SenderId != 0)
+            var userId = Preferences.Get("UserId", 0);
+            if (userId != 0)
             {
                 try
                 {
                     if (Item.TransferType == "Wpłata")
                     {
+                        Item.RecipientId = userId;
                         await database.DepositAsync(Item);
                     }
                     else if (Item.TransferType == "Wypłata")
                     {
+                        Item.SenderId = userId;
                         await database.WithdrawAsync(Item);
                     }
                     
