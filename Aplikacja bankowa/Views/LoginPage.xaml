@@ -46,10 +46,10 @@
 
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToMainViewPage"
+                        x:Name="ButtonLogin"
                         Text="Zaloguj"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToMainViewPageClicked" />
+                        Clicked="OnButtonLoginClicked" />
                     <Button
                         Style="{StaticResource Button}"
                         x:Name="ButtonGoToRegisterPage"

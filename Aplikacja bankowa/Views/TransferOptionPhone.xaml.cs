@@ -1,20 +1,19 @@
 ﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
     public partial class TransferOptionPhone : ContentPage
     {
         private readonly Database database;
-        public TransactionsItem Item { get; set; }
+        public TransactionsItem Transaction { get; set; }
 
-        public TransferOptionPhone(Database database_)
+        public TransferOptionPhone(Database database)
         {
             InitializeComponent();
-
-            database = database_;
-            Item = new TransactionsItem();
+            this.database = database;
+            Transaction = new TransactionsItem();
             BindingContext = this;
         }
 
@@ -24,23 +23,31 @@ namespace Aplikacja_bankowa
 
             var recipientsPhoneNumber = EntryRecipientsPhoneNumber.Text;
 
-            Item.DateOfTransfer = DateTime.UtcNow;
+            Transaction.DateOfTransfer = DateTime.UtcNow;
+            Transaction.TransferType = "Telefoniczny";
 
-            if (string.IsNullOrEmpty(recipientsPhoneNumber) || string.IsNullOrEmpty(Item.TransferTitle))
+            List<string> errors = FormValidation.ValidateTransaction(Transaction);
+            
+            if (string.IsNullOrWhiteSpace(recipientsPhoneNumber))
             {
-                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
-                return;
+                errors.Add("Numer telefonu nie może być pusty!");
             }
-            else if (Item.TransferAmount <= 0)
+            else if (!RegexValidate.IsValidPhoneNumber(recipientsPhoneNumber))
             {
-                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
+                errors.Add("Numer telefonu musi zawierać 9 cyfr. Możesz również podać numer z prefiksem kraju, np. +48123456789!");
+            }
+            
+            if (errors.Count > 0)
+            {
+                string errorMessage = string.Join("\n\n", errors);
+                await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
 
             var recipient = await database.GetItemByPhoneNumberAsync(recipientsPhoneNumber);
             if (recipient != null)
             {
-                Item.RecipientId = recipient.ID;
+                Transaction.RecipientId = recipient.ID;
             }
             else
             {
@@ -48,17 +55,12 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            Item.SenderId = Preferences.Get("UserId", 0);
-            if (Item.SenderId == Item.RecipientId)
-            {
-                await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
-                return;
-            }
-            if (Item.SenderId != 0)
+            Transaction.SenderId = Preferences.Get("UserId", 0);
+            if (Transaction.SenderId != 0)
             {
                 try
                 {
-                    await database.ExecuteTransferAsync(Item);
+                    await database.ExecuteTransferAsync(Transaction);
                     await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
                     await Navigation.PopAsync();
                 }

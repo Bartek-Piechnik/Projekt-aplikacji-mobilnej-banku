@@ -22,7 +22,7 @@
                             x:Name="EntryName"
                             Keyboard="Text"
                             Placeholder="Podaj imię"
-                            Text="{Binding Item.Name}" />
+                            Text="{Binding User.Name}" />
                     </Border>
                     
                     <Label
@@ -34,7 +34,7 @@
                             x:Name="EntrySurname"
                             Keyboard="Text"
                             Placeholder="Podaj nazwisko"
-                            Text="{Binding Item.Surname}" />
+                            Text="{Binding User.Surname}" />
                     </Border>
                     
                     <Label
@@ -44,7 +44,7 @@
                         <DatePicker
                             Style="{StaticResource DatePickerForm}"
                             x:Name="DatePickerDateOfBirth"
-                            Date="{Binding Item.DateOfBirth}" />
+                            Date="{Binding User.DateOfBirth}" />
                     </Border>
                     
                     <Label
@@ -56,7 +56,7 @@
                             x:Name="EntryEmail"
                             Keyboard="Email"
                             Placeholder="Podaj adres e-mail"
-                            Text="{Binding Item.Email}" />
+                            Text="{Binding User.Email}" />
                     </Border>
 
                     <Label
@@ -68,7 +68,7 @@
                             x:Name="EntryPhoneNumber"
                             Keyboard="Telephone"
                             Placeholder="Podaj numer telefonu"
-                            Text="{Binding Item.PhoneNumber}" />
+                            Text="{Binding User.PhoneNumber}" />
                     </Border>
 
                     <Label
@@ -84,7 +84,7 @@
                                 Placeholder="Podaj hasło"
                                 IsPassword="True"
                                 HorizontalOptions="Fill"
-                                Text="{Binding Item.Password}" />
+                                Text="{Binding User.Password}" />
                             <Button
                                 Grid.Column="1"
                                 Style="{StaticResource ButtonChangeVisibilityPassword}"
@@ -116,10 +116,10 @@
 
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToLoginPage"
+                        x:Name="ButtonRegister"
                         Text="Zarejestruj"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToLoginPageClicked" />
+                        Clicked="OnButtonRegisterClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

@@ -1,20 +1,19 @@
 ﻿using Aplikacja_bankowa.Helpers;
-using BankSQLite;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
     public partial class RegisterPage : ContentPage
     {
         private readonly Database database;
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
 
-        public RegisterPage(Database database_)
+        public RegisterPage(Database database)
         {
             InitializeComponent();
-            database = database_;
-            Item = new UsersItem();
+            this.database = database;
+            User = new UsersItem();
             BindingContext = this;
         }
 
@@ -28,13 +27,13 @@ namespace Aplikacja_bankowa
             PasswordVisibility.Toggle(EntryRepeatedPassword, ButtonChangeVisibilityRepeatedPassword);
         }
 
-        private async void OnButtonGoToLoginPageClicked(object sender, EventArgs e)
+        private async void OnButtonRegisterClicked(object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToLoginPage);
+            await ButtonAnimations.AnimateButtonAsync(ButtonRegister);
 
             var password = EntryPassword.Text ?? String.Empty;
             var repeatedPassword = EntryRepeatedPassword.Text ?? String.Empty;
-            List<string> errors = FormValidation.ValidateRegistration(Item, password, repeatedPassword);
+            List<string> errors = FormValidation.ValidateRegistration(User, password, repeatedPassword);
 
             if (errors.Count > 0)
             {
@@ -50,10 +49,10 @@ namespace Aplikacja_bankowa
             var number4 = random.Next(0, 100000);
             var recipientsAccount = number1.ToString("D7") + number2.ToString("D7") + number3.ToString("D7") +
                                     number4.ToString("D5");
-            Item.AccountNumber = recipientsAccount;
+            User.AccountNumber = recipientsAccount;
 
-            Item.Email = Item.Email.Trim().ToLowerInvariant();
-            var userEmail = await database.GetItemByEmailAsync(Item.Email);
+            User.Email = User.Email.Trim().ToLowerInvariant();
+            var userEmail = await database.GetItemByEmailAsync(User.Email);
 
             if (userEmail != null)
             {
@@ -62,10 +61,10 @@ namespace Aplikacja_bankowa
             }
 
             var (hash, salt) = PasswordHash.Hash(password);
-            Item.PasswordHash =  hash;
-            Item.PasswordSalt = salt;
+            User.PasswordHash =  hash;
+            User.PasswordSalt = salt;
 
-            await database.SaveItemAsync(Item);
+            await database.SaveItemAsync(User);
             await Navigation.PopAsync();
         }
     }

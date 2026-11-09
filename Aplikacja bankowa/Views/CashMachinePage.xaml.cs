@@ -1,19 +1,19 @@
 ﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
-namespace Aplikacja_bankowa
+namespace Aplikacja_bankowa.Views
 {
     public partial class CashMachinePage : ContentPage
     {
         private readonly Database database;
-        public TransactionsItem Item { get; set; }
+        public TransactionsItem Transaction { get; set; }
         
-        public CashMachinePage(Database database_)
+        public CashMachinePage(Database database)
         {
             InitializeComponent();
-            database = database_;
-            Item = new TransactionsItem();
+            this.database = database;
+            Transaction = new TransactionsItem();
             BindingContext = this;
         }
         
@@ -21,33 +21,28 @@ namespace Aplikacja_bankowa
         {
             if (sender is RadioButton radioButton)
             {
-                Item.TransferType = radioButton.Content.ToString()!;
+                Transaction.TransferType = radioButton.Content.ToString()!;
 
-                if (Item.TransferType == "Wpłata")
+                if (Transaction.TransferType == "Wpłata")
                 {
-                    ButtonGoToMenuPage.Text = "Wpłać";
+                    ButtonMakeTransaction.Text = "Wpłać";
                 }
                 else
                 {
-                    ButtonGoToMenuPage.Text = "Wypłać";
+                    ButtonMakeTransaction.Text = "Wypłać";
                 }
             }
         }
 
-        private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
+        private async void OnButtonMakeTransactionClicked(Object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMenuPage);
+            await ButtonAnimations.AnimateButtonAsync(ButtonMakeTransaction);
 
-            Item.DateOfTransfer = DateTime.UtcNow;
+            Transaction.DateOfTransfer = DateTime.UtcNow;
             
-            if (string.IsNullOrEmpty(Item.TransferType))
+            if (string.IsNullOrEmpty(Transaction.TransferType))
             {
                 await DisplayAlertAsync("Błąd", "Wybierz typ operacji!", "OK");
-                return;
-            }
-            else if (Item.TransferAmount <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
                 return;
             }
             
@@ -56,19 +51,19 @@ namespace Aplikacja_bankowa
             {
                 try
                 {
-                    if (Item.TransferType == "Wpłata")
+                    if (Transaction.TransferType == "Wpłata")
                     {
-                        Item.RecipientId = userId;
-                        await database.DepositAsync(Item);
+                        Transaction.RecipientId = userId;
+                        await database.DepositAsync(Transaction);
                     }
-                    else if (Item.TransferType == "Wypłata")
+                    else if (Transaction.TransferType == "Wypłata")
                     {
-                        Item.SenderId = userId;
-                        await database.WithdrawAsync(Item);
+                        Transaction.SenderId = userId;
+                        await database.WithdrawAsync(Transaction);
                     }
                     
                     await DisplayAlertAsync("Sukces", "Operacja została wykonana pomyślnie!", "OK");
-                    await Navigation.PopAsync();
+                    await Navigation.PushAsync(new MainViewPage(database));
                 }
                 catch (Exception ex)
                 {

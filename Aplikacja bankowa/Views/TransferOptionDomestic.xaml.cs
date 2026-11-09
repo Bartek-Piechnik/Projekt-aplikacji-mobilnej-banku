@@ -1,20 +1,19 @@
 ﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
     public partial class TransferOptionDomestic : ContentPage
     {
         private readonly Database database;
-        public TransactionsItem Item { get; set; }
+        public TransactionsItem Transaction { get; set; }
 
-        public TransferOptionDomestic(Database database_)
+        public TransferOptionDomestic(Database database)
         {
             InitializeComponent();
-
-            database = database_;
-            Item = new TransactionsItem();
+            this.database = database;
+            Transaction = new TransactionsItem();
             BindingContext = this;
         }
 
@@ -22,7 +21,7 @@ namespace Aplikacja_bankowa
         {
             if (sender is RadioButton radioButton)
             {
-                Item.TransferType = radioButton.Content.ToString()!;
+                Transaction.TransferType = radioButton.Content.ToString()!;
             }
         }
 
@@ -32,23 +31,30 @@ namespace Aplikacja_bankowa
 
             var recipientsAccount = EntryRecipientsAccount.Text;
 
-            Item.DateOfTransfer = DateTime.UtcNow;
+            Transaction.DateOfTransfer = DateTime.UtcNow;
 
-            if (string.IsNullOrEmpty(recipientsAccount) || string.IsNullOrEmpty(Item.TransferTitle) || string.IsNullOrEmpty(Item.TransferType))
+            List<string> errors = FormValidation.ValidateTransaction(Transaction);
+
+            if (string.IsNullOrWhiteSpace(recipientsAccount))
             {
-                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                errors.Add("Pole rachunek odbiorcy nie może być puste!");
+            }
+            else if (!RegexValidate.IsValidRecipientsAccount(recipientsAccount))
+            {
+                errors.Add("Rachunek odbiorcy może składać się tylko z cyfr od 1 do 9! Musi mieć 26 znaków!");
+            }
+            
+            if (errors.Count > 0)
+            {
+                string errorMessage = string.Join("\n\n", errors);
+                await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
-            else if (Item.TransferAmount <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
-                return;
-            }
-
+            
             var recipient = await database.GetItemByAccountNumberAsync(recipientsAccount);
             if (recipient != null)
             {
-                Item.RecipientId = recipient.ID;
+                Transaction.RecipientId = recipient.ID;
             }
             else
             {
@@ -56,17 +62,12 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            Item.SenderId = Preferences.Get("UserId", 0);
-            if (Item.SenderId == Item.RecipientId)
-            {
-                await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
-                return;
-            }
-            if (Item.SenderId != 0)
+            Transaction.SenderId = Preferences.Get("UserId", 0);
+            if (Transaction.SenderId != 0)
             {
                 try
                 {
-                    await database.ExecuteTransferAsync(Item);
+                    await database.ExecuteTransferAsync(Transaction);
                     await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
                     await Navigation.PopAsync();
                 }

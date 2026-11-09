@@ -1,5 +1,4 @@
 ﻿using Aplikacja_bankowa.Helpers;
-using BankSQLite;
 using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
@@ -8,10 +7,10 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
 
-        public LoginPage(Database database_)
+        public LoginPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             BindingContext = this;
         }
 
@@ -27,9 +26,9 @@ namespace Aplikacja_bankowa
             await Navigation.PushAsync(new RegisterPage(database));
         }
 
-        private async void OnButtonGoToMainViewPageClicked(object sender, EventArgs e)
+        private async void OnButtonLoginClicked(object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMainViewPage);
+            await ButtonAnimations.AnimateButtonAsync(ButtonLogin);
 
             var email = EntryEmail.Text?.Trim().ToLowerInvariant() ?? String.Empty;
             var password = EntryPassword.Text ?? string.Empty;
@@ -62,7 +61,7 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            bool isPasswordValid = BankSQLite.PasswordHash.Verify(password, user.PasswordHash, user.PasswordSalt);
+            bool isPasswordValid = PasswordHash.Verify(password, user.PasswordHash, user.PasswordSalt);
             if (isPasswordValid)
             {
                 Preferences.Set("UserId", user.ID);

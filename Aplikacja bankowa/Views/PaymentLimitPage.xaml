@@ -22,15 +22,15 @@
                             x:Name="EntryMaxAmount"
                             Keyboard="Numeric"
                             Placeholder="Podaj maksymalną kwotę" 
-                            Text="{Binding Item.PaymentLimit}"/>
+                            Text="{Binding User.PaymentLimit}"/>
                     </Border>
 
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToMenuPage"
+                        x:Name="ButtonChangeMyPaymentLimit"
                         Text="Zmień limit płatności"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToMenuPageClicked" />
+                        Clicked="OnButtonChangeMyPaymentLimitClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

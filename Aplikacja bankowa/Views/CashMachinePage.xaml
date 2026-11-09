@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja_bankowa.CashMachinePage"
+             x:Class="Aplikacja_bankowa.Views.CashMachinePage"
              NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
@@ -22,7 +22,7 @@
                             x:Name="EntryAmount"
                             Keyboard="Numeric"
                             Placeholder="Podaj kwotę przelewu" 
-                            Text="{Binding Item.TransferAmount}"/>
+                            Text="{Binding Transaction.TransferAmount}"/>
                     </Border>
 
                     <Label
@@ -47,10 +47,10 @@
                     
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToMenuPage"
+                        x:Name="ButtonMakeTransaction"
                         Text="Wykonaj operację"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToMenuPageClicked" />
+                        Clicked="OnButtonMakeTransactionClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

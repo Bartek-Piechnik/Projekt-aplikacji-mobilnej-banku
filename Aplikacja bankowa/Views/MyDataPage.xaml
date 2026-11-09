@@ -42,7 +42,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryName"
                             Placeholder="Podaj imię"
-                            Text="{Binding Item.Name}"/>
+                            Text="{Binding User.Name}"/>
                     </Border>
 
                     <Label
@@ -53,7 +53,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntrySurname"
                             Placeholder="Podaj nazwisko"
-                            Text="{Binding Item.Surname}"/>
+                            Text="{Binding User.Surname}"/>
                     </Border>
 
                     <Label
@@ -63,7 +63,7 @@
                         <DatePicker
                             Style="{StaticResource DatePickerForm}"
                             x:Name="DatePickerDateOfBirth"
-                            Date="{Binding Item.DateOfBirth}"/>
+                            Date="{Binding User.DateOfBirth}"/>
                     </Border>
 
                     <Label
@@ -74,7 +74,7 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryEmail"
                             Placeholder="Podaj adres e-mail"
-                            Text="{Binding Item.Email}"/>
+                            Text="{Binding User.Email}"/>
                     </Border>
 
                     <Label
@@ -85,14 +85,14 @@
                             Style="{StaticResource EntryForm}"
                             x:Name="EntryPhoneNumber"
                             Placeholder="Podaj numer telefonu"
-                            Text="{Binding Item.PhoneNumber}"/>
+                            Text="{Binding User.PhoneNumber}"/>
                     </Border>
 
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToMenuPage"
+                        x:Name="ButtonChangeMyData"
                         Text="Zmień"
-                        Clicked="OnButtonGoToMenuPageClicked" />
+                        Clicked="OnButtonChangeMyDataClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

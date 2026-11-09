@@ -1,22 +1,21 @@
-﻿using Aplikacja_bankowa.Helpers;
-using BankSQLite.Data;
-using BankSQLite.Models;
+﻿using BankSQLite.Data;
 using System.Collections.ObjectModel;
+using Aplikacja_bankowa.Models;
 
 namespace Aplikacja_bankowa
 {
     public partial class HistoryPage : ContentPage
     {
         private readonly Database database;
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
         public ObservableCollection<TransactionDisplayItem> Transactions { get; set; } = new();
         public ObservableCollection<TransactionDisplayItem> FilteredTransactions { get; set; } = new();
 
-        public HistoryPage(Database database_)
+        public HistoryPage(Database database)
         {
             InitializeComponent();
-            database = database_;
-            Item = new UsersItem();
+            this.database = database;
+            User = new UsersItem();
             BindingContext = this;
         }
 
@@ -25,9 +24,9 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
 
             var userId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(userId);
+            User = await database.GetItemAsync(userId);
 
-            if (Item == null)
+            if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
             }

@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace BankSQLite;
+namespace Aplikacja_bankowa.Helpers;
 
 public static class PasswordHash
 {

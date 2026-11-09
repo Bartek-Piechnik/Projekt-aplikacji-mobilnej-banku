@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Aplikacja_bankowa.Helpers
+﻿namespace Aplikacja_bankowa.Helpers
 {
     public static class ButtonAnimations
     {
