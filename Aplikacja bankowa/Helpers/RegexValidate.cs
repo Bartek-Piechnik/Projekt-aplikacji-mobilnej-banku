@@ -10,6 +10,7 @@ public static class RegexValidate
     private const string PhoneNumberPattern = @"^(?:\+\d{2})?\d{9}$";
     private const string PasswordPattern = @"^[a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ0-9!@#$%^&*()_+\-=\[\]{};':""\\|,.<>/?]{8,}$";
     private const string RecipientsAccountPattern = @"^[0-9]{26}$";
+    private const string TransferTitlePattern = @"^[a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ0-9 .]{1,30}$";
 
     public static bool IsValidName(string name)
     {
@@ -39,5 +40,10 @@ public static class RegexValidate
     public static bool IsValidRecipientsAccount(string recipientsAccount)
     {
         return !string.IsNullOrWhiteSpace(recipientsAccount) && Regex.IsMatch(recipientsAccount, RecipientsAccountPattern);
+    }
+    
+    public static bool IsValidTransferTitle(string transferTitle)
+    {
+        return !string.IsNullOrWhiteSpace(transferTitle) && Regex.IsMatch(transferTitle, TransferTitlePattern);
     }
 }

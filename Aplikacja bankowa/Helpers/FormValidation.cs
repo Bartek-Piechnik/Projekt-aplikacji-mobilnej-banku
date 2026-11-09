@@ -52,6 +52,7 @@ public static class FormValidation
 
         return errors;
     }
+    
     public static List<string> ValidateRegistration(UsersItem user, string password, string repeatedPassword)
     {
         List<string> errors = new List<string>();

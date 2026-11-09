@@ -33,12 +33,39 @@ namespace Aplikacja_bankowa
 
             Transaction.DateOfTransfer = DateTime.UtcNow;
 
-            if (string.IsNullOrEmpty(recipientsAccount) || string.IsNullOrEmpty(Transaction.TransferTitle) || string.IsNullOrEmpty(Transaction.TransferType))
+            List<string> errors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(recipientsAccount))
             {
-                await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
+                errors.Add("Pole rachunek odbiorcy nie może być puste!");
+            }
+            else if (!RegexValidate.IsValidRecipientsAccount(recipientsAccount))
+            {
+                errors.Add("Rachunek odbiorcy może składać się tylko z cyfr od 1 do 9! Musi mieć 26 znaków!");
+            }
+            
+            if (string.IsNullOrWhiteSpace(Transaction.TransferTitle))
+            {
+                errors.Add("Pole tytuł przelewu nie może być puste!");
+            }
+            else if (!RegexValidate.IsValidTransferTitle(Transaction.TransferTitle))
+            {
+                errors.Add("Tytuł przelewu może zawierać maksymalnie 30 znaków!");
+            }
+            
+            if (string.IsNullOrWhiteSpace(Transaction.TransferType))
+            {
+                errors.Add("Pole typ przelewu musi być wybrane!");
+            }
+            
+            if (errors.Count > 0)
+            {
+                string errorMessage = string.Join("\n\n", errors);
+                await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
-            else if (Transaction.TransferAmount <= 0)
+            
+            if (Transaction.TransferAmount <= 0)
             {
                 await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
                 return;
