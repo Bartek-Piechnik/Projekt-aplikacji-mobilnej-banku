@@ -45,11 +45,6 @@ namespace Aplikacja_bankowa.Views
                 await DisplayAlertAsync("Błąd", "Wybierz typ operacji!", "OK");
                 return;
             }
-            else if (Transaction.TransferAmount <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
-                return;
-            }
             
             var userId = Preferences.Get("UserId", 0);
             if (userId != 0)

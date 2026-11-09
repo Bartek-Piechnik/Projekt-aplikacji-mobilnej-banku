@@ -33,7 +33,7 @@ namespace Aplikacja_bankowa
 
             Transaction.DateOfTransfer = DateTime.UtcNow;
 
-            List<string> errors = new List<string>();
+            List<string> errors = FormValidation.ValidateTransaction(Transaction);
 
             if (string.IsNullOrWhiteSpace(recipientsAccount))
             {
@@ -44,20 +44,6 @@ namespace Aplikacja_bankowa
                 errors.Add("Rachunek odbiorcy może składać się tylko z cyfr od 1 do 9! Musi mieć 26 znaków!");
             }
             
-            if (string.IsNullOrWhiteSpace(Transaction.TransferTitle))
-            {
-                errors.Add("Pole tytuł przelewu nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidTransferTitle(Transaction.TransferTitle))
-            {
-                errors.Add("Tytuł przelewu może zawierać maksymalnie 30 znaków!");
-            }
-            
-            if (string.IsNullOrWhiteSpace(Transaction.TransferType))
-            {
-                errors.Add("Pole typ przelewu musi być wybrane!");
-            }
-            
             if (errors.Count > 0)
             {
                 string errorMessage = string.Join("\n\n", errors);
@@ -65,12 +51,6 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            if (Transaction.TransferAmount <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
-                return;
-            }
-
             var recipient = await database.GetItemByAccountNumberAsync(recipientsAccount);
             if (recipient != null)
             {
@@ -83,11 +63,6 @@ namespace Aplikacja_bankowa
             }
 
             Transaction.SenderId = Preferences.Get("UserId", 0);
-            if (Transaction.SenderId == Transaction.RecipientId)
-            {
-                await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
-                return;
-            }
             if (Transaction.SenderId != 0)
             {
                 try

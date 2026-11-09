@@ -112,9 +112,14 @@ public class Database
             throw new Exception("Nie znaleziono użytkownika.");
         }
 
+        if (transaction.SenderId == transaction.RecipientId)
+        {
+            throw new Exception("Nie można wykonywać transakcji z samym sobą!");
+        }
+
         if (transaction.TransferAmount <= 0)
         {
-            throw new Exception("Nieprawidłowa kwota.");
+            throw new Exception("Kwota musi być większa od zera!");
         }
         
         if (transaction.TransferAmount > sender.PaymentLimit)

@@ -11,7 +11,7 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(user.Name))
         {
-            errors.Add("Pole imię nie może być puste!");
+            errors.Add("Imię nie może być puste!");
         }
         else if (!RegexValidate.IsValidName(user.Name))
         {
@@ -20,7 +20,7 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(user.Surname))
         {
-            errors.Add("Pole nazwisko nie może być puste!");
+            errors.Add("Nazwisko nie może być puste!");
         }
         else if (!RegexValidate.IsValidSurname(user.Surname))
         {
@@ -34,7 +34,7 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(user.Email))
         {
-            errors.Add("Pole email nie może być puste!");
+            errors.Add("Email nie może być pusty!");
         }
         else if (!RegexValidate.IsValidEmail(user.Email))
         {
@@ -43,7 +43,7 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(user.PhoneNumber))
         {
-            errors.Add("Pole numer telefonu nie może być puste!");
+            errors.Add("Numer telefonu nie może być pusty!");
         }
         else if (!RegexValidate.IsValidPhoneNumber(user.PhoneNumber))
         {
@@ -61,7 +61,7 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(password))
         {
-            errors.Add("Pole hasło nie może być puste!");
+            errors.Add("Hasło nie może być puste!");
         }
         else if (!RegexValidate.IsValidPassword(password))
         {
@@ -70,7 +70,7 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(repeatedPassword))
         {
-            errors.Add("Pole powtórzone hasło nie może być puste!");
+            errors.Add("Powtórzone hasło nie może być puste!");
         }
         else if (password != repeatedPassword)
         {
@@ -86,12 +86,12 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(oldPassword))
         {
-            errors.Add("Pole stare hasło nie może być puste!");
+            errors.Add("Stare hasło nie może być puste!");
         }
 
         if (string.IsNullOrWhiteSpace(newPassword))
         {
-            errors.Add("Pole nowe hasło nie może być puste!");
+            errors.Add("Nowe hasło nie może być puste!");
         }
         else if (!RegexValidate.IsValidPassword(newPassword))
         {
@@ -100,12 +100,33 @@ public static class FormValidation
 
         if (string.IsNullOrWhiteSpace(repeatedNewPassword))
         {
-            errors.Add("Pole powtórzone nowe hasło nie może być puste!");
+            errors.Add("Powtórzone nowe hasło nie może być puste!");
         }
 
         if (!string.IsNullOrWhiteSpace(newPassword) && !string.IsNullOrWhiteSpace(repeatedNewPassword) && newPassword != repeatedNewPassword)
         {
-            errors.Add("Hasło i powtórzone hasło muszą być identyczne!");
+            errors.Add("Nowe hasło i powtórzone hasło muszą być identyczne!");
+        }
+
+        return errors;
+    }
+
+    public static List<string> ValidateTransaction(TransactionsItem transaction)
+    {
+        List<string> errors = new List<string>();
+
+        if (string.IsNullOrWhiteSpace(transaction.TransferTitle))
+        {
+            errors.Add("Tytuł przelewu nie może być pusty!");
+        }
+        else if (!RegexValidate.IsValidTransferTitle(transaction.TransferTitle))
+        {
+            errors.Add("Tytuł przelewu może zawierać maksymalnie 30 znaków!");
+        }
+
+        if (string.IsNullOrWhiteSpace(transaction.TransferType))
+        {
+            errors.Add("Typ przelewu musi być wybrany!");
         }
 
         return errors;

@@ -24,37 +24,23 @@ namespace Aplikacja_bankowa
             var recipientsPhoneNumber = EntryRecipientsPhoneNumber.Text;
 
             Transaction.DateOfTransfer = DateTime.UtcNow;
+            Transaction.TransferType = "Telefoniczny";
 
-            List<string> errors = new List<string>();
+            List<string> errors = FormValidation.ValidateTransaction(Transaction);
             
             if (string.IsNullOrWhiteSpace(recipientsPhoneNumber))
             {
-                errors.Add("Pole numer telefonu nie może być puste!");
+                errors.Add("Numer telefonu nie może być pusty!");
             }
             else if (!RegexValidate.IsValidPhoneNumber(recipientsPhoneNumber))
             {
                 errors.Add("Numer telefonu musi zawierać 9 cyfr. Możesz również podać numer z prefiksem kraju, np. +48123456789!");
             }
             
-            if (string.IsNullOrWhiteSpace(Transaction.TransferTitle))
-            {
-                errors.Add("Pole tytuł przelewu nie może być puste!");
-            }
-            else if (!RegexValidate.IsValidTransferTitle(Transaction.TransferTitle))
-            {
-                errors.Add("Tytuł przelewu może zawierać maksymalnie 30 znaków!");
-            }
-            
             if (errors.Count > 0)
             {
                 string errorMessage = string.Join("\n\n", errors);
                 await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
-                return;
-            }
-            
-            if (Transaction.TransferAmount <= 0)
-            {
-                await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
                 return;
             }
 
@@ -70,11 +56,6 @@ namespace Aplikacja_bankowa
             }
 
             Transaction.SenderId = Preferences.Get("UserId", 0);
-            if (Transaction.SenderId == Transaction.RecipientId)
-            {
-                await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
-                return;
-            }
             if (Transaction.SenderId != 0)
             {
                 try
