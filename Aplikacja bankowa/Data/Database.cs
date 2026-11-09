@@ -1,5 +1,6 @@
-﻿using SQLite;
-using BankSQLite.Models;
+﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
+using SQLite;
 
 namespace BankSQLite.Data;
 

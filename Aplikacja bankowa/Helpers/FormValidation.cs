@@ -1,7 +1,7 @@
-﻿using BankSQLite.Models;
-using System.Text.RegularExpressions;
+﻿using Aplikacja_bankowa.Models;
+using BankSQLite;
 
-namespace BankSQLite;
+namespace Aplikacja_bankowa.Helpers;
 
 public static class FormValidation
 {

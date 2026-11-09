@@ -1,7 +1,6 @@
 ﻿using Aplikacja_bankowa.Helpers;
-using BankSQLite;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
@@ -11,10 +10,10 @@ namespace Aplikacja_bankowa
         
         public UsersItem User { get; set; }
         
-        public ChangePasswordPage(Database database_)
+        public ChangePasswordPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             User = new UsersItem();
         }
 
@@ -70,7 +69,7 @@ namespace Aplikacja_bankowa
             User.PasswordSalt = salt;
 
             await database.SaveItemAsync(User);
-            await Navigation.PushAsync(new MenuPage(database));
+            await Navigation.PushAsync(new MainViewPage(database));
         }
     }
 }

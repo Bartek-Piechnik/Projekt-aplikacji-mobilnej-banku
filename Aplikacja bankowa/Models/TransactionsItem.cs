@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace BankSQLite.Models;
+namespace Aplikacja_bankowa.Models;
 
 public class TransactionsItem
 {

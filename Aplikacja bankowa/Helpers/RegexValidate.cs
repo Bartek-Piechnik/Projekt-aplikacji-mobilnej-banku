@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace BankSQLite;
+namespace Aplikacja_bankowa.Helpers;
 
 public static class RegexValidate
 {

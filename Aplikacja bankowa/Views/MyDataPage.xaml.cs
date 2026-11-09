@@ -1,7 +1,6 @@
 ﻿using Aplikacja_bankowa.Helpers;
-using BankSQLite;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
@@ -11,10 +10,10 @@ namespace Aplikacja_bankowa
 
         public UsersItem User { get; set; }
 
-        public MyDataPage(Database database_)
+        public MyDataPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             User = new UsersItem();
         }
 
@@ -73,7 +72,7 @@ namespace Aplikacja_bankowa
             
             await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono dane:\n Imię: {User.Name},\n Nazwisko: {User.Surname},\n Data urodzenia: {User.DateOfBirth},\n Adres e-mail: {User.Email},\n Numer telefonu: {User.PhoneNumber}", "OK");
             await database.SaveItemAsync(User);
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new MainViewPage(database));
         }
     }
 }

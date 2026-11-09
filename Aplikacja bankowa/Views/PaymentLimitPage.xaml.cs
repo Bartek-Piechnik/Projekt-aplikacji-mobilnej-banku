@@ -1,6 +1,6 @@
 ﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
@@ -9,10 +9,10 @@ namespace Aplikacja_bankowa
         private readonly Database database;
         public UsersItem User { get; set; }
         
-        public PaymentLimitPage(Database database_)
+        public PaymentLimitPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             User = new UsersItem();
             BindingContext = this;
         }
@@ -50,7 +50,7 @@ namespace Aplikacja_bankowa
             
             await database.SaveItemAsync(User);
             await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono limit platności:\n Limit płatności: {User.PaymentLimit} zł", "OK"); 
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new MainViewPage(database));
         }
     }
 }

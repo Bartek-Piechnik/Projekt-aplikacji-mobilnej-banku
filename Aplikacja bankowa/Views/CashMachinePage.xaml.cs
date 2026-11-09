@@ -1,18 +1,18 @@
 ﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
-namespace Aplikacja_bankowa
+namespace Aplikacja_bankowa.Views
 {
     public partial class CashMachinePage : ContentPage
     {
         private readonly Database database;
         public TransactionsItem Transaction { get; set; }
         
-        public CashMachinePage(Database database_)
+        public CashMachinePage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             Transaction = new TransactionsItem();
             BindingContext = this;
         }
@@ -68,7 +68,7 @@ namespace Aplikacja_bankowa
                     }
                     
                     await DisplayAlertAsync("Sukces", "Operacja została wykonana pomyślnie!", "OK");
-                    await Navigation.PopAsync();
+                    await Navigation.PushAsync(new MainViewPage(database));
                 }
                 catch (Exception ex)
                 {

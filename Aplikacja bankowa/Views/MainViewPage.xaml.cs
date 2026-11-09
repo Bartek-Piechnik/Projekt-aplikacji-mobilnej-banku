@@ -1,7 +1,7 @@
 ﻿using Aplikacja_bankowa.Helpers;
 using BankSQLite.Data;
-using BankSQLite.Models;
 using System.Collections.ObjectModel;
+using Aplikacja_bankowa.Models;
 
 namespace Aplikacja_bankowa
 {
@@ -11,10 +11,10 @@ namespace Aplikacja_bankowa
         public UsersItem User { get; set; }
         public ObservableCollection<TransactionDisplayItem> Transactions { get; set; } = new();
 
-        public MainViewPage(Database database_)
+        public MainViewPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             User = new UsersItem();
             BindingContext = this;
         }

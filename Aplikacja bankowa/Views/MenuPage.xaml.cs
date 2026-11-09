@@ -7,10 +7,10 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         
-        public MenuPage(Database database_)
+        public MenuPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             BindingContext = this;
         }
 
@@ -39,7 +39,7 @@ namespace Aplikacja_bankowa
         {
             await ButtonAnimations.AnimateButtonAsync(ButtonGoToCashMachinePage);
 
-            await Navigation.PushAsync(new CashMachinePage(database));
+            await Navigation.PushAsync(new Views.CashMachinePage(database));
         }
     }
 }

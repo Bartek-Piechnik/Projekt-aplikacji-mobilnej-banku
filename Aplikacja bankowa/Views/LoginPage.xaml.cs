@@ -1,5 +1,4 @@
 ﻿using Aplikacja_bankowa.Helpers;
-using BankSQLite;
 using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
@@ -8,10 +7,10 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
 
-        public LoginPage(Database database_)
+        public LoginPage(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             BindingContext = this;
         }
 

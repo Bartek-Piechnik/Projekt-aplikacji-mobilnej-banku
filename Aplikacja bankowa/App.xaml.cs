@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using BankSQLite.Data;
-using BankSQLite.Models;
+﻿using BankSQLite.Data;
 
 namespace Aplikacja_bankowa
 {
@@ -8,10 +6,10 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
 
-        public App(Database database_)
+        public App(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

@@ -1,6 +1,6 @@
 ﻿using Aplikacja_bankowa.Helpers;
+using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
-using BankSQLite.Models;
 
 namespace Aplikacja_bankowa
 {
@@ -9,10 +9,10 @@ namespace Aplikacja_bankowa
         private readonly Database database;
         public TransactionsItem Transaction { get; set; }
 
-        public TransferOptionDomestic(Database database_)
+        public TransferOptionDomestic(Database database)
         {
             InitializeComponent();
-            database = database_;
+            this.database = database;
             Transaction = new TransactionsItem();
             BindingContext = this;
         }
