@@ -33,7 +33,7 @@
                             x:Name="EntryTransferReference"
                             Keyboard="Text"
                             Placeholder="Podaj tytuł przelewu"
-                            Text="{Binding Item.TransferTitle}" />
+                            Text="{Binding Transaction.TransferTitle}" />
                     </Border>
 
                     <Label
@@ -45,7 +45,7 @@
                             x:Name="EntryTransferAmount"
                             Keyboard="Numeric"
                             Placeholder="Podaj kwotę przelewu"
-                            Text="{Binding Item.TransferAmount}" />
+                            Text="{Binding Transaction.TransferAmount}" />
                     </Border>
 
                     <Button

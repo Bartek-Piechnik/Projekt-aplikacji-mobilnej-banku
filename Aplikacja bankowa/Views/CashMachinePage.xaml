@@ -22,7 +22,7 @@
                             x:Name="EntryAmount"
                             Keyboard="Numeric"
                             Placeholder="Podaj kwotę przelewu" 
-                            Text="{Binding Item.TransferAmount}"/>
+                            Text="{Binding Transaction.TransferAmount}"/>
                     </Border>
 
                     <Label

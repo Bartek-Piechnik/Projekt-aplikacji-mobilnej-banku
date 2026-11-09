@@ -22,7 +22,7 @@
                             x:Name="EntryMaxAmount"
                             Keyboard="Numeric"
                             Placeholder="Podaj maksymalną kwotę" 
-                            Text="{Binding Item.PaymentLimit}"/>
+                            Text="{Binding User.PaymentLimit}"/>
                     </Border>
 
                     <Button
