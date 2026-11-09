@@ -9,13 +9,13 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
         
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
         
         public ChangePasswordPage(Database database_)
         {
             InitializeComponent();
             database = database_;
-            Item = new UsersItem();
+            User = new UsersItem();
         }
 
         private void OnButtonChangeVisibilityOldPasswordClicked(object sender, EventArgs e)
@@ -33,13 +33,13 @@ namespace Aplikacja_bankowa
             PasswordVisibility.Toggle(EntryRepeatedNewPassword, ButtonChangeVisibilityRepeatedNewPassword);
         }
 
-        private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
+        private async void OnButtonChangePasswordClicked(Object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMenuPage);
+            await ButtonAnimations.AnimateButtonAsync(ButtonChangePassword);
 
             var userId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(userId);
-            if (Item == null)
+            User = await database.GetItemAsync(userId);
+            if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
                 return;
@@ -58,7 +58,7 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            bool isPasswordValid = BankSQLite.PasswordHash.Verify(oldPassword, Item.PasswordHash, Item.PasswordSalt);
+            bool isPasswordValid = PasswordHash.Verify(oldPassword, User.PasswordHash, User.PasswordSalt);
             if (!isPasswordValid)
             {
                 await DisplayAlertAsync("Błąd", "Niepoprawne stare hasło.", "OK");
@@ -66,10 +66,10 @@ namespace Aplikacja_bankowa
             }
             
             var (hash, salt) = PasswordHash.Hash(newPassword);
-            Item.PasswordHash =  hash;
-            Item.PasswordSalt = salt;
+            User.PasswordHash =  hash;
+            User.PasswordSalt = salt;
 
-            await database.SaveItemAsync(Item);
+            await database.SaveItemAsync(User);
             await Navigation.PushAsync(new MenuPage(database));
         }
     }

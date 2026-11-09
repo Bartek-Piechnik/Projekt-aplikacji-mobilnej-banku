@@ -7,14 +7,13 @@ namespace Aplikacja_bankowa
     public partial class TransferOptionDomestic : ContentPage
     {
         private readonly Database database;
-        public TransactionsItem Item { get; set; }
+        public TransactionsItem Transaction { get; set; }
 
         public TransferOptionDomestic(Database database_)
         {
             InitializeComponent();
-
             database = database_;
-            Item = new TransactionsItem();
+            Transaction = new TransactionsItem();
             BindingContext = this;
         }
 
@@ -22,7 +21,7 @@ namespace Aplikacja_bankowa
         {
             if (sender is RadioButton radioButton)
             {
-                Item.TransferType = radioButton.Content.ToString()!;
+                Transaction.TransferType = radioButton.Content.ToString()!;
             }
         }
 
@@ -32,14 +31,14 @@ namespace Aplikacja_bankowa
 
             var recipientsAccount = EntryRecipientsAccount.Text;
 
-            Item.DateOfTransfer = DateTime.UtcNow;
+            Transaction.DateOfTransfer = DateTime.UtcNow;
 
-            if (string.IsNullOrEmpty(recipientsAccount) || string.IsNullOrEmpty(Item.TransferTitle) || string.IsNullOrEmpty(Item.TransferType))
+            if (string.IsNullOrEmpty(recipientsAccount) || string.IsNullOrEmpty(Transaction.TransferTitle) || string.IsNullOrEmpty(Transaction.TransferType))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
-            else if (Item.TransferAmount <= 0)
+            else if (Transaction.TransferAmount <= 0)
             {
                 await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
                 return;
@@ -48,7 +47,7 @@ namespace Aplikacja_bankowa
             var recipient = await database.GetItemByAccountNumberAsync(recipientsAccount);
             if (recipient != null)
             {
-                Item.RecipientId = recipient.ID;
+                Transaction.RecipientId = recipient.ID;
             }
             else
             {
@@ -56,17 +55,17 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            Item.SenderId = Preferences.Get("UserId", 0);
-            if (Item.SenderId == Item.RecipientId)
+            Transaction.SenderId = Preferences.Get("UserId", 0);
+            if (Transaction.SenderId == Transaction.RecipientId)
             {
                 await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
                 return;
             }
-            if (Item.SenderId != 0)
+            if (Transaction.SenderId != 0)
             {
                 try
                 {
-                    await database.ExecuteTransferAsync(Item);
+                    await database.ExecuteTransferAsync(Transaction);
                     await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
                     await Navigation.PopAsync();
                 }

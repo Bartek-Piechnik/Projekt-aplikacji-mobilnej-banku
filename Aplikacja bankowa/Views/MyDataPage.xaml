@@ -90,9 +90,9 @@
 
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToMenuPage"
+                        x:Name="ButtonChangeMyData"
                         Text="Zmień"
-                        Clicked="OnButtonGoToMenuPageClicked" />
+                        Clicked="OnButtonChangeMyDataClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

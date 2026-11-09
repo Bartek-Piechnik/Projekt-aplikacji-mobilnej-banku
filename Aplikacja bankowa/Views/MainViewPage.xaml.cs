@@ -8,14 +8,14 @@ namespace Aplikacja_bankowa
     public partial class MainViewPage : ContentPage
     {
         private readonly Database database;
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
         public ObservableCollection<TransactionDisplayItem> Transactions { get; set; } = new();
 
         public MainViewPage(Database database_)
         {
             InitializeComponent();
             database = database_;
-            Item = new UsersItem();
+            User = new UsersItem();
             BindingContext = this;
         }
 
@@ -24,12 +24,12 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
 
             var userId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(userId);
+            User = await database.GetItemAsync(userId);
 
-            if (Item != null)
+            if (User != null)
             {
-                LabelRecipientsAccount.Text = Item.AccountNumber;
-                LabelAvailableFunds.Text = $"{Item.AccountBalance:F2} PLN";
+                LabelRecipientsAccount.Text = User.AccountNumber;
+                LabelAvailableFunds.Text = $"{User.AccountBalance:F2} PLN";
 
                 UpdateCardImage();
 
@@ -52,12 +52,12 @@ namespace Aplikacja_bankowa
         {
             await ButtonAnimations.AnimateButtonAsync(button);
 
-            if (Item.IsCardBlocked)
+            if (User.IsCardBlocked)
             {
                 await DisplayAlertAsync("Błąd", "Karta jest zablokowana - nie można wykonać transakcji!", "OK");
                 return;
             }
-            else if (Item.AccountBalance <= 0)
+            else if (User.AccountBalance <= 0)
             {
                 await DisplayAlertAsync("Błąd", "Brak środków - nie można wykonać transakcji!", "OK");
                 return;
@@ -68,7 +68,7 @@ namespace Aplikacja_bankowa
 
         private void UpdateCardImage()
         {
-            if (Item.IsCardBlocked)
+            if (User.IsCardBlocked)
             {
                 BlockUnblockCardButton.ImageSource = "credit_card_off.png";
             }
@@ -95,20 +95,20 @@ namespace Aplikacja_bankowa
 
         private async void OnButtonBlockUnblockCardClicked(object sender, EventArgs e)
         {
-            if (!Item.IsCardBlocked)
+            if (!User.IsCardBlocked)
             {
                 await DisplayAlertAsync("Sukces", "Karta została pomyślnie zablokowana", "OK");
             }
-            else if(Item.IsCardBlocked)
+            else if(User.IsCardBlocked)
             {
                 await DisplayAlertAsync("Sukces", "Karta została pomyślnie odblokowana", "OK");
             }
 
-            Item.IsCardBlocked = !Item.IsCardBlocked;
+            User.IsCardBlocked = !User.IsCardBlocked;
 
             UpdateCardImage();
 
-            await database.SaveItemAsync(Item);
+            await database.SaveItemAsync(User);
         }
         
         private async void OnButtonGoToTransferOptionBLIKClicked(object sender, EventArgs e)

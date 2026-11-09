@@ -7,14 +7,13 @@ namespace Aplikacja_bankowa
     public partial class TransferOptionPhone : ContentPage
     {
         private readonly Database database;
-        public TransactionsItem Item { get; set; }
+        public TransactionsItem Transaction { get; set; }
 
         public TransferOptionPhone(Database database_)
         {
             InitializeComponent();
-
             database = database_;
-            Item = new TransactionsItem();
+            Transaction = new TransactionsItem();
             BindingContext = this;
         }
 
@@ -24,14 +23,14 @@ namespace Aplikacja_bankowa
 
             var recipientsPhoneNumber = EntryRecipientsPhoneNumber.Text;
 
-            Item.DateOfTransfer = DateTime.UtcNow;
+            Transaction.DateOfTransfer = DateTime.UtcNow;
 
-            if (string.IsNullOrEmpty(recipientsPhoneNumber) || string.IsNullOrEmpty(Item.TransferTitle))
+            if (string.IsNullOrEmpty(recipientsPhoneNumber) || string.IsNullOrEmpty(Transaction.TransferTitle))
             {
                 await DisplayAlertAsync("Błąd", "Wszystkie pola muszą być uzupełnione!", "OK");
                 return;
             }
-            else if (Item.TransferAmount <= 0)
+            else if (Transaction.TransferAmount <= 0)
             {
                 await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
                 return;
@@ -40,7 +39,7 @@ namespace Aplikacja_bankowa
             var recipient = await database.GetItemByPhoneNumberAsync(recipientsPhoneNumber);
             if (recipient != null)
             {
-                Item.RecipientId = recipient.ID;
+                Transaction.RecipientId = recipient.ID;
             }
             else
             {
@@ -48,17 +47,17 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            Item.SenderId = Preferences.Get("UserId", 0);
-            if (Item.SenderId == Item.RecipientId)
+            Transaction.SenderId = Preferences.Get("UserId", 0);
+            if (Transaction.SenderId == Transaction.RecipientId)
             {
                 await DisplayAlertAsync("Błąd", "Nie można robić transakcji z samym sobą!", "OK");
                 return;
             }
-            if (Item.SenderId != 0)
+            if (Transaction.SenderId != 0)
             {
                 try
                 {
-                    await database.ExecuteTransferAsync(Item);
+                    await database.ExecuteTransferAsync(Transaction);
                     await DisplayAlertAsync("Sukces", "Przelew został wykonany!", "OK");
                     await Navigation.PopAsync();
                 }

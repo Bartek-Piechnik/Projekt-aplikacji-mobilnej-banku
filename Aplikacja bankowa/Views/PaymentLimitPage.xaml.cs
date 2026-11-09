@@ -7,13 +7,13 @@ namespace Aplikacja_bankowa
     public partial class PaymentLimitPage : ContentPage
     {
         private readonly Database database;
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
         
         public PaymentLimitPage(Database database_)
         {
             InitializeComponent();
             database = database_;
-            Item = new UsersItem();
+            User = new UsersItem();
             BindingContext = this;
         }
 
@@ -21,35 +21,35 @@ namespace Aplikacja_bankowa
         {
             base.OnAppearing();
             
-            var UserId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(UserId);
+            var userId = Preferences.Get("UserId", 0);
+            User = await database.GetItemAsync(userId);
             
-            if (Item == null)
+            if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
                 return;
             }
-            OnPropertyChanged(nameof(Item));
+            OnPropertyChanged(nameof(User));
         }
 
-        private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
+        private async void OnButtonChangeMyPaymentLimitClicked(Object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMenuPage);
+            await ButtonAnimations.AnimateButtonAsync(ButtonChangeMyPaymentLimit);
 
-            if (Item == null)
+            if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
                 return;
             }
             
-            if (Item.PaymentLimit <= 0)
+            if (User.PaymentLimit <= 0)
             {
                 await DisplayAlertAsync("Błąd", "Kwota musi być większa od zera!", "OK");
                 return;
             }
             
-            await database.SaveItemAsync(Item);
-            await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono limit platności:\n Limit płatności: {Item.PaymentLimit} zł", "OK"); 
+            await database.SaveItemAsync(User);
+            await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono limit platności:\n Limit płatności: {User.PaymentLimit} zł", "OK"); 
             await Navigation.PopAsync();
         }
     }

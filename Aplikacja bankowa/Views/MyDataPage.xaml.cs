@@ -9,26 +9,26 @@ namespace Aplikacja_bankowa
     {
         private readonly Database database;
 
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
 
         public MyDataPage(Database database_)
         {
             InitializeComponent();
             database = database_;
-            Item = new UsersItem();
+            User = new UsersItem();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            var UserId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(UserId);
+            var userId = Preferences.Get("UserId", 0);
+            User = await database.GetItemAsync(userId);
 
-            if (Item != null)
+            if (User != null)
             {
                 BindingContext = this;
-                var userInitials = Item.Name[0].ToString().ToUpper() + Item.Surname[0].ToString().ToUpper();
+                var userInitials = User.Name[0].ToString().ToUpper() + User.Surname[0].ToString().ToUpper();
                 Labelinitials.Text = $"{userInitials}";
             }
             else
@@ -37,21 +37,21 @@ namespace Aplikacja_bankowa
             }
         }
 
-        private async void OnButtonGoToMenuPageClicked(Object sender, EventArgs e)
+        private async void OnButtonChangeMyDataClicked(Object sender, EventArgs e)
         {
-            await ButtonAnimations.AnimateButtonAsync(ButtonGoToMenuPage);
+            await ButtonAnimations.AnimateButtonAsync(ButtonChangeMyData);
 
-            if (Item == null)
+            if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
                 return;
             }
             
-            Item.Name = Item.Name.Trim();
-            Item.Surname = Item.Surname.Trim();
-            Item.Email = Item.Email.Trim().ToLowerInvariant();
-            Item.PhoneNumber = Item.PhoneNumber.Trim();
-            List<string> errors = FormValidation.ValidateUserData(Item);
+            User.Name = User.Name.Trim();
+            User.Surname = User.Surname.Trim();
+            User.Email = User.Email.Trim().ToLowerInvariant();
+            User.PhoneNumber = User.PhoneNumber.Trim();
+            List<string> errors = FormValidation.ValidateUserData(User);
             
             if (errors.Count > 0)
             {
@@ -62,8 +62,8 @@ namespace Aplikacja_bankowa
             
             var users = await database.GetItemsAsync();
             
-            var userEmail_ = users.FirstOrDefault(x =>
-                x.Email.Equals(Item.Email, StringComparison.OrdinalIgnoreCase) && x.ID != Item.ID);
+            var userEmail_ = users.FirstOrDefault(user =>
+                user.Email.Equals(User.Email, StringComparison.OrdinalIgnoreCase) && user.ID != User.ID);
 
             if (userEmail_ != null)
             {
@@ -71,8 +71,8 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono dane:\n Imię: {Item.Name},\n Nazwisko: {Item.Surname},\n Data urodzenia: {Item.DateOfBirth},\n Adres e-mail: {Item.Email},\n Numer telefonu: {Item.PhoneNumber}", "OK");
-            await database.SaveItemAsync(Item);
+            await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono dane:\n Imię: {User.Name},\n Nazwisko: {User.Surname},\n Data urodzenia: {User.DateOfBirth},\n Adres e-mail: {User.Email},\n Numer telefonu: {User.PhoneNumber}", "OK");
+            await database.SaveItemAsync(User);
             await Navigation.PopAsync();
         }
     }

@@ -47,10 +47,10 @@
                     
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToMenuPage"
+                        x:Name="ButtonMakeTransaction"
                         Text="Wykonaj operację"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToMenuPageClicked" />
+                        Clicked="OnButtonMakeTransactionClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

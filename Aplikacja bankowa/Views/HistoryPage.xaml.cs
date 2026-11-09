@@ -8,7 +8,7 @@ namespace Aplikacja_bankowa
     public partial class HistoryPage : ContentPage
     {
         private readonly Database database;
-        public UsersItem Item { get; set; }
+        public UsersItem User { get; set; }
         public ObservableCollection<TransactionDisplayItem> Transactions { get; set; } = new();
         public ObservableCollection<TransactionDisplayItem> FilteredTransactions { get; set; } = new();
 
@@ -16,7 +16,7 @@ namespace Aplikacja_bankowa
         {
             InitializeComponent();
             database = database_;
-            Item = new UsersItem();
+            User = new UsersItem();
             BindingContext = this;
         }
 
@@ -25,9 +25,9 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
 
             var userId = Preferences.Get("UserId", 0);
-            Item = await database.GetItemAsync(userId);
+            User = await database.GetItemAsync(userId);
 
-            if (Item == null)
+            if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
             }

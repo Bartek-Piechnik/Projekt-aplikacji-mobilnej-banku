@@ -116,10 +116,10 @@
 
                     <Button
                         Style="{StaticResource Button}"
-                        x:Name="ButtonGoToLoginPage"
+                        x:Name="ButtonRegister"
                         Text="Zarejestruj"
                         Margin="15, 20, 15, 0"
-                        Clicked="OnButtonGoToLoginPageClicked" />
+                        Clicked="OnButtonRegisterClicked" />
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

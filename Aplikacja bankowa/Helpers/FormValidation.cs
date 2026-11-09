@@ -5,58 +5,58 @@ namespace BankSQLite;
 
 public static class FormValidation
 {
-    public static List<string> ValidateUserData(UsersItem item)
+    public static List<string> ValidateUserData(UsersItem user)
     {
         List<string> errors = new List<string>();
 
-        if (string.IsNullOrWhiteSpace(item.Name))
+        if (string.IsNullOrWhiteSpace(user.Name))
         {
             errors.Add("Pole imię nie może być puste!");
         }
-        else if (!RegexValidate.IsValidName(item.Name))
+        else if (!RegexValidate.IsValidName(user.Name))
         {
             errors.Add("Imię musi zaczynać się wielką literą. Możliwe jest imię dwuczłonowe!");
         }
 
-        if (string.IsNullOrWhiteSpace(item.Surname))
+        if (string.IsNullOrWhiteSpace(user.Surname))
         {
             errors.Add("Pole nazwisko nie może być puste!");
         }
-        else if (!RegexValidate.IsValidSurname(item.Surname))
+        else if (!RegexValidate.IsValidSurname(user.Surname))
         {
             errors.Add("Nazwisko musi zaczynać się wielką literą. Możliwe są nazwiska dwuczłonowe!");
         }
 
-        if (item.DateOfBirth == null)
+        if (user.DateOfBirth == null)
         {
             errors.Add("Wybierz datę urodzenia!");
         }
 
-        if (string.IsNullOrWhiteSpace(item.Email))
+        if (string.IsNullOrWhiteSpace(user.Email))
         {
             errors.Add("Pole email nie może być puste!");
         }
-        else if (!RegexValidate.IsValidEmail(item.Email))
+        else if (!RegexValidate.IsValidEmail(user.Email))
         {
             errors.Add("Podaj poprawny adres email np. przyklad@gmail.com!");
         }
 
-        if (string.IsNullOrWhiteSpace(item.PhoneNumber))
+        if (string.IsNullOrWhiteSpace(user.PhoneNumber))
         {
             errors.Add("Pole numer telefonu nie może być puste!");
         }
-        else if (!RegexValidate.IsValidPhoneNumber(item.PhoneNumber))
+        else if (!RegexValidate.IsValidPhoneNumber(user.PhoneNumber))
         {
             errors.Add("Numer telefonu musi zawierać 9 cyfr. Możesz również podać numer z prefiksem kraju, np. +48123456789!");
         }
 
         return errors;
     }
-    public static List<string> ValidateRegistration(UsersItem item, string password, string repeatedPassword)
+    public static List<string> ValidateRegistration(UsersItem user, string password, string repeatedPassword)
     {
         List<string> errors = new List<string>();
 
-        errors.AddRange(ValidateUserData(item));
+        errors.AddRange(ValidateUserData(user));
 
         if (string.IsNullOrWhiteSpace(password))
         {
