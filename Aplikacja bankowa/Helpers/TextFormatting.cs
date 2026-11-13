@@ -9,7 +9,21 @@ public static class TextFormatting
     {
         name = name.Trim().ToLower();
 
-        return char.ToUpper(name[0]) + name.Substring(1);
+        string result = "";
+
+        for (int i = 0; i < name.Length; i++)
+        {
+            if (i == 0 || name[i - 1] == ' ' || name[i - 1] == '-')
+            {
+                result += char.ToUpper(name[i]);
+            }
+            else
+            {
+                result += name[i];
+            }
+        }
+
+        return result;
     }
 
     public static void FormatUserData(UsersItem user)
