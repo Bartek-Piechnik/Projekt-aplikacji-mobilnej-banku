@@ -44,7 +44,7 @@ namespace Aplikacja_bankowa
                 return;
             }
 
-            var recipient = await database.GetItemByPhoneNumberAsync(recipientsPhoneNumber);
+            var recipient = await database.GetUserByPhoneNumberAsync(recipientsPhoneNumber);
             if (recipient != null)
             {
                 Transaction.RecipientId = recipient.ID;

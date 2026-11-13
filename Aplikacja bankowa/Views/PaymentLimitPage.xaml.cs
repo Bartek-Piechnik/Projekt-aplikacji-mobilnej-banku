@@ -22,7 +22,7 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
             
             var userId = Preferences.Get("UserId", 0);
-            User = await database.GetItemAsync(userId);
+            User = await database.GetUserByIdAsync(userId);
             
             if (User == null)
             {
@@ -48,7 +48,7 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            await database.SaveItemAsync(User);
+            await database.SaveUserAsync(User);
             await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono limit platności:\n Limit płatności: {User.PaymentLimit} zł", "OK"); 
             await Navigation.PushAsync(new MainViewPage(database));
         }

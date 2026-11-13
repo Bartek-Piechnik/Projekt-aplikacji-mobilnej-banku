@@ -15,7 +15,7 @@ public static class FormValidation
         }
         else if (!RegexValidate.IsValidName(user.Name))
         {
-            errors.Add("Imię musi zaczynać się wielką literą. Możliwe jest imię dwuczłonowe!");
+            errors.Add("Imię musi składać się z liter. Możliwe jest imię dwuczłonowe!");
         }
 
         if (string.IsNullOrWhiteSpace(user.Surname))
@@ -24,12 +24,16 @@ public static class FormValidation
         }
         else if (!RegexValidate.IsValidSurname(user.Surname))
         {
-            errors.Add("Nazwisko musi zaczynać się wielką literą. Możliwe są nazwiska dwuczłonowe!");
+            errors.Add("Nazwisko musi składać się z liter. Możliwe są nazwiska dwuczłonowe!");
         }
 
         if (user.DateOfBirth == null)
         {
             errors.Add("Wybierz datę urodzenia!");
+        }
+        else if (user.DateOfBirth.Value.Date > DateTime.Today)
+        {
+            errors.Add("Data urodzenia nie może być późniejsza niż dzisiejsza!");
         }
 
         if (string.IsNullOrWhiteSpace(user.Email))

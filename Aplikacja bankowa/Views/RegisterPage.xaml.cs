@@ -1,6 +1,7 @@
 ﻿using Aplikacja_bankowa.Helpers;
 using Aplikacja_bankowa.Models;
 using BankSQLite.Data;
+using System.Security.Cryptography;
 
 namespace Aplikacja_bankowa
 {
@@ -33,6 +34,7 @@ namespace Aplikacja_bankowa
 
             var password = EntryPassword.Text ?? String.Empty;
             var repeatedPassword = EntryRepeatedPassword.Text ?? String.Empty;
+            TextFormatting.FormatUserData(User);
             List<string> errors = FormValidation.ValidateRegistration(User, password, repeatedPassword);
 
             if (errors.Count > 0)
@@ -41,18 +43,19 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Wykryto błędy w formularzu", errorMessage, "OK");
                 return;
             }
-            
-            Random random = new Random();
-            var number1 = random.Next(0, 10000000);
-            var number2 = random.Next(0, 10000000);
-            var number3 = random.Next(0, 10000000);
-            var number4 = random.Next(0, 100000);
-            var recipientsAccount = number1.ToString("D7") + number2.ToString("D7") + number3.ToString("D7") +
-                                    number4.ToString("D5");
+
+            string recipientsAccount;
+            do
+            {
+                recipientsAccount = RandomNumberGenerator.GetInt32(0, 10_000_000).ToString("D7")
+                                    + RandomNumberGenerator.GetInt32(0, 10_000_000).ToString("D7")
+                                    + RandomNumberGenerator.GetInt32(0, 10_000_000).ToString("D7")
+                                    + RandomNumberGenerator.GetInt32(0, 100_000).ToString("D5");
+            }
+            while (await database.GetUserByAccountNumberAsync(recipientsAccount) != null);
             User.AccountNumber = recipientsAccount;
 
-            User.Email = User.Email.Trim().ToLowerInvariant();
-            var userEmail = await database.GetItemByEmailAsync(User.Email);
+            var userEmail = await database.GetUserByEmailAsync(User.Email);
 
             if (userEmail != null)
             {
@@ -64,7 +67,7 @@ namespace Aplikacja_bankowa
             User.PasswordHash =  hash;
             User.PasswordSalt = salt;
 
-            await database.SaveItemAsync(User);
+            await database.SaveUserAsync(User);
             await Navigation.PopAsync();
         }
     }
