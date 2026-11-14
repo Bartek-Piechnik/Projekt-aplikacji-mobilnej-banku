@@ -26,12 +26,6 @@ public class Database
         return await database.Table<UsersItem>().ToListAsync();
     }
 
-    public async Task<List<TransactionsItem>> GetTransactionsAsync()
-    {
-        await Init();
-        return await database.Table<TransactionsItem>().ToListAsync();
-    }
-
     public async Task<UsersItem> GetUserByIdAsync(int id)
     {
         await Init();
@@ -55,12 +49,6 @@ public class Database
         await Init();
         return await database.Table<UsersItem>().Where(user => user.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
     }
-    
-    public async Task<TransactionsItem> GetTransactionByIdAsync(int id)
-    {
-        await Init();
-        return await database.Table<TransactionsItem>().Where(transaction => transaction.ID == id).FirstOrDefaultAsync();
-    }
 
     public async Task<int> SaveUserAsync(UsersItem user)
     {
@@ -75,18 +63,6 @@ public class Database
         }
     }
     
-    public async Task<int> SaveTransactionAsync(TransactionsItem transaction)
-    {
-        await Init();
-        if (transaction.ID != 0)
-        {
-            return await database.UpdateAsync(transaction);
-        }
-        else
-        {
-            return await database.InsertAsync(transaction);
-        }
-    }
     public async Task ExecuteTransferAsync(TransactionsItem transaction)
     {
         await Init();
