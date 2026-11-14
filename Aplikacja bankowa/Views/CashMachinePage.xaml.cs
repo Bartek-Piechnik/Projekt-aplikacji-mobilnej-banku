@@ -54,11 +54,13 @@ namespace Aplikacja_bankowa.Views
                     if (Transaction.TransferType == "Wpłata")
                     {
                         Transaction.RecipientId = userId;
+                        Transaction.SenderId = 0;
                         await database.DepositAsync(Transaction);
                     }
                     else if (Transaction.TransferType == "Wypłata")
                     {
                         Transaction.SenderId = userId;
+                        Transaction.RecipientId = 0;
                         await database.WithdrawAsync(Transaction);
                     }
                     

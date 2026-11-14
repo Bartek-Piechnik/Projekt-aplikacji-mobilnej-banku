@@ -37,7 +37,7 @@ namespace Aplikacja_bankowa
             await ButtonAnimations.AnimateButtonAsync(ButtonChangePassword);
 
             var userId = Preferences.Get("UserId", 0);
-            User = await database.GetItemAsync(userId);
+            User = await database.GetUserByIdAsync(userId);
             if (User == null)
             {
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
@@ -68,7 +68,7 @@ namespace Aplikacja_bankowa
             User.PasswordHash =  hash;
             User.PasswordSalt = salt;
 
-            await database.SaveItemAsync(User);
+            await database.SaveUserAsync(User);
             await Navigation.PushAsync(new MainViewPage(database));
         }
     }

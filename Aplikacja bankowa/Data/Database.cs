@@ -20,49 +20,37 @@ public class Database
         await database.CreateTableAsync<TransactionsItem>();
     }
 
-    public async Task<List<UsersItem>> GetItemsAsync()
+    public async Task<List<UsersItem>> GetUsersAsync()
     {
         await Init();
         return await database.Table<UsersItem>().ToListAsync();
     }
 
-    public async Task<List<TransactionsItem>> GetTransactionsAsync()
-    {
-        await Init();
-        return await database.Table<TransactionsItem>().ToListAsync();
-    }
-
-    public async Task<UsersItem> GetItemAsync(int id)
+    public async Task<UsersItem> GetUserByIdAsync(int id)
     {
         await Init();
         return await database.Table<UsersItem>().Where(user => user.ID == id).FirstOrDefaultAsync();
     }
 
-    public async Task<UsersItem> GetItemByEmailAsync(string email)
+    public async Task<UsersItem> GetUserByEmailAsync(string email)
     {
         await Init();
         return await database.Table<UsersItem>().Where(user => user.Email == email).FirstOrDefaultAsync();
     }
 
-    public async Task<UsersItem> GetItemByAccountNumberAsync(string accountNumber)
+    public async Task<UsersItem> GetUserByAccountNumberAsync(string accountNumber)
     {
         await Init();
         return await database.Table<UsersItem>().Where(user => user.AccountNumber == accountNumber).FirstOrDefaultAsync();
     }
 
-    public async Task<UsersItem> GetItemByPhoneNumberAsync(string phoneNumber)
+    public async Task<UsersItem> GetUserByPhoneNumberAsync(string phoneNumber)
     {
         await Init();
         return await database.Table<UsersItem>().Where(user => user.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
     }
-    
-    public async Task<TransactionsItem> GetTransactionsAsync(int id)
-    {
-        await Init();
-        return await database.Table<TransactionsItem>().Where(transaction => transaction.ID == id).FirstOrDefaultAsync();
-    }
 
-    public async Task<int> SaveItemAsync(UsersItem user)
+    public async Task<int> SaveUserAsync(UsersItem user)
     {
         await Init();
         if (user.ID != 0)
@@ -75,37 +63,12 @@ public class Database
         }
     }
     
-    public async Task<int> SaveTransactionsAsync(TransactionsItem transaction)
-    {
-        await Init();
-        if (transaction.ID != 0)
-        {
-            return await database.UpdateAsync(transaction);
-        }
-        else
-        {
-            return await database.InsertAsync(transaction);
-        }
-    }
-
-    public async Task<int> DeleteItemAsync(UsersItem user)
-    {
-        await Init();
-        return await database.DeleteAsync(user);
-    }
-
-    public async Task<int> DeleteTransactionsAsync(TransactionsItem transaction)
-    {
-        await Init();
-        return await database.DeleteAsync(transaction);
-    }
-    
     public async Task ExecuteTransferAsync(TransactionsItem transaction)
     {
         await Init();
 
-        var sender = await GetItemAsync(transaction.SenderId);
-        var recipient = await GetItemAsync(transaction.RecipientId);
+        var sender = await GetUserByIdAsync(transaction.SenderId);
+        var recipient = await GetUserByIdAsync(transaction.RecipientId);
 
         if (sender == null || recipient == null)
         { 
@@ -164,15 +127,15 @@ public class Database
     }
     public async Task DepositAsync(TransactionsItem transaction)
     {
-        await ExecuteCashMachineOperationAsync(transaction, true);
+        await ExecuteCashOperationAsync(transaction, true);
     }
 
     public async Task WithdrawAsync(TransactionsItem transaction)
     {
-        await ExecuteCashMachineOperationAsync(transaction, false);
+        await ExecuteCashOperationAsync(transaction, false);
     }
 
-    private async Task ExecuteCashMachineOperationAsync(TransactionsItem transaction, bool isDeposit)
+    private async Task ExecuteCashOperationAsync(TransactionsItem transaction, bool isDeposit)
     {
         await Init();
         
@@ -187,7 +150,7 @@ public class Database
             throw new Exception("Nie znaleziono użytkownika.");
         }
 
-        var user = await GetItemAsync(userId);
+        var user = await GetUserByIdAsync(userId);
 
         await database.RunInTransactionAsync(conn =>
         {

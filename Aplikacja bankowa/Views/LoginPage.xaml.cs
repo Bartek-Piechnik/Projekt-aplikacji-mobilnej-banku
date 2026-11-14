@@ -54,7 +54,7 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            var user = await database.GetItemByEmailAsync(email);
+            var user = await database.GetUserByEmailAsync(email);
             if (user == null)
             {
                 await DisplayAlertAsync("Błąd", "Niepoprawny email lub hasło.", "OK");

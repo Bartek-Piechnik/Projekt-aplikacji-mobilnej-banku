@@ -4,14 +4,6 @@
     <selectionStates>
       <SelectionState runConfigName="Aplikacja bankowa">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-11-09T12:50:25.087815Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/bartekpiechnik/.android/avd/Pixel_7.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
       </SelectionState>
     </selectionStates>
   </component>

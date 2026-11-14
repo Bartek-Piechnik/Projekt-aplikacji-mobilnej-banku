@@ -7,7 +7,6 @@ namespace Aplikacja_bankowa
         public TransferOptionBLIK()
         {
             InitializeComponent();
-
             Random random = new Random();
             var number = random.Next(0, 1000000);
             var codeBlik = number.ToString("D6");

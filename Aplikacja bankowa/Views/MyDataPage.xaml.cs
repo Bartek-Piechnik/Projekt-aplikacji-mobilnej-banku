@@ -22,7 +22,7 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
 
             var userId = Preferences.Get("UserId", 0);
-            User = await database.GetItemAsync(userId);
+            User = await database.GetUserByIdAsync(userId);
 
             if (User != null)
             {
@@ -45,11 +45,8 @@ namespace Aplikacja_bankowa
                 await DisplayAlertAsync("Błąd", "Nie znaleziono użytkownika", "OK");
                 return;
             }
-            
-            User.Name = User.Name.Trim();
-            User.Surname = User.Surname.Trim();
-            User.Email = User.Email.Trim().ToLowerInvariant();
-            User.PhoneNumber = User.PhoneNumber.Trim();
+
+            TextFormatting.FormatUserData(User);
             List<string> errors = FormValidation.ValidateUserData(User);
             
             if (errors.Count > 0)
@@ -59,7 +56,7 @@ namespace Aplikacja_bankowa
                 return;
             }
             
-            var users = await database.GetItemsAsync();
+            var users = await database.GetUsersAsync();
             
             var userEmail_ = users.FirstOrDefault(user =>
                 user.Email.Equals(User.Email, StringComparison.OrdinalIgnoreCase) && user.ID != User.ID);
@@ -71,7 +68,7 @@ namespace Aplikacja_bankowa
             }
             
             await DisplayAlertAsync("Sukces", $"Pomyślnie zmieniono dane:\n Imię: {User.Name},\n Nazwisko: {User.Surname},\n Data urodzenia: {User.DateOfBirth},\n Adres e-mail: {User.Email},\n Numer telefonu: {User.PhoneNumber}", "OK");
-            await database.SaveItemAsync(User);
+            await database.SaveUserAsync(User);
             await Navigation.PushAsync(new MainViewPage(database));
         }
     }

@@ -24,7 +24,7 @@ namespace Aplikacja_bankowa
             base.OnAppearing();
 
             var userId = Preferences.Get("UserId", 0);
-            User = await database.GetItemAsync(userId);
+            User = await database.GetUserByIdAsync(userId);
 
             if (User == null)
             {
